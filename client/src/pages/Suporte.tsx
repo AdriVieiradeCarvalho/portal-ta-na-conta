@@ -41,20 +41,9 @@ export default function Suporte() {
         </div>
       </section>
 
-      {/* Imagem específica do atendimento + CTA principal */}
+      {/* CTA principal */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="container max-w-3xl">
-          {/* Imagem de atendimento */}
-          <div className="flex justify-center mb-10">
-            <div className="rounded-3xl overflow-hidden shadow-xl border border-border max-w-xs w-full">
-              <img
-                src={SUPORTE_IMG}
-                alt="Tá na Conta - Suporte"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
-
           {/* Card de contato */}
           <div
             className="rounded-3xl p-8 lg:p-12 text-center border"

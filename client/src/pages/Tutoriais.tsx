@@ -332,7 +332,7 @@ function TutorialMaquininha() {
               Lembre-se que a solução "Tá na Conta" acumula seus recebíveis, mas você pode antecipar o recebimento desse tipo de venda. Para isso:
             </p>
             <ol className="mt-2 space-y-1 list-decimal list-inside text-xs text-muted-foreground">
-              <li>Acesse <strong>intelbras.posportal.com.br</strong> com seu login e senha</li>
+              <li>Acesse <a href="https://intelbras.posportal.com.br/" target="_blank" rel="noopener noreferrer" className="text-primary underline"><strong>intelbras.posportal.com.br</strong></a> com seu login e senha</li>
               <li>Clique em <strong>Gestão Financeira</strong> &gt; <strong>Agenda Financeira</strong></li>
               <li>Clique em <strong>Movimentar Agenda</strong> &gt; <strong>Antecipação de Agenda</strong></li>
               <li>Clique em <strong>Solicitar</strong></li>
@@ -385,7 +385,7 @@ function TutorialLinkPagamento() {
         </StepCard>
 
         <StepCard number={3} title="Acesse o portal de vendas">
-          <p>Após a aprovação, acesse <strong>intelbras.posportal.com.br</strong> com seu e-mail e senha.</p>
+          <p>Após a aprovação, acesse <a href="https://intelbras.posportal.com.br/" target="_blank" rel="noopener noreferrer" className="text-primary underline"><strong>intelbras.posportal.com.br</strong></a> com seu e-mail e senha.</p>
         </StepCard>
 
         <StepCard number={4} title='Clique em "Financeiro" > "Links de Pagamento"'>
@@ -483,7 +483,7 @@ export default function Tutoriais() {
     <div className="min-h-screen">
       {/* Hero */}
       <section
-        className="py-16 lg:py-20 text-white"
+        className="py-14 lg:py-18 text-white"
         style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
       >
         <div className="container">
@@ -508,14 +508,14 @@ export default function Tutoriais() {
         </div>
       </section>
 
-      {/* Tabs de navegação */}
-      <div className="sticky top-16 z-30 bg-white border-b border-border shadow-sm">
+      {/* Mobile: abas horizontais */}
+      <div className="lg:hidden sticky top-16 z-30 bg-white border-b border-border shadow-sm">
         <div className="container">
           <div className="flex overflow-x-auto">
             {tabs.map((tab) => (
               <Link key={tab.id} href={`/tutoriais/${tab.id}`}>
                 <button
-                  className={`flex items-center gap-2 px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
+                  className={`flex items-center gap-2 px-4 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
                     activeTab.id === tab.id
                       ? "border-primary text-primary"
                       : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
@@ -530,44 +530,57 @@ export default function Tutoriais() {
         </div>
       </div>
 
-      {/* Conteúdo */}
-      <section className="py-12" style={{ background: "oklch(0.97 0.005 250)" }}>
-        <div className="container max-w-3xl">
-          {activeTab.component}
-        </div>
-      </section>
+      {/* Desktop: layout com sidebar lateral */}
+      <div className="py-10" style={{ background: "oklch(0.97 0.005 250)" }}>
+        <div className="container">
+          <div className="flex gap-8 items-start">
 
-      {/* Navegação entre tutoriais */}
-      <section className="py-8 bg-white border-t border-border">
-        <div className="container max-w-3xl">
-          <p className="text-xs text-muted-foreground mb-3 font-semibold uppercase tracking-wide">Outros tutoriais</p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            {tabs
-              .filter((t) => t.id !== activeTab.id)
-              .map((tab) => (
-                <Link key={tab.id} href={`/tutoriais/${tab.id}`}>
-                  <div
-                    className="flex items-center gap-3 p-4 rounded-xl border border-border bg-white hover:shadow-md transition-all cursor-pointer group"
-                  >
-                    <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
-                    >
-                      <span style={{ color: "oklch(0.30 0.16 250)" }}>{tab.icon}</span>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs text-muted-foreground">Ver tutorial</p>
-                      <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {tab.label}
-                      </p>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                </Link>
-              ))}
+            {/* Sidebar lateral — visível apenas em desktop */}
+            <aside className="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+              <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+                <div className="px-4 py-3 border-b border-border">
+                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tutoriais</p>
+                </div>
+                <nav className="p-2">
+                  {tabs.map((tab) => (
+                    <Link key={tab.id} href={`/tutoriais/${tab.id}`}>
+                      <div
+                        className={`flex items-center gap-3 px-3 py-3 rounded-xl cursor-pointer transition-all group ${
+                          activeTab.id === tab.id
+                            ? "text-white shadow-md"
+                            : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                        }`}
+                        style={activeTab.id === tab.id ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
+                      >
+                        <div
+                          className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                            activeTab.id === tab.id ? "bg-white/20" : ""
+                          }`}
+                          style={activeTab.id !== tab.id ? { background: "oklch(0.30 0.16 250 / 0.08)" } : {}}
+                        >
+                          <span style={{ color: activeTab.id === tab.id ? "white" : "oklch(0.30 0.16 250)" }}>
+                            {tab.icon}
+                          </span>
+                        </div>
+                        <span className="text-sm font-semibold leading-tight">{tab.label}</span>
+                        {activeTab.id === tab.id && (
+                          <ChevronRight className="w-4 h-4 ml-auto opacity-70" />
+                        )}
+                      </div>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+
+            {/* Conteúdo principal */}
+            <div className="flex-1 min-w-0">
+              {activeTab.component}
+            </div>
+
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

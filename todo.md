@@ -102,3 +102,12 @@
 ### Suporte Técnico
 - [x] Imagem específica do atendimento integrada (TánacontaIntelbras-Suporte.png)
 - [x] Card exibe apenas "Tá na Conta" (sem "Intelbras" isolado)
+
+## Correções Solicitadas (Abril 2026 - Rodada 2)
+- [x] Logo Cappta: usar LogCappta.png sem cor (apenas formato/silhueta branca/escura)
+- [x] Link do portal: atualizar para https://intelbras.posportal.com.br/ em todas as ocorrências
+- [x] Suporte: remover imagem TNC (TánacontaIntelbras-Suporte.png)
+- [x] Separar página Maquininha em página própria (/primeiro-acesso/maquininha)
+- [x] Página inicial: remover stat "D+2 / 2 dias úteis para receber"
+- [x] Tutoriais maquininha: corrigir navegação lateral (sidebar) com redirecionamento correto
+- [x] Tutoriais maquininha: atualizar conteúdo Solar/Outras Vendas conforme direcionamentos

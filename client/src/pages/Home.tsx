@@ -209,11 +209,10 @@ export default function Home() {
             </div>
 
             {/* Quick stats */}
-            <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/15">
+            <div className="grid grid-cols-2 gap-6 mt-12 pt-8 border-t border-white/15">
               {[
                 { value: "21x", label: "Parcelamento" },
                 { value: "1 dia", label: "Recebimento" },
-                { value: "D+2", label: "Outras vendas" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl sm:text-3xl font-bold text-white" style={{ fontFamily: "Sora, sans-serif" }}>

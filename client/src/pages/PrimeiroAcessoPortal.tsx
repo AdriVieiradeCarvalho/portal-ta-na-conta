@@ -134,7 +134,7 @@ export default function PrimeiroAcessoPortal() {
                   Clique no botão abaixo para acessar a plataforma de gestão do Tá na Conta.
                 </p>
                 <a
-                  href="https://sites.google.com/view/tanaconta-intelbras/acessar-plataforma"
+                  href="https://intelbras.posportal.com.br/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -229,7 +229,7 @@ export default function PrimeiroAcessoPortal() {
             Acesse o portal agora e comece a gerenciar suas vendas e recebíveis.
           </p>
           <a
-            href="https://sites.google.com/view/tanaconta-intelbras/acessar-plataforma"
+            href="https://intelbras.posportal.com.br/"
             target="_blank"
             rel="noopener noreferrer"
           >

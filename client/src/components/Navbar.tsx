@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lu
 import { Button } from "@/components/ui/button";
 
 const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
-const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/cappta-logo_16106c91.svg";
+const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/LogCappta_3141c9a0.png";
 
 interface DropdownItem {
   label: string;
@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
       },
       {
         label: "Maquininha",
-        href: "/primeiro-acesso/conta#maquininha",
+        href: "/primeiro-acesso/maquininha",
         icon: <CreditCard className="w-4 h-4" />,
         description: "Configure e ative sua maquininha",
       },
@@ -154,7 +154,7 @@ export default function Navbar() {
                 src={CAPPTA_LOGO}
                 alt="Cappta"
                 className="h-8 w-auto object-contain"
-                style={{ maxWidth: "90px" }}
+                style={{ maxWidth: "90px", filter: "brightness(0) saturate(0)" }}
               />
               <div className="hidden sm:block border-l border-border pl-3">
                 <p className="font-bold text-base leading-tight" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.20 0.14 250)" }}>
