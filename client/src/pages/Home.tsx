@@ -209,10 +209,11 @@ export default function Home() {
             </div>
 
             {/* Quick stats */}
-            <div className="grid grid-cols-2 gap-6 mt-12 pt-8 border-t border-white/15">
+              <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/15">
               {[
                 { value: "21x", label: "Parcelamento" },
                 { value: "1 dia", label: "Recebimento" },
+                { value: "D+2", label: "Outros valores" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl sm:text-3xl font-bold text-white" style={{ fontFamily: "Sora, sans-serif" }}>
@@ -427,15 +428,7 @@ export default function Home() {
                 className="rounded-2xl w-full object-cover shadow-2xl"
                 style={{ height: "500px" }}
               />
-              <div
-                className="absolute top-6 right-6 bg-white rounded-xl p-4 shadow-xl border border-border"
-              >
-                <div className="text-center">
-                  <p className="text-3xl font-bold" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.30 0.16 250)" }}>2</p>
-                  <p className="text-xs text-muted-foreground font-medium">dias úteis</p>
-                  <p className="text-xs text-muted-foreground">para receber</p>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

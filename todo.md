@@ -111,3 +111,7 @@
 - [x] Página inicial: remover stat "D+2 / 2 dias úteis para receber"
 - [x] Tutoriais maquininha: corrigir navegação lateral (sidebar) com redirecionamento correto
 - [x] Tutoriais maquininha: atualizar conteúdo Solar/Outras Vendas conforme direcionamentos
+
+## Correções Solicitadas (Abril 2026 - Rodada 3)
+- [x] Recolocar stat "D+2" nos quick stats do hero (ao lado de 21x e 1 dia)
+- [x] Remover texto "2 dias úteis para receber" da seção de benefícios com imagem de painéis solares
