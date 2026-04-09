@@ -1,58 +1,66 @@
-import { useRoute, Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { AlertTriangle, CheckCircle2, ArrowRight, Monitor, CreditCard, Link2, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Link, useParams } from "wouter";
+import {
+  Monitor, CreditCard, Link2, AlertTriangle, CheckCircle2,
+  Info, Play, ChevronRight
+} from "lucide-react";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="attention-box my-5">
-      <div className="flex items-start gap-3">
-        <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.60 0.16 55)" }} />
-        <div className="text-sm text-foreground leading-relaxed">{children}</div>
-      </div>
-    </div>
-  );
-}
-
-function TipBox({ children }: { children: React.ReactNode }) {
-  return (
     <div
-      className="rounded-xl p-4 my-5 flex items-start gap-3"
-      style={{ background: "oklch(0.55 0.20 250 / 0.06)", border: "1px solid oklch(0.55 0.20 250 / 0.2)" }}
+      className="my-4 rounded-xl p-4 border flex items-start gap-3"
+      style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
     >
-      <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.20 250)" }} />
+      <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
 }
 
-function StepItem({ number, title, description, children }: {
+function InfoBox({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className="my-4 rounded-xl p-4 border flex items-start gap-3"
+      style={{ background: "oklch(0.30 0.16 250 / 0.05)", borderColor: "oklch(0.30 0.16 250 / 0.2)" }}
+    >
+      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.30 0.16 250)" }} />
+      <div className="text-sm text-foreground leading-relaxed">{children}</div>
+    </div>
+  );
+}
+
+function StepCard({ number, title, children, attention }: {
   number: number;
   title: string;
-  description?: string;
   children?: React.ReactNode;
+  attention?: string;
 }) {
   return (
-    <div className="flex gap-4 group">
-      <div className="flex flex-col items-center">
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 transition-transform group-hover:scale-110"
-          style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
-        >
-          {number}
-        </div>
-        <div className="w-0.5 flex-1 mt-2" style={{ background: "oklch(0.90 0.01 250)" }} />
+    <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
+      <div
+        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+        style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+      >
+        {number}
       </div>
-      <div className="pb-8 flex-1">
+      <div className="flex-1">
         <h4 className="font-semibold text-base text-foreground mb-1">{title}</h4>
-        {description && <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>}
-        {children}
+        {children && <div className="text-sm text-muted-foreground leading-relaxed">{children}</div>}
+        {attention && (
+          <div
+            className="mt-3 rounded-lg p-3 border flex items-start gap-2"
+            style={{ background: "oklch(0.98 0.04 55 / 0.3)", borderColor: "oklch(0.72 0.18 55 / 0.3)" }}
+          >
+            <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
+            <p className="text-xs" style={{ color: "oklch(0.40 0.12 55)" }}>{attention}</p>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-// ─── TUTORIAIS CONTENT ────────────────────────────────────────────────────
-
+// ─── TUTORIAL: PLATAFORMA SOLAR ───
 function TutorialPlataformaSolar() {
   return (
     <div>
@@ -60,302 +68,416 @@ function TutorialPlataformaSolar() {
         <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
           Como funciona o processo na Plataforma Solar
         </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          A Plataforma Solar é o sistema da Intelbras onde você cadastra e gerencia seus projetos de energia solar. Integrada ao Tá na Conta, ela permite que você cobre os clientes diretamente pela maquininha ou link de pagamento.
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          Entenda o fluxo completo desde o cadastro do projeto até o recebimento na sua conta digital — tudo em 1 dia útil.
         </p>
       </div>
 
-      <AttentionBox>
-        <strong>Antes de começar:</strong> Certifique-se de que sua conta Tá na Conta já está ativa e vinculada ao seu CNPJ. Caso ainda não tenha feito isso, acesse a seção <strong>Ativar Conta</strong> primeiro.
-      </AttentionBox>
+      <div className="space-y-4">
+        <StepCard number={1} title="Parceiro faz o projeto na Plataforma Solar">
+          <p>Cadastre o projeto normalmente na Plataforma Solar.</p>
+          <AttentionBox>
+            <strong>Atenção:</strong> A proposta deve conter <strong>apenas os equipamentos</strong>, sem os serviços. Os serviços serão cobrados separadamente via maquininha ou link de pagamento.
+          </AttentionBox>
+        </StepCard>
 
-      <div className="mt-8">
-        <h3 className="text-lg font-bold text-foreground mb-6">Passo a passo</h3>
-        <div>
-          <StepItem
-            number={1}
-            title="Acesse a Plataforma Solar"
-            description="Entre na Plataforma Solar com suas credenciais de integrador Intelbras."
-          />
-          <StepItem
-            number={2}
-            title="Crie ou selecione um projeto"
-            description="Cadastre um novo projeto ou selecione um existente para realizar a cobrança."
-          />
-          <StepItem
-            number={3}
-            title="Preencha os dados do cliente"
-            description="Informe nome, CPF/CNPJ e dados de contato do cliente para o projeto."
-          />
-          <StepItem
-            number={4}
-            title="Defina o valor e as parcelas"
+        <StepCard number={2} title="Parceiro apresenta a proposta com valor dos serviços e taxas de parcelamento">
+          <p>Inclua no orçamento o valor dos serviços e, se houver parcelamento, as taxas correspondentes. Use o simulador para calcular os valores.</p>
+        </StepCard>
+
+        <StepCard number={3} title="Cliente aprova o orçamento no Portal">
+          <p>O cliente acessa o Portal e aprova formalmente o orçamento apresentado.</p>
+        </StepCard>
+
+        <StepCard number={4} title="Cliente paga pelo projeto na maquininha">
+          <p>O pagamento é realizado na maquininha.</p>
+          <InfoBox>
+            A venda pode ser feita com <strong>vários cartões</strong> — ideal para dividir o valor entre diferentes portadores.
+          </InfoBox>
+        </StepCard>
+
+        <StepCard number={5} title="Processo de split — retenção automática">
+          <p>A plataforma identifica o pagamento e realiza o <strong>split automático</strong>: a parte referente aos equipamentos é retida e a parte dos serviços fica disponível para você.</p>
+        </StepCard>
+
+        <StepCard number={6} title="Equipamentos separados e enviados">
+          <p>Após a confirmação do pagamento, os equipamentos são separados e enviados ao endereço do projeto.</p>
+        </StepCard>
+
+        <StepCard number={7} title="Parceiro realiza os serviços no cliente">
+          <p>Com os equipamentos em mãos, execute a instalação e os serviços contratados.</p>
+        </StepCard>
+
+        <StepCard number={8} title="Parceiro emite nota fiscal para o cliente">
+          <p>Emita a nota fiscal referente aos serviços prestados.</p>
+        </StepCard>
+
+        <StepCard number={9} title="Parceiro recebe na conta digital no próximo dia">
+          <p>O valor dos seus serviços é depositado na sua conta digital <strong>no próximo dia útil</strong>.</p>
+          <div
+            className="mt-3 p-3 rounded-lg border flex items-center gap-2"
+            style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
           >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Insira o valor total do projeto e escolha o número de parcelas (até 21x).
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 160)" }} />
+            <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
+              Recebimento em 1 dia útil — Tá na Conta!
             </p>
-            <TipBox>
-              <strong>Dica:</strong> Ofereça parcelamento para facilitar o fechamento do projeto. Parcelas menores tornam o investimento mais acessível para o cliente.
-            </TipBox>
-          </StepItem>
-          <StepItem
-            number={5}
-            title="Escolha a forma de cobrança"
-            description="Selecione se a cobrança será feita pela maquininha (presencialmente) ou por link de pagamento (à distância)."
-          />
-          <StepItem
-            number={6}
-            title="Confirme e envie"
-            description="Revise os dados e confirme a cobrança. O sistema processará automaticamente."
-          />
-          <StepItem
-            number={7}
-            title="Acompanhe o recebimento"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Após a confirmação do pagamento, o valor dos seus serviços será creditado em até 7 dias úteis na sua conta digital.
-            </p>
-            <TipBox>
-              <strong>Lembre-se:</strong> A Intelbras retém automaticamente o valor dos equipamentos. Você recebe apenas o valor referente aos seus serviços.
-            </TipBox>
-          </StepItem>
-        </div>
+          </div>
+        </StepCard>
       </div>
-
-      <AttentionBox>
-        <strong>Ponto de atenção:</strong> O prazo de 7 dias é exclusivo para projetos Intelbras Solar. Para outras vendas realizadas pela maquininha, o prazo é D+2 (dois dias úteis).
-      </AttentionBox>
     </div>
   );
 }
 
+// ─── TUTORIAL: MAQUININHA ───
 function TutorialMaquininha() {
+  const [tab, setTab] = useState<"solar" | "outras">("solar");
+
   return (
     <div>
-      <div className="mb-8">
+      <div className="mb-6">
         <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
-          Como vender com a Maquininha
+          Venda na Maquininha
         </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          A maquininha do Tá na Conta aceita cartões de débito, crédito e Pix. Siga o passo a passo abaixo para realizar uma venda com segurança.
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+          Assista ao vídeo abaixo para ver o processo completo de venda na maquininha.
         </p>
+
+        {/* Vídeo */}
+        <div
+          className="rounded-2xl overflow-hidden shadow-lg border border-border mb-6"
+          style={{ aspectRatio: "16/9" }}
+        >
+          <iframe
+            src="https://www.youtube.com/embed/TlWBqUZYfbs?start=250"
+            title="Tutorial venda na maquininha"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          />
+        </div>
+
+        {/* Modalidades aceitas */}
+        <div
+          className="rounded-xl p-4 border mb-6"
+          style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+        >
+          <p className="font-semibold text-sm text-foreground mb-3">Modalidades Aceitas</p>
+          <div className="flex flex-wrap gap-2">
+            {["Débito", "Crédito à Vista", "Crédito Parcelado"].map((m) => (
+              <span
+                key={m}
+                className="px-3 py-1 rounded-full text-xs font-semibold text-white"
+                style={{ background: "oklch(0.30 0.16 250)" }}
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => setTab("solar")}
+            className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all ${
+              tab === "solar" ? "text-white shadow-md" : "bg-white border border-border text-muted-foreground hover:text-foreground"
+            }`}
+            style={tab === "solar" ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
+          >
+            Solar com Maquininha
+          </button>
+          <button
+            onClick={() => setTab("outras")}
+            className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all ${
+              tab === "outras" ? "text-white shadow-md" : "bg-white border border-border text-muted-foreground hover:text-foreground"
+            }`}
+            style={tab === "outras" ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
+          >
+            Outras Vendas
+          </button>
+        </div>
       </div>
 
-      <AttentionBox>
-        <strong>Pré-requisito:</strong> A maquininha deve estar ligada, conectada à internet e com login realizado. Consulte a seção <strong>Ativar Conta</strong> se ainda não configurou o dispositivo.
-      </AttentionBox>
-
-      <div className="mt-8">
-        <h3 className="text-lg font-bold text-foreground mb-6">Realizando uma venda</h3>
-        <div>
-          <StepItem
-            number={1}
-            title="Ligue a maquininha"
-            description="Pressione o botão de energia e aguarde a tela inicial aparecer."
-          />
-          <StepItem
-            number={2}
-            title="Selecione 'Venda'"
-            description="Na tela inicial, toque na opção Venda ou Cobrar."
-          />
-          <StepItem
-            number={3}
-            title="Digite o valor"
+      {/* Conteúdo Solar */}
+      {tab === "solar" && (
+        <div className="space-y-4">
+          <div
+            className="rounded-xl p-4 border mb-2"
+            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
           >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Informe o valor da venda usando o teclado numérico. Confirme pressionando OK ou Enter.
-            </p>
-            <AttentionBox>
-              <strong>Atenção:</strong> Sempre confirme o valor com o cliente antes de apresentar a maquininha para o pagamento.
-            </AttentionBox>
-          </StepItem>
-          <StepItem
+            <p className="text-sm font-semibold text-foreground">Processo Plataforma Solar com Maquininha</p>
+            <p className="text-xs text-muted-foreground mt-1">Siga este passo a passo para vendas de projetos de energia solar.</p>
+          </div>
+
+          <StepCard number={1} title="Consulte as taxas no simulador">
+            <p>Antes de apresentar o orçamento, acesse o <Link href="/simular-taxas"><span className="text-primary underline cursor-pointer">Simulador de Taxas</span></Link> para calcular o valor com parcelamento.</p>
+          </StepCard>
+
+          <StepCard number={2} title="Envie o orçamento completo">
+            <p>Envie o orçamento ao cliente com o valor dos produtos, serviços e taxas de parcelamento já incluídas.</p>
+          </StepCard>
+
+          <StepCard number={3} title="Leve a maquininha carregada até o cliente">
+            <p>Após a aprovação do orçamento, leve a maquininha carregada ao local de instalação.</p>
+          </StepCard>
+
+          <StepCard
             number={4}
-            title="Escolha a modalidade de pagamento"
+            title="Ligue a maquininha"
+            attention="Segure o botão cromado por 3 segundos até que a bolinha laranja apareça. Aguarde a inicialização completa do terminal."
           >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Selecione entre: Débito, Crédito à vista ou Crédito parcelado.
-            </p>
-            <TipBox>
-              <strong>Para parcelamento:</strong> Após selecionar Crédito parcelado, informe o número de parcelas desejado (até 21x).
-            </TipBox>
-          </StepItem>
-          <StepItem
-            number={5}
-            title="Apresente ao cliente"
-            description="Entregue a maquininha ao cliente para que ele insira, aproxime ou passe o cartão."
-          />
-          <StepItem
-            number={6}
-            title="Cliente insere a senha"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Para transações de débito e crédito com chip, o cliente deverá digitar a senha do cartão.
-            </p>
-            <AttentionBox>
-              <strong>Privacidade:</strong> Garanta que o cliente tenha privacidade ao digitar a senha. Nunca peça para o cliente informar a senha em voz alta.
-            </AttentionBox>
-          </StepItem>
-          <StepItem
-            number={7}
-            title="Aguarde a aprovação"
-            description="A maquininha processará a transação. Aguarde a confirmação na tela."
-          />
-          <StepItem
-            number={8}
-            title="Comprovante"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Após a aprovação, você pode imprimir o comprovante ou enviá-lo por SMS/e-mail ao cliente.
-            </p>
-            <TipBox>
-              <strong>Boa prática:</strong> Sempre ofereça o comprovante ao cliente. Isso transmite profissionalismo e gera confiança.
-            </TipBox>
-          </StepItem>
-        </div>
-      </div>
+            <p>Pressione o botão cromado por 3 segundos até a bolinha laranja aparecer e aguarde a inicialização.</p>
+          </StepCard>
 
-      <div
-        className="mt-4 p-5 rounded-2xl"
-        style={{ background: "oklch(0.30 0.16 250 / 0.05)", border: "1px solid oklch(0.30 0.16 250 / 0.15)" }}
-      >
-        <h4 className="font-bold text-foreground mb-3">Modalidades aceitas</h4>
-        <div className="grid sm:grid-cols-3 gap-3">
-          {[
-            { label: "Débito", taxa: "A partir de 1,49%", prazo: "D+2" },
-            { label: "Crédito à vista", taxa: "A partir de 2,69%", prazo: "D+2" },
-            { label: "Crédito parcelado", taxa: "A partir de 3,49%", prazo: "D+2 por parcela" },
-          ].map((m) => (
-            <div key={m.label} className="bg-white rounded-xl p-4 border border-border">
-              <p className="font-semibold text-sm text-foreground mb-1">{m.label}</p>
-              <p className="text-xs text-muted-foreground">{m.taxa}</p>
-              <p className="text-xs text-muted-foreground">Recebimento: {m.prazo}</p>
+          <StepCard number={5} title='Digite o valor e toque em "Pagar"'>
+            <p>Digite o valor total da venda (incluindo as taxas de parcelamento) e toque no botão <strong>"Pagar"</strong>.</p>
+          </StepCard>
+
+          <StepCard
+            number={6}
+            title='Escolha "Crédito" > "Parcelado" > prazo'
+            attention="Escolha o mesmo prazo de parcelamento combinado com o cliente e simulado anteriormente."
+          >
+            <p>Selecione <strong>Crédito</strong>, depois <strong>Parcelado</strong> e clique no prazo combinado com o cliente.</p>
+          </StepCard>
+
+          <StepCard
+            number={7}
+            title="Passe o cartão"
+            attention="Verifique se a bandeira do cartão é a mesma utilizada na simulação! Taxas variam por bandeira."
+          >
+            <p>Passe, aproxime ou insira o cartão do cliente.</p>
+          </StepCard>
+
+          <StepCard number={8} title="Imprima 2 vias">
+            <p>Imprima <strong>2 vias</strong>: uma para o cliente e uma para você.</p>
+          </StepCard>
+
+          <StepCard number={9} title="Acesse a Plataforma Solar e entre no projeto">
+            <p>Quando voltar para o escritório, acesse a Plataforma Solar e abra o projeto correspondente.</p>
+          </StepCard>
+
+          <StepCard number={10} title="Zere o valor dos serviços e sinalize a visita técnica">
+            <p>Garanta que o valor dos serviços esteja <strong>zerado</strong>, salve o projeto e sinalize que realizou a visita técnica.</p>
+          </StepCard>
+
+          <StepCard number={11} title='Escolha "Maquininha Intelbras" e faça upload do comprovante'>
+            <p>Escolha o pagamento com a <strong>"Maquininha Intelbras"</strong>. Tire uma foto do seu comprovante e faça o upload. Pronto — agora é só acompanhar o envio dos produtos pelo status da Plataforma Solar!</p>
+            <div
+              className="mt-3 p-3 rounded-lg border flex items-center gap-2"
+              style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
+            >
+              <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 160)" }} />
+              <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
+                Processo concluído! Acompanhe o envio pelo status da Plataforma Solar.
+              </p>
             </div>
-          ))}
+          </StepCard>
         </div>
-      </div>
+      )}
+
+      {/* Conteúdo Outras Vendas */}
+      {tab === "outras" && (
+        <div className="space-y-4">
+          <div
+            className="rounded-xl p-4 border mb-2"
+            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+          >
+            <p className="text-sm font-semibold text-foreground">Outras Vendas na Maquininha (Intelbras ou não)</p>
+            <p className="text-xs text-muted-foreground mt-1">Para vendas de outros produtos e serviços além dos projetos solares.</p>
+          </div>
+
+          <StepCard number={1} title="Consulte as taxas no simulador">
+            <p>Acesse o <Link href="/simular-taxas"><span className="text-primary underline cursor-pointer">Simulador de Taxas</span></Link> para calcular o valor com parcelamento.</p>
+            <InfoBox>
+              Você também pode optar por <strong>assumir as taxas de parcelamento</strong>. O simulador tem uma coluna de valor líquido a receber — confira!
+            </InfoBox>
+          </StepCard>
+
+          <StepCard number={2} title="Mantenha a maquininha sempre carregada">
+            <p>Deixe sempre a maquininha carregada para casos em que os clientes forem até a sua loja.</p>
+          </StepCard>
+
+          <StepCard
+            number={3}
+            title="Ligue a maquininha"
+            attention="Segure o botão cromado por 3 segundos até que a bolinha laranja apareça. Aguarde a inicialização completa."
+          >
+            <p>Pressione o botão cromado por 3 segundos até a bolinha laranja aparecer e aguarde a inicialização.</p>
+          </StepCard>
+
+          <StepCard number={4} title='Digite o valor e toque em "Pagar" ou "Pix"'>
+            <p>Digite o valor total da venda e toque no botão <strong>"Pagar"</strong> ou <strong>"Pix"</strong>.</p>
+          </StepCard>
+
+          <StepCard number={5} title='Escolha "Débito" ou "Crédito"'>
+            <p>Selecione a modalidade desejada. Em caso de crédito parcelado, toque em <strong>"Parcelado"</strong> e depois no prazo combinado.</p>
+          </StepCard>
+
+          <StepCard
+            number={6}
+            title="Passe o cartão"
+            attention="Verifique se a bandeira do cartão é a mesma utilizada na simulação! Taxas variam por bandeira."
+          >
+            <p>Passe, aproxime ou insira o cartão do cliente.</p>
+          </StepCard>
+
+          <StepCard number={7} title="Imprima 2 vias">
+            <p>Imprima <strong>2 vias</strong>: uma para o cliente e uma para você.</p>
+          </StepCard>
+
+          <StepCard number={8} title="Antecipe o recebimento se necessário">
+            <p>
+              Lembre-se que a solução "Tá na Conta" acumula seus recebíveis, mas você pode antecipar o recebimento desse tipo de venda. Para isso:
+            </p>
+            <ol className="mt-2 space-y-1 list-decimal list-inside text-xs text-muted-foreground">
+              <li>Acesse <strong>intelbras.posportal.com.br</strong> com seu login e senha</li>
+              <li>Clique em <strong>Gestão Financeira</strong> &gt; <strong>Agenda Financeira</strong></li>
+              <li>Clique em <strong>Movimentar Agenda</strong> &gt; <strong>Antecipação de Agenda</strong></li>
+              <li>Clique em <strong>Solicitar</strong></li>
+            </ol>
+          </StepCard>
+        </div>
+      )}
     </div>
   );
 }
 
+// ─── TUTORIAL: LINK DE PAGAMENTO ───
 function TutorialLinkPagamento() {
   return (
     <div>
-      <div className="mb-8">
+      <div className="mb-6">
         <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
-          Como vender com Link de Pagamento
+          Venda com Link de Pagamento
         </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          O link de pagamento permite que você cobre clientes à distância, sem precisar estar presencialmente. Ideal para fechar projetos em outras cidades ou para cobranças remotas.
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+          Assista ao vídeo abaixo para aprender a criar e enviar links de pagamento.
         </p>
-      </div>
 
-      <TipBox>
-        <strong>Vantagem exclusiva:</strong> No Tá na Conta, a taxa do link de pagamento é <strong>idêntica</strong> à taxa da maquininha. Sem custo adicional para vendas remotas.
-      </TipBox>
-
-      <div className="mt-8">
-        <h3 className="text-lg font-bold text-foreground mb-6">Gerando um link de pagamento</h3>
-        <div>
-          <StepItem
-            number={1}
-            title="Acesse o Portal"
-            description="Entre no portal web da Cappta com suas credenciais."
+        {/* Vídeo */}
+        <div
+          className="rounded-2xl overflow-hidden shadow-lg border border-border mb-6"
+          style={{ aspectRatio: "16/9" }}
+        >
+          <iframe
+            src="https://www.youtube.com/embed/oQiHxWyy8wU"
+            title="Tutorial link de pagamento"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
           />
-          <StepItem
-            number={2}
-            title="Vá em 'Link de Pagamento'"
-            description="No menu principal, localize a opção Link de Pagamento ou Cobranças."
-          />
-          <StepItem
-            number={3}
-            title="Crie uma nova cobrança"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Clique em Novo Link ou Nova Cobrança e preencha os dados:
-            </p>
-            <ul className="mt-2 space-y-1 text-sm text-muted-foreground list-disc list-inside">
-              <li>Valor da cobrança</li>
-              <li>Descrição (ex: "Instalação Solar - João Silva")</li>
-              <li>Número de parcelas permitidas</li>
-              <li>Data de vencimento (opcional)</li>
-            </ul>
-          </StepItem>
-          <StepItem
-            number={4}
-            title="Gere o link"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Clique em Gerar Link. O sistema criará um link único para aquela cobrança.
-            </p>
-            <AttentionBox>
-              <strong>Atenção:</strong> Cada link é único e vinculado a uma cobrança específica. Não compartilhe o mesmo link para cobranças diferentes.
-            </AttentionBox>
-          </StepItem>
-          <StepItem
-            number={5}
-            title="Compartilhe com o cliente"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Copie o link e envie por WhatsApp, e-mail ou SMS. O cliente acessará a página de pagamento diretamente pelo celular ou computador.
-            </p>
-            <TipBox>
-              <strong>Dica:</strong> Envie o link com uma mensagem personalizada explicando o que está sendo cobrado. Isso aumenta a taxa de conversão e evita dúvidas.
-            </TipBox>
-          </StepItem>
-          <StepItem
-            number={6}
-            title="Cliente realiza o pagamento"
-            description="O cliente abre o link, escolhe a forma de pagamento (cartão de crédito/débito ou Pix) e conclui a transação."
-          />
-          <StepItem
-            number={7}
-            title="Acompanhe o status"
-          >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              No portal, você pode acompanhar em tempo real se o link foi acessado e se o pagamento foi realizado.
-            </p>
-            <TipBox>
-              <strong>Notificação:</strong> Você receberá uma notificação quando o pagamento for confirmado.
-            </TipBox>
-          </StepItem>
         </div>
+
+        <InfoBox>
+          <strong>Vantagem exclusiva Tá na Conta:</strong> As taxas do Link de Pagamento são <strong>iguais</strong> às da maquininha. Em empresas concorrentes, as vendas por link de pagamento são mais caras que as de maquininha. Esse é mais um benefício do Tá na Conta para você!
+        </InfoBox>
       </div>
 
-      <AttentionBox>
-        <strong>Cobranças recorrentes:</strong> Para contratos mensais (como manutenção), utilize a função de Cobrança Recorrente. O sistema gerará e enviará automaticamente o link todo mês para o cliente.
-      </AttentionBox>
+      <div className="space-y-4">
+        <StepCard number={1} title="Consulte o valor das parcelas no simulador">
+          <p>Acesse o <Link href="/simular-taxas"><span className="text-primary underline cursor-pointer">Simulador de Taxas</span></Link> para calcular o valor com parcelamento. As taxas do link de pagamento são as mesmas da maquininha.</p>
+        </StepCard>
+
+        <StepCard number={2} title="Envie o orçamento completo">
+          <p>Envie o orçamento ao cliente com o valor dos produtos, serviços e taxas de parcelamento incluídas.</p>
+        </StepCard>
+
+        <StepCard number={3} title="Acesse o portal de vendas">
+          <p>Após a aprovação, acesse <strong>intelbras.posportal.com.br</strong> com seu e-mail e senha.</p>
+        </StepCard>
+
+        <StepCard number={4} title='Clique em "Financeiro" > "Links de Pagamento"'>
+          <p>No menu principal, clique em <strong>Financeiro</strong> e em seguida em <strong>Links de Pagamento</strong>.</p>
+        </StepCard>
+
+        <StepCard number={5} title='Clique em "Cadastrar novo Link"'>
+          <p>Clique no botão <strong>"Cadastrar novo Link"</strong> para iniciar a criação.</p>
+        </StepCard>
+
+        <StepCard number={6} title="Preencha os dados do link">
+          <div className="space-y-2 mt-1">
+            <p><strong>Nome do Produto:</strong> Cole o número do projeto da Plataforma Solar.</p>
+            <p><strong>Valor:</strong> Preencha o valor total da venda.</p>
+            <p><strong>Data de expiração:</strong> Defina a data limite para pagamento.</p>
+            <p><strong>Descrição do Produto:</strong> Aparecerá integralmente para o cliente — aproveite para se comunicar, lembrando descontos ou prazos para execução.</p>
+            <p><strong>Dados do Pagador:</strong> Preencha todos os dados.</p>
+            <p><strong>Tipo:</strong> Escolha <strong>Único/Avulso</strong>.</p>
+          </div>
+        </StepCard>
+
+        <StepCard
+          number={7}
+          title="Mantenha as taxas ao portador DESABILITADAS"
+          attention="Deixe a opção de taxas ao portador como 'Não', pois você já adicionou os juros pelo simulador. Habilitar essa opção geraria cobrança dupla."
+        >
+          <p>Mantenha a opção de taxas ao portador <strong>DESABILITADA</strong> (selecione "Não").</p>
+        </StepCard>
+
+        <StepCard number={8} title="Configure as formas de pagamento">
+          <p>Em <strong>Formas de Pagamento</strong>, escolha <strong>Cartão de Crédito</strong> e em <strong>Tipo de Parcela</strong> selecione:</p>
+          <ul className="mt-2 space-y-1 list-disc list-inside text-xs text-muted-foreground">
+            <li><strong>Parcela Aberta:</strong> O cliente escolhe a parcela no momento do pagamento.</li>
+            <li><strong>Parcela Fechada:</strong> Você define em quantas vezes ele vai pagar (ele não poderá alterar no momento do pagamento).</li>
+          </ul>
+        </StepCard>
+
+        <StepCard number={9} title="Crie o link e envie para o cliente">
+          <p>Clique em <strong>"Criar Link de Pagamento"</strong>. Copie a URL de pagamento encurtada e envie para o cliente.</p>
+        </StepCard>
+
+        <StepCard number={10} title="Acompanhe o pagamento">
+          <p>Acesse o Menu <strong>Financeiro</strong> &gt; <strong>Link de Pagamento</strong>. Quando o cliente efetuar o pagamento, o status mudará de <strong>"Pendente"</strong> para <strong>"Ativo"</strong>.</p>
+        </StepCard>
+
+        <StepCard number={11} title="Acesse a Plataforma Solar e finalize o projeto">
+          <p>Acesse a Plataforma Solar e entre no projeto. Garanta que o valor dos serviços seja <strong>ZERO</strong>, salve-o e sinalize que realizou a visita técnica. Mesmo com pagamento sendo feito por link, escolha <strong>"Maquininha Intelbras"</strong>.</p>
+        </StepCard>
+
+        <StepCard number={12} title="Faça upload das comprovações">
+          <p>Tire um print dos links pagos na Plataforma Cappta. Faça o upload dessas comprovações na Plataforma Solar. Pronto — agora é só acompanhar o envio dos produtos e instalar!</p>
+          <div
+            className="mt-3 p-3 rounded-lg border flex items-center gap-2"
+            style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
+          >
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 160)" }} />
+            <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
+              Processo concluído! Acompanhe o envio pelo status da Plataforma Solar.
+            </p>
+          </div>
+        </StepCard>
+      </div>
     </div>
   );
 }
 
-// ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────
-
-const tutorialRoutes: Record<string, { title: string; icon: React.ReactNode; component: React.ReactNode }> = {
-  "plataforma-solar": {
-    title: "Plataforma Solar",
-    icon: <Monitor className="w-5 h-5" />,
+// ─── COMPONENTE PRINCIPAL ───
+const tabs = [
+  {
+    id: "plataforma-solar",
+    label: "Plataforma Solar",
+    icon: <Monitor className="w-4 h-4" />,
     component: <TutorialPlataformaSolar />,
   },
-  "maquininha": {
-    title: "Venda na Maquininha",
-    icon: <CreditCard className="w-5 h-5" />,
+  {
+    id: "maquininha",
+    label: "Venda na Maquininha",
+    icon: <CreditCard className="w-4 h-4" />,
     component: <TutorialMaquininha />,
   },
-  "link-pagamento": {
-    title: "Venda com Link",
-    icon: <Link2 className="w-5 h-5" />,
+  {
+    id: "link-pagamento",
+    label: "Venda com Link",
+    icon: <Link2 className="w-4 h-4" />,
     component: <TutorialLinkPagamento />,
   },
-};
+];
 
 export default function Tutoriais() {
-  const [matchSolar] = useRoute("/tutoriais/plataforma-solar");
-  const [matchMaquininha] = useRoute("/tutoriais/maquininha");
-  const [matchLink] = useRoute("/tutoriais/link-pagamento");
-
-  const currentKey = matchSolar ? "plataforma-solar" : matchMaquininha ? "maquininha" : matchLink ? "link-pagamento" : null;
-  const current = currentKey ? tutorialRoutes[currentKey] : null;
+  const params = useParams<{ tipo?: string }>();
+  const tipo = params.tipo || "plataforma-solar";
+  const activeTab = tabs.find((t) => t.id === tipo) || tabs[0];
 
   return (
     <div className="min-h-screen">
@@ -370,92 +492,82 @@ export default function Tutoriais() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
               style={{ background: "oklch(1 0 0 / 0.12)", border: "1px solid oklch(1 0 0 / 0.2)" }}
             >
+              <Play className="w-3.5 h-3.5" />
               Tutoriais
             </div>
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
               style={{ fontFamily: "Sora, sans-serif" }}
             >
-              {current ? current.title : "Tutoriais"}
+              Passo a passo descomplicado
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Guias passo a passo para você usar o Tá na Conta com confiança e eficiência.
+              Aprenda a usar o Tá na Conta com tutoriais didáticos, pontos de atenção destacados e vídeos explicativos.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="container py-10 lg:py-14">
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl border border-border p-4 sticky top-24">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-2">
-                Tutoriais disponíveis
-              </p>
-              <nav className="space-y-1">
-                {Object.entries(tutorialRoutes).map(([key, tut]) => (
-                  <Link key={key} href={`/tutoriais/${key}`}>
-                    <div
-                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
-                        currentKey === key
-                          ? "text-white shadow-sm"
-                          : "text-foreground hover:bg-muted"
-                      }`}
-                      style={currentKey === key ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
-                    >
-                      <span className={currentKey === key ? "text-white" : "text-muted-foreground"}>
-                        {tut.icon}
-                      </span>
-                      {tut.title}
-                      {currentKey === key && <ChevronRight className="w-4 h-4 ml-auto" />}
-                    </div>
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="lg:col-span-3">
-            {current ? (
-              <div className="bg-white rounded-2xl border border-border p-6 lg:p-8">
-                {current.component}
-              </div>
-            ) : (
-              <div className="bg-white rounded-2xl border border-border p-8 text-center">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
+      {/* Tabs de navegação */}
+      <div className="sticky top-16 z-30 bg-white border-b border-border shadow-sm">
+        <div className="container">
+          <div className="flex overflow-x-auto">
+            {tabs.map((tab) => (
+              <Link key={tab.id} href={`/tutoriais/${tab.id}`}>
+                <button
+                  className={`flex items-center gap-2 px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
+                    activeTab.id === tab.id
+                      ? "border-primary text-primary"
+                      : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
+                  }`}
                 >
-                  <Monitor className="w-8 h-8" style={{ color: "oklch(0.30 0.16 250)" }} />
-                </div>
-                <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
-                  Selecione um tutorial
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Escolha um dos tutoriais disponíveis no menu ao lado para começar.
-                </p>
-                <div className="grid sm:grid-cols-3 gap-4">
-                  {Object.entries(tutorialRoutes).map(([key, tut]) => (
-                    <Link key={key} href={`/tutoriais/${key}`}>
-                      <div className="p-4 rounded-xl border border-border hover:border-primary/40 hover:shadow-md transition-all cursor-pointer text-center group">
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform"
-                          style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
-                        >
-                          <span style={{ color: "oklch(0.30 0.16 250)" }}>{tut.icon}</span>
-                        </div>
-                        <p className="font-semibold text-sm text-foreground">{tut.title}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Conteúdo */}
+      <section className="py-12" style={{ background: "oklch(0.97 0.005 250)" }}>
+        <div className="container max-w-3xl">
+          {activeTab.component}
+        </div>
+      </section>
+
+      {/* Navegação entre tutoriais */}
+      <section className="py-8 bg-white border-t border-border">
+        <div className="container max-w-3xl">
+          <p className="text-xs text-muted-foreground mb-3 font-semibold uppercase tracking-wide">Outros tutoriais</p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            {tabs
+              .filter((t) => t.id !== activeTab.id)
+              .map((tab) => (
+                <Link key={tab.id} href={`/tutoriais/${tab.id}`}>
+                  <div
+                    className="flex items-center gap-3 p-4 rounded-xl border border-border bg-white hover:shadow-md transition-all cursor-pointer group"
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
+                    >
+                      <span style={{ color: "oklch(0.30 0.16 250)" }}>{tab.icon}</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs text-muted-foreground">Ver tutorial</p>
+                      <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {tab.label}
+                      </p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

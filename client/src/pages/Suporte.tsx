@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Clock, Shield, Headphones, CheckCircle2, ArrowRight } from "lucide-react";
 
+const SUPORTE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/suporte-ta-na-conta_9e0bdbe1.png";
+
 export default function Suporte() {
   const whatsappUrl = "https://wa.me/5511974409760?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20para%20o%20T%C3%A1%20na%20Conta.";
 
@@ -24,7 +26,7 @@ export default function Suporte() {
               style={{ background: "oklch(1 0 0 / 0.12)", border: "1px solid oklch(1 0 0 / 0.2)" }}
             >
               <Shield className="w-3.5 h-3.5" />
-              Atendimento Exclusivo Intelbras
+              Atendimento Exclusivo
             </div>
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
@@ -39,9 +41,21 @@ export default function Suporte() {
         </div>
       </section>
 
-      {/* Main CTA */}
+      {/* Imagem específica do atendimento + CTA principal */}
       <section className="py-16 lg:py-20 bg-white">
-        <div className="container max-w-2xl">
+        <div className="container max-w-3xl">
+          {/* Imagem de atendimento */}
+          <div className="flex justify-center mb-10">
+            <div className="rounded-3xl overflow-hidden shadow-xl border border-border max-w-xs w-full">
+              <img
+                src={SUPORTE_IMG}
+                alt="Tá na Conta - Suporte"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Card de contato */}
           <div
             className="rounded-3xl p-8 lg:p-12 text-center border"
             style={{ background: "oklch(0.97 0.005 250)", borderColor: "oklch(0.90 0.01 250)" }}
@@ -59,7 +73,7 @@ export default function Suporte() {
               Fale com nossa equipe
             </h2>
             <p className="text-muted-foreground mb-2 leading-relaxed">
-              Atendimento exclusivo via WhatsApp por especialistas Intelbras. Sem robôs, sem espera longa.
+              Atendimento exclusivo via WhatsApp por especialistas. Sem robôs, sem espera longa.
             </p>
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-lg font-bold mb-8 mt-2"
@@ -105,7 +119,7 @@ export default function Suporte() {
               {
                 icon: <Shield className="w-6 h-6" />,
                 title: "Atendimento Especializado",
-                description: "Nossa equipe é treinada exclusivamente para o Tá na Conta e soluções Intelbras.",
+                description: "Nossa equipe é treinada exclusivamente para o Tá na Conta e soluções de pagamento.",
               },
               {
                 icon: <CheckCircle2 className="w-6 h-6" />,
@@ -115,7 +129,7 @@ export default function Suporte() {
             ].map((card) => (
               <div
                 key={card.title}
-                className="bg-white rounded-2xl p-6 border border-border card-hover"
+                className="bg-white rounded-2xl p-6 border border-border"
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"

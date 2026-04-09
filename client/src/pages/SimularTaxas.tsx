@@ -388,6 +388,36 @@ export default function SimularTaxas() {
             </div>
           )}
         </div>
+
+        {/* Planilha offline */}
+        <div className="mt-8 max-w-2xl mx-auto">
+          <div
+            className="rounded-2xl p-5 border flex flex-col sm:flex-row items-start sm:items-center gap-4"
+            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.2)" }}
+          >
+            <div className="flex-1">
+              <p className="font-semibold text-sm text-foreground mb-1">Precisa calcular offline?</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Acesse a planilha de cálculo de taxas para uso offline — ideal para apresentações e reuniões sem internet.
+              </p>
+            </div>
+            <a
+              href="https://docs.google.com/spreadsheets/d/12nK4LYA5gCsHEDPZIluhaLL6RoHfy8YatRZWsoMyQow/edit?gid=0#gid=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
+            >
+              <Button
+                size="sm"
+                className="text-white font-semibold"
+                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+              >
+                <Download className="w-4 h-4 mr-1.5" />
+                Acessar Planilha
+              </Button>
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );

@@ -50,3 +50,55 @@
 - [x] Responsividade mobile-first
 - [x] Imagens reais integradas via CDN
 - [x] Testes vitest básicos (14 testes passando)
+
+## Atualizações Solicitadas (Abril 2026)
+
+### Design e Identidade Visual
+- [x] Logo Cappta no header + "Tá na Conta" + "Uma parceria Intelbras e Cappta"
+- [x] Imagem do suporte (TánacontaIntelbras-Suporte.png) integrada via CDN
+
+### Página Inicial
+- [x] Prazo "1 dia" em todos os textos e benefícios
+- [x] Botão "Peça sua Maquininha" → formulário Google Forms de adesão
+- [x] Seção de argumentos de vendas com 3 frases persuasivas
+- [x] FAQ corrigido (referência Intelbras removida de resposta isolada)
+
+### Menu e Navegação
+- [x] Dropdown "Primeiro Acesso" separado: Conta / Portal / Maquininha
+- [x] Footer com links corretos para /primeiro-acesso/conta e /primeiro-acesso/portal
+
+### Página Primeiro Acesso - Conta
+- [x] Preparação para instalação (CPF, e-mail, internet, validade do Token)
+- [x] Passo a passo de ativação (7 etapas)
+- [x] Informações sobre Pix, depósito mínimo R$10, horário de pagamentos
+- [x] Informações sobre maquininha (Android, Vivo, Wi-Fi, Pix)
+
+### Página Primeiro Acesso - Portal
+- [x] Página separada criada
+- [x] Vídeo YouTube incorporado (funções básicas do portal)
+- [x] Instruções de acesso (usuário/senha por e-mail ou WhatsApp)
+- [x] Recursos do portal listados
+
+### Tutoriais - Plataforma Solar
+- [x] Passo a passo com 9 etapas (projeto → recebimento em 1 dia)
+
+### Tutoriais - Venda na Maquininha
+- [x] Vídeo tutorial incorporado
+- [x] Subdivisão: Solar com Maquininha e Outras Vendas
+- [x] Passo a passo Solar (11 etapas) e Outras Vendas (8 etapas)
+
+### Tutoriais - Link de Pagamento
+- [x] 12 etapas detalhadas do processo
+- [x] Vídeo tutorial incorporado
+- [x] Texto sobre uso recomendado (recorrente vs boleto)
+
+### Página Link de Pagamento
+- [x] Texto sobre link recorrente e vantagem vs boleto
+
+### Simulador de Taxas
+- [x] Todas as parcelas 1 a 21 com todas as colunas
+- [x] Link para planilha offline adicionado
+
+### Suporte Técnico
+- [x] Imagem específica do atendimento integrada (TánacontaIntelbras-Suporte.png)
+- [x] Card exibe apenas "Tá na Conta" (sem "Intelbras" isolado)

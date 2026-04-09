@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, BookOpen, HelpCircle, Link2, BarChart3, Headphones } from "lucide-react";
+import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
+const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/cappta-logo_16106c91.svg";
 
 interface DropdownItem {
   label: string;
@@ -21,14 +24,20 @@ const navItems: NavItem[] = [
     label: "Primeiro Acesso",
     dropdown: [
       {
-        label: "Conta e Portal",
-        href: "/ativar-conta",
+        label: "Conta",
+        href: "/primeiro-acesso/conta",
         icon: <Smartphone className="w-4 h-4" />,
-        description: "Ative sua conta digital e acesse o portal",
+        description: "Ative sua conta digital Cappta",
+      },
+      {
+        label: "Portal",
+        href: "/primeiro-acesso/portal",
+        icon: <Monitor className="w-4 h-4" />,
+        description: "Acesse o portal de gestão pela primeira vez",
       },
       {
         label: "Maquininha",
-        href: "/ativar-conta#maquininha",
+        href: "/primeiro-acesso/conta#maquininha",
         icon: <CreditCard className="w-4 h-4" />,
         description: "Configure e ative sua maquininha",
       },
@@ -138,20 +147,20 @@ export default function Navbar() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-18">
-          {/* Logo */}
+          {/* Logo: Cappta logo + Tá na Conta + parceria */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer group">
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
-              >
-                TNC
-              </div>
-              <div className="hidden sm:block">
-                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.30 0.16 250)" }}>
+            <div className="flex items-center gap-3 cursor-pointer group">
+              <img
+                src={CAPPTA_LOGO}
+                alt="Cappta"
+                className="h-8 w-auto object-contain"
+                style={{ maxWidth: "90px" }}
+              />
+              <div className="hidden sm:block border-l border-border pl-3">
+                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.20 0.14 250)" }}>
                   Tá na Conta
                 </p>
-                <p className="text-[10px] text-muted-foreground leading-tight">Intelbras × Cappta</p>
+                <p className="text-[10px] text-muted-foreground leading-tight">Uma parceria Intelbras e Cappta</p>
               </div>
             </div>
           </Link>
@@ -196,10 +205,10 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button → formulário de adesão */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="https://wa.me/5511974409760"
+              href={FORM_ADESAO}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -280,7 +289,7 @@ export default function Navbar() {
           ))}
           <div className="pt-3 border-t border-border">
             <a
-              href="https://wa.me/5511974409760"
+              href={FORM_ADESAO}
               target="_blank"
               rel="noopener noreferrer"
               className="block"

@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MessageCircle, ExternalLink } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm opacity-70 leading-relaxed max-w-sm mb-6">
-              Solução completa de pagamentos para integradores Intelbras. Maquininha, link de pagamento e conta digital em um só lugar.
+              Solução completa de pagamentos para integradores. Maquininha, link de pagamento e conta digital em um só lugar.
             </p>
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
@@ -40,7 +40,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "Conhecer o Portal", href: "/" },
-                { label: "Ativar Conta", href: "/ativar-conta" },
+                { label: "Ativar Conta", href: "/primeiro-acesso/conta" },
+                { label: "Acessar o Portal", href: "/primeiro-acesso/portal" },
                 { label: "Simular Taxas", href: "/simular-taxas" },
                 { label: "Link de Pagamento", href: "/link-pagamento" },
                 { label: "Suporte Técnico", href: "/suporte" },
@@ -100,7 +101,7 @@ export default function Footer() {
               © 2025 Portal Tá na Conta. Todos os direitos reservados.
             </p>
             <p className="text-xs opacity-40 text-center sm:text-right">
-              Tecnologia Cappta · Distribuição Intelbras
+              Uma parceria Intelbras e Cappta
             </p>
           </div>
         </div>

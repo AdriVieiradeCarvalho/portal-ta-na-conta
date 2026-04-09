@@ -3,20 +3,22 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   CreditCard, Smartphone, Link2, BarChart3, RefreshCw, Zap,
-  CheckCircle2, ArrowRight, ChevronDown, ChevronUp, MessageCircle,
-  Clock, TrendingUp, Shield, DollarSign, Star, Play
+  CheckCircle2, ArrowRight, ChevronDown, ChevronUp,
+  Clock, TrendingUp, Shield, DollarSign, Star, CreditCard as CardIcon
 } from "lucide-react";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/card-payment_1b90ae04.jpg";
 const SOLAR_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-installer_3459730d.jpg";
 const BUSINESS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/business-payment_30f7d57c.jpg";
 
+const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
+
 const benefits = [
   {
     icon: <Clock className="w-6 h-6" />,
-    title: "Receba em até 7 dias",
-    description: "Serviços Intelbras Solar pagos em até 7 dias úteis direto na sua conta digital.",
-    highlight: "7 dias",
+    title: "Receba em 1 dia",
+    description: "Serviços pagos em 1 dia útil direto na sua conta digital.",
+    highlight: "1 dia",
   },
   {
     icon: <CreditCard className="w-6 h-6" />,
@@ -54,7 +56,7 @@ const steps = [
   {
     number: "01",
     title: "Crie seu projeto",
-    description: "Cadastre o projeto na Plataforma Solar Intelbras com todos os dados do cliente.",
+    description: "Cadastre o projeto na Plataforma Solar com todos os dados do cliente.",
     detail: "Acesse a Plataforma Solar e registre o projeto normalmente.",
   },
   {
@@ -65,15 +67,33 @@ const steps = [
   },
   {
     number: "03",
-    title: "Intelbras retém equipamentos",
-    description: "O valor dos equipamentos é retido pela Intelbras automaticamente.",
+    title: "Equipamentos retidos automaticamente",
+    description: "O valor dos equipamentos é retido automaticamente no processo de split.",
     detail: "Sem necessidade de gerenciar pagamentos de fornecedores.",
   },
   {
     number: "04",
     title: "Tá na Conta!",
-    description: "Em até 7 dias úteis, o valor dos seus serviços cai na sua conta digital.",
+    description: "Em 1 dia útil, o valor dos seus serviços cai na sua conta digital.",
     detail: "Receba rápido e feche mais projetos com capital de giro.",
+  },
+];
+
+const salesArguments = [
+  {
+    icon: <CardIcon className="w-6 h-6" />,
+    title: "Pagar com Cartão é mais barato que pegar empréstimo!",
+    description: "Mostre ao seu cliente que parcelar no cartão tem juros menores que qualquer linha de crédito.",
+  },
+  {
+    icon: <Star className="w-6 h-6" />,
+    title: "Você pode acumular milhas nessa operação!",
+    description: "Clientes que pagam com cartão de crédito acumulam pontos e milhas — mais um benefício para fechar o projeto.",
+  },
+  {
+    icon: <TrendingUp className="w-6 h-6" />,
+    title: "Encontre parcelas que cabem no orçamento!",
+    description: "Com parcelamento em até 21x, você adapta o valor ao bolso do cliente e fecha mais projetos.",
   },
 ];
 
@@ -84,7 +104,7 @@ const faqs = [
   },
   {
     question: "Posso usar para vender outros produtos e serviços?",
-    answer: "Sim, a parceria entre a Cappta e a Intelbras permite o uso da maquininha para outras vendas além dos projetos solares.",
+    answer: "Sim, a parceria do Tá na Conta permite o uso da maquininha para outras vendas além dos projetos solares.",
   },
   {
     question: "A taxa do link de pagamento é igual à taxa da maquininha?",
@@ -103,7 +123,7 @@ const faqs = [
     answer: "Não. O credenciamento deve ser feito com CNPJ. Consulte nosso suporte para mais informações sobre os requisitos.",
   },
   {
-    question: "Qual o prazo para receber outras vendas (não Intelbras)?",
+    question: "Qual o prazo para receber outras vendas (não projetos solares)?",
     answer: "Para vendas de outros produtos e serviços, o prazo de recebimento é de D+2 (dois dias úteis após a transação).",
   },
   {
@@ -149,28 +169,21 @@ export default function Home() {
         <div className="hero-overlay absolute inset-0" />
         <div className="relative container py-20 lg:py-28">
           <div className="max-w-2xl">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6"
-              style={{ background: "oklch(0.72 0.18 55 / 0.2)", border: "1px solid oklch(0.72 0.18 55 / 0.4)", color: "oklch(0.90 0.12 55)" }}
-            >
-              <Star className="w-3.5 h-3.5" />
-              Uma parceria Intelbras e Cappta
-            </div>
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
               style={{ fontFamily: "Sora, sans-serif" }}
             >
               Seu projeto em{" "}
-              <span style={{ color: "oklch(0.85 0.15 55)" }}>7 dias</span>
+              <span style={{ color: "oklch(0.85 0.15 55)" }}>1 dia</span>
               <br />
               <span className="text-white">Tá na Conta!</span>
             </h1>
             <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-xl">
-              Em parceria com a Cappta, a Intelbras desenvolveu uma solução financeira completa para integradores terem mais opções de pagamento e aumentarem seus ganhos.
+              Em parceria com a Cappta, desenvolvemos uma solução financeira completa para integradores terem mais opções de pagamento, receberem em 1 dia e aumentarem seus ganhos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/5511974409760?text=Ol%C3%A1%2C%20quero%20solicitar%20a%20maquininha%20T%C3%A1%20na%20Conta!"
+                href={FORM_ADESAO}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -199,7 +212,7 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/15">
               {[
                 { value: "21x", label: "Parcelamento" },
-                { value: "7 dias", label: "Recebimento" },
+                { value: "1 dia", label: "Recebimento" },
                 { value: "D+2", label: "Outras vendas" },
               ].map((stat) => (
                 <div key={stat.label}>
@@ -234,10 +247,10 @@ export default function Home() {
                 <span className="brand-gradient-text">Tá na Conta?</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                O <strong>Tá na Conta</strong> é uma solução financeira desenvolvida pela Intelbras em parceria com a Cappta, pensada especialmente para integradores de energia solar. Com ela, você tem acesso a uma maquininha de cartão, link de pagamento e conta digital — tudo integrado à Plataforma Solar.
+                O <strong>Tá na Conta</strong> é uma solução financeira desenvolvida em parceria com a Cappta, pensada especialmente para integradores de energia solar. Com ela, você tem acesso a uma maquininha de cartão, link de pagamento e conta digital — tudo integrado à Plataforma Solar.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Feche mais projetos, ofereça mais opções de pagamento aos seus clientes e receba seus serviços em até 7 dias úteis, sem burocracia.
+                Feche mais projetos, ofereça mais opções de pagamento aos seus clientes e receba seus serviços em 1 dia, sem burocracia.
               </p>
               <div className="space-y-3">
                 {[
@@ -276,7 +289,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-bold text-sm text-foreground">+10% de lucro</p>
-                    <p className="text-xs text-muted-foreground">nos serviços Intelbras</p>
+                    <p className="text-xs text-muted-foreground">nos serviços solares</p>
                   </div>
                 </div>
               </div>
@@ -285,8 +298,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── ARGUMENTOS DE VENDAS ─── */}
+      <section className="py-14 lg:py-20" style={{ background: "oklch(0.97 0.005 250)" }}>
+        <div className="container">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2
+              className="text-2xl lg:text-3xl font-bold text-foreground mb-3"
+              style={{ fontFamily: "Sora, sans-serif" }}
+            >
+              Por que seu cliente vai <span className="brand-gradient-text">fechar com você?</span>
+            </h2>
+            <p className="text-muted-foreground text-sm">Use esses argumentos na hora de apresentar o parcelamento.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {salesArguments.map((arg) => (
+              <div
+                key={arg.title}
+                className="bg-white rounded-2xl p-6 border border-border shadow-sm flex flex-col gap-3"
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style={{ background: "oklch(0.72 0.18 55 / 0.12)" }}
+                >
+                  <span style={{ color: "oklch(0.55 0.15 55)" }}>{arg.icon}</span>
+                </div>
+                <p className="font-bold text-sm text-foreground leading-snug">{arg.title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{arg.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── BENEFÍCIOS ─── */}
-      <section className="py-16 lg:py-24" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-16 lg:py-24 bg-white">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div
@@ -312,6 +357,7 @@ export default function Home() {
               <div
                 key={benefit.title}
                 className="bg-white rounded-2xl p-6 border border-border card-hover group"
+                style={{ background: "oklch(0.98 0.005 250)" }}
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all group-hover:scale-110"
@@ -334,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* ─── PROCESSO ─── */}
-      <section className="py-16 lg:py-24 bg-white overflow-hidden">
+      <section className="py-16 lg:py-24 overflow-hidden" style={{ background: "oklch(0.97 0.005 250)" }}>
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -386,7 +432,7 @@ export default function Home() {
                 className="absolute top-6 right-6 bg-white rounded-xl p-4 shadow-xl border border-border"
               >
                 <div className="text-center">
-                  <p className="text-3xl font-bold" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.30 0.16 250)" }}>7</p>
+                  <p className="text-3xl font-bold" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.30 0.16 250)" }}>2</p>
                   <p className="text-xs text-muted-foreground font-medium">dias úteis</p>
                   <p className="text-xs text-muted-foreground">para receber</p>
                 </div>
@@ -415,7 +461,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
-              { icon: <Clock className="w-5 h-5" />, title: "Receba em 7 dias", desc: "Serviços Intelbras Solar" },
+              { icon: <Clock className="w-5 h-5" />, title: "Receba em 1 dia", desc: "Serviços solares" },
               { icon: <DollarSign className="w-5 h-5" />, title: "D+2 outras vendas", desc: "Para demais produtos" },
               { icon: <Shield className="w-5 h-5" />, title: "Sem taxa de adesão", desc: "Zero custo para começar" },
               { icon: <Smartphone className="w-5 h-5" />, title: "Sem mensalidade", desc: "Acima de R$15.000/mês" },
@@ -442,7 +488,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <a
-              href="https://wa.me/5511974409760?text=Ol%C3%A1%2C%20quero%20solicitar%20a%20maquininha%20T%C3%A1%20na%20Conta!"
+              href={FORM_ADESAO}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -484,23 +530,6 @@ export default function Home() {
               {faqs.map((faq) => (
                 <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
               ))}
-            </div>
-            <div className="mt-10 text-center">
-              <p className="text-muted-foreground mb-4">Não encontrou o que procurava?</p>
-              <a
-                href="https://wa.me/5511974409760"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="outline"
-                  className="font-semibold border-2"
-                  style={{ borderColor: "oklch(0.30 0.16 250)", color: "oklch(0.30 0.16 250)" }}
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Falar com Suporte
-                </Button>
-              </a>
             </div>
           </div>
         </div>
