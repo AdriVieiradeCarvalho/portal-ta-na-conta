@@ -1,6 +1,8 @@
 import { Link } from "wouter";
 import { MessageCircle } from "lucide-react";
 
+const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-cappta-silhueta_44f8aafd.png";
+
 export default function Footer() {
   return (
     <footer className="text-white" style={{ background: "oklch(0.12 0.06 145)" }}>
@@ -9,18 +11,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: "linear-gradient(135deg, oklch(0.60 0.20 145), oklch(0.72 0.18 55))" }}
-              >
-                TNC
-              </div>
+            <div className="flex items-center gap-3 mb-4">
               <div>
                 <p className="font-bold text-lg leading-tight" style={{ fontFamily: "Sora, sans-serif" }}>
                   Tá na Conta
                 </p>
-                <p className="text-xs opacity-60 leading-tight">Portal de Pagamentos</p>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="text-xs opacity-50">Uma parceria Intelbras e</span>
+                  <img src={CAPPTA_LOGO} alt="Cappta" className="h-3 opacity-60" style={{ filter: "brightness(0) invert(1)" }} />
+                </div>
               </div>
             </div>
             <p className="text-sm opacity-70 leading-relaxed max-w-sm mb-6">

@@ -127,16 +127,16 @@
 - [x] SimularTaxas: reconstruir fiel ao HTML original com tabela 1-21 parcelas na vertical, todas as colunas (taxa, valor maquininha/link, parcela, taxas), resumo final expandido e exportação PDF
 
 ## Correções Solicitadas (Abr 2026 - Rodada 6)
-- [ ] SimularTaxas: recolocar link da planilha offline abaixo do simulador (https://docs.google.com/spreadsheets/d/12nK4LYA5gCsHEDPZIluhaLL6RoHfy8YatRZWsoMyQow/edit?gid=0#gid=0)
-- [ ] SimularTaxas: atualizar texto do topo para "Simule o pagamento" e descrição simplificada
-- [ ] SimularTaxas: corrigir navbar duplicada na página
-- [ ] PrimeiroAcessoConta: reordenar seções (Preparação → Download → Instalação/Ativação → Multilojas → Multiusuários)
-- [ ] LinkPagamento: mover link recorrente para o final, após "Porque usar" e "Como funciona"
-- [ ] Tutoriais Link: ajustar tamanho do vídeo para padrão da página Portal
-- [ ] Tutoriais Maquininha: ajustar tamanho do vídeo para padrão da página Portal
-- [ ] Tutoriais Maquininha: item 8 em box de destaque ao final
-- [ ] Tutoriais Solar: adicionar referência "Plataforma Solar Intelbras"
-- [ ] Suporte: usar imagem TánacontaIntelbras-Suporte.png acima de "Fale com nossa equipe"
-- [ ] Rodapé: remover imagem TNC e frase "Portal de Pagamentos", manter "Tá na Conta" + "Uma parceria Intelbras e Cappta"
-- [ ] Navbar e Rodapé: usar somente LogCappta_silhueta.png como logo Cappta
-- [ ] Design System Intelbras: aplicar verde #00A335, tipografia sans-serif, botões arredondados e cinza neutro de fundo
+- [x] SimularTaxas: recolocar link da planilha offline abaixo do simulador (https://docs.google.com/spreadsheets/d/12nK4LYA5gCsHEDPZIluhaLL6RoHfy8YatRZWsoMyQow/edit?gid=0#gid=0)
+- [x] SimularTaxas: atualizar texto do topo para "Simule o pagamento" e descrição simplificada
+- [x] SimularTaxas: corrigir navbar duplicada na página
+- [x] PrimeiroAcessoConta: reordenar seções (Preparação → Download → Instalação/Ativação → Multilojas → Multiusuários)
+- [x] LinkPagamento: mover link recorrente para o final, após "Porque usar" e "Como funciona"
+- [x] Tutoriais Link: ajustar tamanho do vídeo para padrão da página Portal
+- [x] Tutoriais Maquininha: ajustar tamanho do vídeo para padrão da página Portal
+- [x] Tutoriais Maquininha: item 8 em box de destaque ao final
+- [x] Tutoriais Solar: adicionar referência "Plataforma Solar Intelbras"
+- [x] Suporte: usar imagem TánacontaIntelbras-Suporte.png acima de "Fale com nossa equipe"
+- [x] Rodapé: remover imagem TNC e frase "Portal de Pagamentos", manter "Tá na Conta" + "Uma parceria Intelbras e Cappta"
+- [x] Navbar e Rodapé: usar somente LogCappta_silhueta.png como logo Cappta
+- [x] Design System Intelbras: aplicar verde #00A335, tipografia sans-serif, botões arredondados e cinza neutro de fundo

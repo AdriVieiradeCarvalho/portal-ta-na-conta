@@ -44,6 +44,15 @@ export default function Suporte() {
       {/* CTA principal */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="container max-w-3xl">
+          {/* Imagem de suporte */}
+          <div className="flex justify-center mb-8">
+            <img
+              src={SUPORTE_IMG}
+              alt="Tá na Conta - Suporte"
+              className="w-32 h-32 rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+
           {/* Card de contato */}
           <div
             className="rounded-3xl p-8 lg:p-12 text-center border"
