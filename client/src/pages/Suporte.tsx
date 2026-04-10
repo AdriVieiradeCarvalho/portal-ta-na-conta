@@ -11,7 +11,7 @@ export default function Suporte() {
       {/* Hero */}
       <section
         className="py-16 lg:py-24 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
@@ -47,7 +47,7 @@ export default function Suporte() {
           {/* Card de contato */}
           <div
             className="rounded-3xl p-8 lg:p-12 text-center border"
-            style={{ background: "oklch(0.97 0.005 250)", borderColor: "oklch(0.90 0.01 250)" }}
+            style={{ background: "oklch(0.97 0.005 145)", borderColor: "oklch(0.90 0.01 145)" }}
           >
             <div
               className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
@@ -66,7 +66,7 @@ export default function Suporte() {
             </p>
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-lg font-bold mb-8 mt-2"
-              style={{ background: "oklch(0.30 0.16 250 / 0.08)", color: "oklch(0.30 0.16 250)" }}
+              style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
             >
               <Phone className="w-5 h-5" />
               (11) 97440-9760
@@ -96,7 +96,7 @@ export default function Suporte() {
       </section>
 
       {/* Info Cards */}
-      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-4xl">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -122,9 +122,9 @@ export default function Suporte() {
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
+                  style={{ background: "oklch(0.35 0.18 145 / 0.08)" }}
                 >
-                  <span style={{ color: "oklch(0.30 0.16 250)" }}>{card.icon}</span>
+                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{card.icon}</span>
                 </div>
                 <h3 className="font-bold text-base text-foreground mb-2">{card.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
@@ -157,7 +157,7 @@ export default function Suporte() {
               "Cobranças recorrentes",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3 p-3 rounded-xl border border-border">
-                <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.55 0.20 250)" }} />
+                <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.60 0.20 145)" }} />
                 <span className="text-sm text-foreground">{item}</span>
               </div>
             ))}
@@ -184,7 +184,7 @@ export default function Suporte() {
       {/* Footer note */}
       <section
         className="py-8 text-white text-center"
-        style={{ background: "oklch(0.20 0.10 250)" }}
+        style={{ background: "oklch(0.20 0.10 145)" }}
       >
         <div className="container">
           <p className="text-white/60 text-sm">

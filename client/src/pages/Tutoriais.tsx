@@ -21,9 +21,9 @@ function InfoBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.30 0.16 250 / 0.05)", borderColor: "oklch(0.30 0.16 250 / 0.2)" }}
+      style={{ background: "oklch(0.35 0.18 145 / 0.05)", borderColor: "oklch(0.35 0.18 145 / 0.2)" }}
     >
-      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.30 0.16 250)" }} />
+      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.35 0.18 145)" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
@@ -39,7 +39,7 @@ function StepCard({ number, title, children, attention }: {
     <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
       <div
         className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-        style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
       >
         {number}
       </div>
@@ -73,9 +73,23 @@ function TutorialPlataformaSolar() {
         </p>
       </div>
 
+      {/* Vídeo Tutorial Solar */}
+      <div
+        className="rounded-2xl overflow-hidden shadow-lg border border-border mb-8"
+        style={{ aspectRatio: "16/9" }}
+      >
+        <iframe
+          src="https://www.youtube.com/embed/TlWBqUZYfbs"
+          title="Tutorial Plataforma Solar Intelbras"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full"
+        />
+      </div>
+
       <div className="space-y-4">
-        <StepCard number={1} title="Parceiro faz o projeto na Plataforma Solar">
-          <p>Cadastre o projeto normalmente na Plataforma Solar.</p>
+        <StepCard number={1} title="Parceiro faz o projeto na Plataforma Solar Intelbras">
+          <p>Cadastre o projeto normalmente na <strong>Plataforma Solar Intelbras</strong>.</p>
           <AttentionBox>
             <strong>Atenção:</strong> A proposta deve conter <strong>apenas os equipamentos</strong>, sem os serviços. Os serviços serão cobrados separadamente via maquininha ou link de pagamento.
           </AttentionBox>
@@ -112,13 +126,13 @@ function TutorialPlataformaSolar() {
           <p>Emita a nota fiscal referente aos serviços prestados.</p>
         </StepCard>
 
-        <StepCard number={9} title="Parceiro recebe na conta digital no próximo dia">
+        <StepCard number={9} title="Parceiro recebe na conta digital no próximo dia útil">
           <p>O valor dos seus serviços é depositado na sua conta digital <strong>no próximo dia útil</strong>.</p>
           <div
             className="mt-3 p-3 rounded-lg border flex items-center gap-2"
             style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
           >
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 160)" }} />
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
             <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
               Recebimento em 1 dia útil — Tá na Conta!
             </p>
@@ -160,7 +174,7 @@ function TutorialMaquininha() {
         {/* Modalidades aceitas */}
         <div
           className="rounded-xl p-4 border mb-6"
-          style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+          style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
         >
           <p className="font-semibold text-sm text-foreground mb-3">Modalidades Aceitas</p>
           <div className="flex flex-wrap gap-2">
@@ -168,7 +182,7 @@ function TutorialMaquininha() {
               <span
                 key={m}
                 className="px-3 py-1 rounded-full text-xs font-semibold text-white"
-                style={{ background: "oklch(0.30 0.16 250)" }}
+                style={{ background: "oklch(0.35 0.18 145)" }}
               >
                 {m}
               </span>
@@ -183,7 +197,7 @@ function TutorialMaquininha() {
             className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all ${
               tab === "solar" ? "text-white shadow-md" : "bg-white border border-border text-muted-foreground hover:text-foreground"
             }`}
-            style={tab === "solar" ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
+            style={tab === "solar" ? { background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" } : {}}
           >
             Solar com Maquininha
           </button>
@@ -192,7 +206,7 @@ function TutorialMaquininha() {
             className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all ${
               tab === "outras" ? "text-white shadow-md" : "bg-white border border-border text-muted-foreground hover:text-foreground"
             }`}
-            style={tab === "outras" ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
+            style={tab === "outras" ? { background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" } : {}}
           >
             Outras Vendas
           </button>
@@ -204,7 +218,7 @@ function TutorialMaquininha() {
         <div className="space-y-4">
           <div
             className="rounded-xl p-4 border mb-2"
-            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
           >
             <p className="text-sm font-semibold text-foreground">Processo Plataforma Solar com Maquininha</p>
             <p className="text-xs text-muted-foreground mt-1">Siga este passo a passo para vendas de projetos de energia solar.</p>
@@ -252,10 +266,22 @@ function TutorialMaquininha() {
 
           <StepCard number={8} title="Imprima 2 vias">
             <p>Imprima <strong>2 vias</strong>: uma para o cliente e uma para você.</p>
+            <div
+              className="mt-3 rounded-xl p-4 border-2 flex items-start gap-3"
+              style={{ background: "oklch(0.98 0.04 55 / 0.5)", borderColor: "oklch(0.65 0.18 55)" }}
+            >
+              <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.50 0.18 55)" }} />
+              <div>
+                <p className="text-sm font-bold mb-1" style={{ color: "oklch(0.40 0.15 55)" }}>Ponto de Atenção Importante!</p>
+                <p className="text-sm" style={{ color: "oklch(0.35 0.10 55)" }}>
+                  Guarde bem o comprovante impresso! Você precisará dele para fazer o <strong>upload na Plataforma Solar</strong> e confirmar o pagamento do projeto. Sem o comprovante, o processo de liberação dos equipamentos pode ser atrasado.
+                </p>
+              </div>
+            </div>
           </StepCard>
 
-          <StepCard number={9} title="Acesse a Plataforma Solar e entre no projeto">
-            <p>Quando voltar para o escritório, acesse a Plataforma Solar e abra o projeto correspondente.</p>
+          <StepCard number={9} title="Acesse a Plataforma Solar Intelbras e entre no projeto">
+            <p>Quando voltar para o escritório, acesse a <strong>Plataforma Solar Intelbras</strong> e abra o projeto correspondente.</p>
           </StepCard>
 
           <StepCard number={10} title="Zere o valor dos serviços e sinalize a visita técnica">
@@ -268,7 +294,7 @@ function TutorialMaquininha() {
               className="mt-3 p-3 rounded-lg border flex items-center gap-2"
               style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
             >
-              <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 160)" }} />
+              <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
               <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
                 Processo concluído! Acompanhe o envio pelo status da Plataforma Solar.
               </p>
@@ -282,7 +308,7 @@ function TutorialMaquininha() {
         <div className="space-y-4">
           <div
             className="rounded-xl p-4 border mb-2"
-            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
           >
             <p className="text-sm font-semibold text-foreground">Outras Vendas na Maquininha (Intelbras ou não)</p>
             <p className="text-xs text-muted-foreground mt-1">Para vendas de outros produtos e serviços além dos projetos solares.</p>
@@ -441,7 +467,7 @@ function TutorialLinkPagamento() {
             className="mt-3 p-3 rounded-lg border flex items-center gap-2"
             style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
           >
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 160)" }} />
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
             <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
               Processo concluído! Acompanhe o envio pelo status da Plataforma Solar.
             </p>
@@ -484,7 +510,7 @@ export default function Tutoriais() {
       {/* Hero */}
       <section
         className="py-14 lg:py-18 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl">
@@ -531,7 +557,7 @@ export default function Tutoriais() {
       </div>
 
       {/* Desktop: layout com sidebar lateral */}
-      <div className="py-10" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <div className="py-10" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container">
           <div className="flex gap-8 items-start">
 
@@ -550,15 +576,15 @@ export default function Tutoriais() {
                             ? "text-white shadow-md"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted"
                         }`}
-                        style={activeTab.id === tab.id ? { background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" } : {}}
+                        style={activeTab.id === tab.id ? { background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" } : {}}
                       >
                         <div
                           className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                             activeTab.id === tab.id ? "bg-white/20" : ""
                           }`}
-                          style={activeTab.id !== tab.id ? { background: "oklch(0.30 0.16 250 / 0.08)" } : {}}
+                          style={activeTab.id !== tab.id ? { background: "oklch(0.35 0.18 145 / 0.08)" } : {}}
                         >
-                          <span style={{ color: activeTab.id === tab.id ? "white" : "oklch(0.30 0.16 250)" }}>
+                          <span style={{ color: activeTab.id === tab.id ? "white" : "oklch(0.35 0.18 145)" }}>
                             {tab.icon}
                           </span>
                         </div>

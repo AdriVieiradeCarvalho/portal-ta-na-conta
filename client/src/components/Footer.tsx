@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="text-white" style={{ background: "oklch(0.12 0.06 250)" }}>
+    <footer className="text-white" style={{ background: "oklch(0.12 0.06 145)" }}>
       {/* Main Footer */}
       <div className="container py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: "linear-gradient(135deg, oklch(0.55 0.20 250), oklch(0.72 0.18 55))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.60 0.20 145), oklch(0.72 0.18 55))" }}
               >
                 TNC
               </div>

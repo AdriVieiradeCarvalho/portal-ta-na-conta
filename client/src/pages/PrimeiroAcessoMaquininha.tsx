@@ -20,9 +20,9 @@ function InfoBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.30 0.16 250 / 0.05)", borderColor: "oklch(0.30 0.16 250 / 0.2)" }}
+      style={{ background: "oklch(0.35 0.18 145 / 0.05)", borderColor: "oklch(0.35 0.18 145 / 0.2)" }}
     >
-      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.30 0.16 250)" }} />
+      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.35 0.18 145)" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
@@ -34,7 +34,7 @@ export default function PrimeiroAcessoMaquininha() {
       {/* Hero */}
       <section
         className="py-16 lg:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl">
@@ -63,14 +63,14 @@ export default function PrimeiroAcessoMaquininha() {
         <div className="container max-w-3xl">
           <div
             className="rounded-2xl p-6 lg:p-8 border"
-            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
           >
             <div className="flex items-start gap-4">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}
+                style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
               >
-                <CreditCard className="w-6 h-6" style={{ color: "oklch(0.30 0.16 250)" }} />
+                <CreditCard className="w-6 h-6" style={{ color: "oklch(0.35 0.18 145)" }} />
               </div>
               <div>
                 <h2 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
@@ -86,14 +86,14 @@ export default function PrimeiroAcessoMaquininha() {
       </section>
 
       {/* Conexão */}
-      <section className="py-10" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-10" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}
+              style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
             >
-              <Wifi className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+              <Wifi className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
             <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
               Conexão da Maquininha
@@ -126,7 +126,7 @@ export default function PrimeiroAcessoMaquininha() {
             <div className="flex gap-4">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 1
               </div>
@@ -145,14 +145,14 @@ export default function PrimeiroAcessoMaquininha() {
       </section>
 
       {/* Pix na maquininha */}
-      <section className="py-12" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-12" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
               style={{ background: "oklch(0.40 0.18 160 / 0.1)" }}
             >
-              <CheckCircle2 className="w-5 h-5" style={{ color: "oklch(0.40 0.18 160)" }} />
+              <CheckCircle2 className="w-5 h-5" style={{ color: "oklch(0.40 0.18 145)" }} />
             </div>
             <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
               Pix na Maquininha
@@ -192,7 +192,7 @@ export default function PrimeiroAcessoMaquininha() {
                   className="w-9 h-9 rounded-lg flex items-center justify-center mb-3"
                   style={{ background: "oklch(0.40 0.18 160 / 0.1)" }}
                 >
-                  <span style={{ color: "oklch(0.40 0.18 160)" }}>{item.icon}</span>
+                  <span style={{ color: "oklch(0.40 0.18 145)" }}>{item.icon}</span>
                 </div>
                 <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
@@ -223,9 +223,9 @@ export default function PrimeiroAcessoMaquininha() {
               >
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center mx-auto mb-2"
-                  style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
+                  style={{ background: "oklch(0.35 0.18 145 / 0.08)" }}
                 >
-                  <CreditCard className="w-4 h-4" style={{ color: "oklch(0.30 0.16 250)" }} />
+                  <CreditCard className="w-4 h-4" style={{ color: "oklch(0.35 0.18 145)" }} />
                 </div>
                 <p className="font-semibold text-sm text-foreground">{item.label}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
@@ -238,7 +238,7 @@ export default function PrimeiroAcessoMaquininha() {
       {/* CTA */}
       <section
         className="py-12 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250), oklch(0.30 0.16 250))" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145), oklch(0.35 0.18 145))" }}
       >
         <div className="container max-w-3xl text-center">
           <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>

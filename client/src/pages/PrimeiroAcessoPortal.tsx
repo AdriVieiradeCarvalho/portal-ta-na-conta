@@ -21,7 +21,7 @@ export default function PrimeiroAcessoPortal() {
       {/* Hero */}
       <section
         className="py-16 lg:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl">
@@ -72,11 +72,11 @@ export default function PrimeiroAcessoPortal() {
       </section>
 
       {/* Usuário e Senha */}
-      <section className="py-12" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-12" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}>
-              <KeyRound className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}>
+              <KeyRound className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
             <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
               Usuário e Senha
@@ -85,10 +85,10 @@ export default function PrimeiroAcessoPortal() {
 
           <div
             className="rounded-2xl p-6 border mb-6"
-            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
           >
             <div className="flex items-start gap-3 mb-4">
-              <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.30 0.16 250)" }} />
+              <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.35 0.18 145)" }} />
               <div>
                 <p className="font-semibold text-sm text-foreground mb-1">Mensagem de boas-vindas</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -112,8 +112,8 @@ export default function PrimeiroAcessoPortal() {
       <section className="py-12 bg-white">
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}>
-              <Monitor className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}>
+              <Monitor className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
             <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
               Como acessar o Portal
@@ -124,7 +124,7 @@ export default function PrimeiroAcessoPortal() {
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 1
               </div>
@@ -141,7 +141,7 @@ export default function PrimeiroAcessoPortal() {
                   <Button
                     size="sm"
                     className="text-white font-semibold"
-                    style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                    style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
                   >
                     Acessar Plataforma de Gestão
                     <ExternalLink className="w-4 h-4 ml-2" />
@@ -153,7 +153,7 @@ export default function PrimeiroAcessoPortal() {
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 2
               </div>
@@ -168,7 +168,7 @@ export default function PrimeiroAcessoPortal() {
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 3
               </div>
@@ -184,7 +184,7 @@ export default function PrimeiroAcessoPortal() {
       </section>
 
       {/* Recursos do Portal */}
-      <section className="py-12" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-12" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-3xl">
           <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Sora, sans-serif" }}>
             O que você pode fazer no Portal
@@ -202,9 +202,9 @@ export default function PrimeiroAcessoPortal() {
               >
                 <div
                   className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}
+                  style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
                 >
-                  <span style={{ color: "oklch(0.30 0.16 250)" }}>{item.icon}</span>
+                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{item.icon}</span>
                 </div>
                 <div>
                   <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
@@ -219,7 +219,7 @@ export default function PrimeiroAcessoPortal() {
       {/* CTA */}
       <section
         className="py-12 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250), oklch(0.30 0.16 250))" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145), oklch(0.35 0.18 145))" }}
       >
         <div className="container max-w-3xl text-center">
           <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>

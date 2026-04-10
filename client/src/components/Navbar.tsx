@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lu
 import { Button } from "@/components/ui/button";
 
 const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
-const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/LogCappta_3141c9a0.png";
+const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-cappta-silhueta_44f8aafd.png";
 
 interface DropdownItem {
   label: string;
@@ -93,8 +93,8 @@ function DropdownMenu({ items, isOpen }: { items: DropdownItem[]; isOpen: boolea
             <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted cursor-pointer group transition-colors">
               {item.icon && (
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: "oklch(0.96 0.01 250)" }}>
-                  <span style={{ color: "oklch(0.30 0.16 250)" }}>{item.icon}</span>
+                  style={{ background: "oklch(0.96 0.01 145)" }}>
+                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{item.icon}</span>
                 </div>
               )}
               <div>
@@ -154,10 +154,10 @@ export default function Navbar() {
                 src={CAPPTA_LOGO}
                 alt="Cappta"
                 className="h-8 w-auto object-contain"
-                style={{ maxWidth: "90px", filter: "brightness(0) saturate(0)" }}
+                style={{ maxWidth: "90px" }}
               />
               <div className="hidden sm:block border-l border-border pl-3">
-                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.20 0.14 250)" }}>
+                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.25 0.15 145)" }}>
                   Tá na Conta
                 </p>
                 <p className="text-[10px] text-muted-foreground leading-tight">Uma parceria Intelbras e Cappta</p>
@@ -215,7 +215,7 @@ export default function Navbar() {
               <Button
                 size="sm"
                 className="text-white font-semibold"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 Solicitar Maquininha
               </Button>
@@ -296,7 +296,7 @@ export default function Navbar() {
             >
               <Button
                 className="w-full text-white font-semibold"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 Solicitar Maquininha
               </Button>

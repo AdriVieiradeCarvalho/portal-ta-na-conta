@@ -26,7 +26,7 @@ function StepCard({ number, title, description, children }: {
     <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
       <div
         className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-        style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
       >
         {number}
       </div>
@@ -45,7 +45,7 @@ export default function AtivarConta() {
       {/* Hero */}
       <section
         className="py-16 lg:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl">
@@ -74,14 +74,14 @@ export default function AtivarConta() {
         <div className="container max-w-3xl">
           <div
             className="rounded-2xl p-6 lg:p-8 border"
-            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.15)" }}
+            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
           >
             <div className="flex items-start gap-4">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "oklch(0.30 0.16 250 / 0.12)" }}
+                style={{ background: "oklch(0.35 0.18 145 / 0.12)" }}
               >
-                <CheckCircle2 className="w-6 h-6" style={{ color: "oklch(0.30 0.16 250)" }} />
+                <CheckCircle2 className="w-6 h-6" style={{ color: "oklch(0.35 0.18 145)" }} />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
@@ -98,7 +98,7 @@ export default function AtivarConta() {
                     "Usar Pix e pagar boletos",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.55 0.20 250)" }} />
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.60 0.20 145)" }} />
                       <span className="text-sm text-foreground">{item}</span>
                     </div>
                   ))}
@@ -110,12 +110,12 @@ export default function AtivarConta() {
       </section>
 
       {/* Seção I: Conta Digital */}
-      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-              style={{ background: "oklch(0.30 0.16 250)" }}
+              style={{ background: "oklch(0.35 0.18 145)" }}
             >
               I
             </div>
@@ -127,7 +127,7 @@ export default function AtivarConta() {
           {/* Download */}
           <div className="mb-8">
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <Download className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+              <Download className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
               Download do Aplicativo
             </h3>
             <p className="text-muted-foreground mb-5 text-sm leading-relaxed">
@@ -142,7 +142,7 @@ export default function AtivarConta() {
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "oklch(0.15 0.02 250)" }}
+                  style={{ background: "oklch(0.15 0.02 145)" }}
                 >
                   <Apple className="w-5 h-5 text-white" />
                 </div>
@@ -176,7 +176,7 @@ export default function AtivarConta() {
           {/* Instalação e Ativação */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
-              <Settings className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+              <Settings className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
               Instalação e Ativação
             </h3>
             <div className="space-y-4">
@@ -214,7 +214,7 @@ export default function AtivarConta() {
                   Procure o e-mail enviado por{" "}
                   <span
                     className="font-mono text-xs px-2 py-0.5 rounded"
-                    style={{ background: "oklch(0.96 0.005 250)", color: "oklch(0.30 0.16 250)" }}
+                    style={{ background: "oklch(0.96 0.005 145)", color: "oklch(0.35 0.18 145)" }}
                   >
                     noreply-contadigital@cappta.com.br
                   </span>{" "}
@@ -238,9 +238,9 @@ export default function AtivarConta() {
 
             <div
               className="mt-6 p-5 rounded-2xl flex items-start gap-4"
-              style={{ background: "oklch(0.55 0.20 250 / 0.06)", border: "1px solid oklch(0.55 0.20 250 / 0.2)" }}
+              style={{ background: "oklch(0.60 0.20 145 / 0.06)", border: "1px solid oklch(0.60 0.20 145 / 0.2)" }}
             >
-              <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.20 250)" }} />
+              <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.60 0.20 145)" }} />
               <div>
                 <p className="font-semibold text-foreground mb-1">Conta ativada com sucesso!</p>
                 <p className="text-sm text-muted-foreground">
@@ -258,7 +258,7 @@ export default function AtivarConta() {
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-              style={{ background: "oklch(0.30 0.16 250)" }}
+              style={{ background: "oklch(0.35 0.18 145)" }}
             >
               II
             </div>
@@ -299,12 +299,12 @@ export default function AtivarConta() {
       </section>
 
       {/* Seção III: Maquininha */}
-      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 250)" }} id="maquininha">
+      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 145)" }} id="maquininha">
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-              style={{ background: "oklch(0.30 0.16 250)" }}
+              style={{ background: "oklch(0.35 0.18 145)" }}
             >
               III
             </div>
@@ -351,7 +351,7 @@ export default function AtivarConta() {
             <Link href="/tutoriais/maquininha">
               <Button
                 className="text-white font-semibold"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
                 Ver Tutorial de Vendas
                 <ArrowRight className="w-4 h-4 ml-2" />

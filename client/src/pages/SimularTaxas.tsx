@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 
 /**
  * SimularTaxas — embeds the original simulator logic faithfully.
@@ -438,14 +437,13 @@ export default function SimularTaxas() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar />
 
       {/* Hero */}
       <section
         className="py-14 text-white"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)",
+            "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)",
         }}
       >
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -460,10 +458,10 @@ export default function SimularTaxas() {
             className="text-3xl md:text-4xl font-bold mb-3"
             style={{ fontFamily: "Sora, sans-serif" }}
           >
-            Simule o pagamento em cartão
+            Simule o pagamento
           </h1>
           <p className="text-white/80 text-base max-w-xl mx-auto leading-relaxed">
-            Informe o valor do projeto, a quantidade de cartões e a bandeira para ver todas as opções de parcelamento de 1 a 21 vezes com taxas, valores e parcelas detalhados.
+            Essa simulação serve para cartão ou para o valor que deseja colocar na maquininha. Parcelamento de 1 a 21 vezes com taxas detalhadas e possibilidade de múltiplos cartões.
           </p>
         </div>
       </section>
@@ -471,9 +469,30 @@ export default function SimularTaxas() {
       {/* Simulator container */}
       <main className="flex-1 py-10 px-4">
         <div className="max-w-3xl mx-auto" ref={containerRef} />
+
+        {/* Link planilha offline */}
+        <div className="max-w-3xl mx-auto mt-8 mb-4">
+          <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-4 shadow-sm">
+            <span className="text-2xl">📊</span>
+            <div>
+              <p className="text-sm font-semibold text-gray-800">Prefere trabalhar offline?</p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Acesse a{" "}
+                <a
+                  href="https://docs.google.com/spreadsheets/d/12nK4LYA5gCsHEDPZIluhaLL6RoHfy8YatRZWsoMyQow/edit?gid=0#gid=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline font-medium hover:text-blue-800"
+                >
+                  planilha de cálculo de taxas offline
+                </a>{" "}
+                para simular sem internet.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
 
-      <Footer />
     </div>
   );
 }

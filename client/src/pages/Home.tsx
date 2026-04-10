@@ -137,7 +137,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <div
       className="border border-border rounded-xl overflow-hidden transition-all duration-200"
-      style={{ background: open ? "oklch(0.98 0.005 250)" : "white" }}
+      style={{ background: open ? "oklch(0.98 0.005 145)" : "white" }}
     >
       <button
         className="w-full flex items-center justify-between p-5 text-left gap-4"
@@ -234,7 +234,7 @@ export default function Home() {
             <div>
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "oklch(0.30 0.16 250 / 0.08)", color: "oklch(0.30 0.16 250)" }}
+                style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
               >
                 <Zap className="w-3.5 h-3.5" />
                 Solução Completa
@@ -260,7 +260,7 @@ export default function Home() {
                   "Sem taxa de adesão e sem mensalidade condicional",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.20 250)" }} />
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.60 0.20 145)" }} />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
@@ -269,7 +269,7 @@ export default function Home() {
             <div className="relative">
               <div
                 className="absolute -inset-4 rounded-2xl opacity-20"
-                style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.72 0.18 55))" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.72 0.18 55))" }}
               />
               <img
                 src={BUSINESS_IMAGE}
@@ -283,9 +283,9 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}
+                    style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
                   >
-                    <TrendingUp className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+                    <TrendingUp className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
                   </div>
                   <div>
                     <p className="font-bold text-sm text-foreground">+10% de lucro</p>
@@ -299,7 +299,7 @@ export default function Home() {
       </section>
 
       {/* ─── ARGUMENTOS DE VENDAS ─── */}
-      <section className="py-14 lg:py-20" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-14 lg:py-20" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2
@@ -336,7 +336,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-              style={{ background: "oklch(0.30 0.16 250 / 0.08)", color: "oklch(0.30 0.16 250)" }}
+              style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
             >
               <Shield className="w-3.5 h-3.5" />
               Benefícios
@@ -357,13 +357,13 @@ export default function Home() {
               <div
                 key={benefit.title}
                 className="bg-white rounded-2xl p-6 border border-border card-hover group"
-                style={{ background: "oklch(0.98 0.005 250)" }}
+                style={{ background: "oklch(0.98 0.005 145)" }}
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all group-hover:scale-110"
-                  style={{ background: "oklch(0.30 0.16 250 / 0.08)" }}
+                  style={{ background: "oklch(0.35 0.18 145 / 0.08)" }}
                 >
-                  <span style={{ color: "oklch(0.30 0.16 250)" }}>{benefit.icon}</span>
+                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{benefit.icon}</span>
                 </div>
                 <div
                   className="inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2"
@@ -380,13 +380,13 @@ export default function Home() {
       </section>
 
       {/* ─── PROCESSO ─── */}
-      <section className="py-16 lg:py-24 overflow-hidden" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-16 lg:py-24 overflow-hidden" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "oklch(0.30 0.16 250 / 0.08)", color: "oklch(0.30 0.16 250)" }}
+                style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 Processo Financeiro
@@ -404,12 +404,12 @@ export default function Home() {
                     <div className="flex flex-col items-center">
                       <div
                         className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                        style={{ background: "linear-gradient(135deg, oklch(0.30 0.16 250), oklch(0.55 0.20 250))" }}
+                        style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
                       >
                         {step.number}
                       </div>
                       {idx < steps.length - 1 && (
-                        <div className="w-0.5 h-full mt-2" style={{ background: "oklch(0.90 0.01 250)" }} />
+                        <div className="w-0.5 h-full mt-2" style={{ background: "oklch(0.90 0.01 145)" }} />
                       )}
                     </div>
                     <div className="pb-6">
@@ -437,7 +437,7 @@ export default function Home() {
       {/* ─── CONDIÇÕES COMERCIAIS ─── */}
       <section
         className="py-16 lg:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 250) 0%, oklch(0.30 0.16 250) 60%, oklch(0.40 0.18 250) 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
       >
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -498,13 +498,13 @@ export default function Home() {
       </section>
 
       {/* ─── FAQ ─── */}
-      <section className="py-16 lg:py-24" style={{ background: "oklch(0.97 0.005 250)" }}>
+      <section className="py-16 lg:py-24" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "oklch(0.30 0.16 250 / 0.08)", color: "oklch(0.30 0.16 250)" }}
+                style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
               >
                 Perguntas Frequentes
               </div>
