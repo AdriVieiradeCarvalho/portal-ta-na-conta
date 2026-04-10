@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Smartphone, Download, Settings, CheckCircle2, AlertTriangle,
-  ArrowRight, ExternalLink, Apple, Wifi, CreditCard, Info
+  ArrowRight, ExternalLink, Apple, Info, Users, Store, ShieldAlert
 } from "lucide-react";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
@@ -108,24 +108,123 @@ export default function PrimeiroAcessoConta() {
         </div>
       </section>
 
-      {/* Preparação */}
+      {/* ⚠️ Preparação para Instalação */}
       <section className="py-10" style={{ background: "oklch(0.97 0.005 250)" }}>
         <div className="container max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Sora, sans-serif" }}>
-            Preparação para instalação
-          </h2>
-          <div className="space-y-3">
-            {[
-              "Tenha em mãos o CPF do responsável pelo cadastro.",
-              "Acesse o e-mail cadastrado — você receberá um Token de ativação.",
-              "Certifique-se de ter conexão com a internet no celular.",
-              "O Token tem validade curta: faça a ativação imediatamente após recebê-lo.",
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-border">
-                <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.20 250)" }} />
-                <p className="text-sm text-foreground">{item}</p>
+          <div className="flex items-center gap-3 mb-6">
+            <div
+              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: "oklch(0.55 0.18 55 / 0.12)" }}
+            >
+              <ShieldAlert className="w-5 h-5" style={{ color: "oklch(0.55 0.18 55)" }} />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+              Preparação para instalação
+            </h2>
+          </div>
+
+          {/* Bloco de atenção principal */}
+          <div
+            className="rounded-2xl p-6 border mb-6"
+            style={{ background: "oklch(0.98 0.04 55 / 0.35)", borderColor: "oklch(0.72 0.18 55 / 0.5)" }}
+          >
+            <div className="flex items-start gap-3 mb-4">
+              <AlertTriangle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
+              <h3 className="font-bold text-base text-foreground" style={{ color: "oklch(0.40 0.15 55)" }}>
+                ⚠️ Atenção! ⚠️
+              </h3>
+            </div>
+            <div className="space-y-3 text-sm text-foreground leading-relaxed pl-9">
+              <p>
+                Para sua própria segurança, nossa <strong>Conta Digital salva o serial do celular instalado</strong> em nossos servidores, não permitindo o uso em outros equipamentos.
+              </p>
+              <p>
+                Isso <strong>evita fraudes e golpes cibernéticos</strong> após a instalação.
+              </p>
+              <p>
+                Por isso, <strong>escolha de antemão qual aparelho fará uso do aplicativo da Conta Digital</strong>, para que o seu financeiro possa realizar suas operações diárias com agilidade.
+              </p>
+              <div
+                className="mt-3 p-3 rounded-xl border"
+                style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
+              >
+                <p>
+                  Caso precise mudar o celular que usa a Conta Digital, <strong>solicite ao nosso suporte a liberação da instalação em outro aparelho</strong>.
+                </p>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Multilojas */}
+          <div
+            className="rounded-2xl p-6 border mb-4"
+            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.2)" }}
+          >
+            <div className="flex items-start gap-3 mb-3">
+              <div
+                className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: "oklch(0.30 0.16 250 / 0.12)" }}
+              >
+                <Store className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+              </div>
+              <div>
+                <h3 className="font-bold text-base text-foreground">Sua conta é Multilojas!</h3>
+              </div>
+            </div>
+            <div className="pl-12 space-y-2 text-sm text-foreground leading-relaxed">
+              <p>
+                Você pode ter <strong>outros CNPJs associados ao mesmo usuário de conta digital</strong>. Assim, você consegue ter a gestão financeira de todos os seus negócios em uma única conta!
+              </p>
+              <p>
+                Para ter o Multilojas, você precisa estar com todos os seus negócios credenciados. Faça o cadastro de todos eles e peça à <strong>Sofia</strong> para uni-los!
+              </p>
+              <a
+                href="https://api.whatsapp.com/send?phone=5511998013839&text=Oi,%20Inteligência%20Artificial%20de%20Suporte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg font-semibold text-white text-xs"
+                style={{ background: "oklch(0.40 0.18 160)" }}
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Falar com a Sofia
+              </a>
+            </div>
+          </div>
+
+          {/* Multiusuários */}
+          <div
+            className="rounded-2xl p-6 border"
+            style={{ background: "oklch(0.30 0.16 250 / 0.04)", borderColor: "oklch(0.30 0.16 250 / 0.2)" }}
+          >
+            <div className="flex items-start gap-3 mb-3">
+              <div
+                className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: "oklch(0.30 0.16 250 / 0.12)" }}
+              >
+                <Users className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+              </div>
+              <div>
+                <h3 className="font-bold text-base text-foreground">Sua conta também é Multiusuários!</h3>
+              </div>
+            </div>
+            <div className="pl-12 space-y-2 text-sm text-foreground leading-relaxed">
+              <p>
+                Você também pode <strong>adicionar outros usuários na Conta Digital</strong> e instalar mais apps em outros celulares. Eles movimentarão a mesma conta do CNPJ credenciado.
+              </p>
+              <p>
+                Para isso, peça também à <strong>Sofia</strong>: ela enviará um <strong>Termo de Cessão para assinatura digital</strong>. Após a assinatura, será feita a liberação de mais um usuário da conta.
+              </p>
+              <a
+                href="https://api.whatsapp.com/send?phone=5511998013839&text=Oi,%20Inteligência%20Artificial%20de%20Suporte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg font-semibold text-white text-xs"
+                style={{ background: "oklch(0.40 0.18 160)" }}
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Falar com a Sofia
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -240,18 +339,18 @@ export default function PrimeiroAcessoConta() {
         </div>
       </section>
 
-      {/* Informações Importantes */}
-      <section className="py-12 bg-white" id="maquininha">
+      {/* Informações Importantes da Conta */}
+      <section className="py-12 bg-white">
         <div className="container max-w-3xl">
           <h2 className="text-2xl font-bold text-foreground mb-8" style={{ fontFamily: "Sora, sans-serif" }}>
             Informações Importantes
           </h2>
 
-          {/* Pix */}
+          {/* Pix na Conta Digital */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}>
-                <CreditCard className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
+                <CheckCircle2 className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
               </div>
               <h3 className="font-bold text-lg text-foreground">Pix na Conta Digital</h3>
             </div>
@@ -274,7 +373,7 @@ export default function PrimeiroAcessoConta() {
           </div>
 
           {/* Horário */}
-          <div className="mb-8">
+          <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}>
                 <Settings className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
@@ -284,64 +383,6 @@ export default function PrimeiroAcessoConta() {
             <InfoBox>
               O horário dos pagamentos é das <strong>8h às 18h</strong>, porém, como boa prática, executamos os depósitos até o <strong>meio-dia</strong>.
             </InfoBox>
-          </div>
-
-          {/* Maquininha */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}>
-                <CreditCard className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
-              </div>
-              <h3 className="font-bold text-lg text-foreground">Sua Maquininha</h3>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              Você está recebendo a maquininha mais moderna do mercado! Ela tem sistema operacional Android, alta duração de bateria e seu uso é muito intuitivo. Sua experiência vai ser como a de usar celulares Android.
-            </p>
-          </div>
-
-          {/* Conexão */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.30 0.16 250 / 0.1)" }}>
-                <Wifi className="w-5 h-5" style={{ color: "oklch(0.30 0.16 250)" }} />
-              </div>
-              <h3 className="font-bold text-lg text-foreground">Conexão da Maquininha</h3>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-              Sua maquininha está conectada com a Vivo! Mas sugerimos sempre mantê-la configurada também ao seu Wi-Fi da loja e plano de dados do celular. Assim, você sempre terá opções de conexão, mesmo instalando painéis solares no interior do Brasil.
-            </p>
-            <InfoBox>
-              Para configurar o Wi-Fi, toque na tela da maquininha com um "arrastar para baixo" — o mesmo movimento que você faz para acessar o Wi-Fi no seu celular Android. Siga da mesma forma que configura no seu celular.
-            </InfoBox>
-          </div>
-
-          {/* Pix na maquininha */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.40 0.18 160 / 0.1)" }}>
-                <CheckCircle2 className="w-5 h-5" style={{ color: "oklch(0.40 0.18 160)" }} />
-              </div>
-              <h3 className="font-bold text-lg text-foreground">Pix na Maquininha</h3>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              A venda em Pix também está habilitada na maquininha. Usar o Pix na maquininha te dá vários benefícios:
-            </p>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {[
-                { title: "Segurança", desc: "O recibo para o seu cliente sai na hora e você terá certeza de que o Pix cairá na conta correta, evitando golpes." },
-                { title: "Facilidade na conciliação", desc: "As vendas constarão no Portal e os valores cairão junto com as vendas em cartão." },
-                { title: "Flexibilidade", desc: "Qualquer funcionário pode fazer a venda sem precisar ter acesso à conta principal da empresa." },
-                { title: "Eficiência financeira", desc: "Os valores transacionados poderão ser usados para pagar os produtos descritos na proposta comercial de energia solar." },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="p-4 rounded-xl border border-border bg-white"
-                >
-                  <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

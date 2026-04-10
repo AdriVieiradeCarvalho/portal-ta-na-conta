@@ -115,3 +115,10 @@
 ## Correções Solicitadas (Abril 2026 - Rodada 3)
 - [x] Recolocar stat "D+2" nos quick stats do hero (ao lado de 21x e 1 dia)
 - [x] Remover texto "2 dias úteis para receber" da seção de benefícios com imagem de painéis solares
+
+## Correções Solicitadas (Abril 2026 - Rodada 4)
+- [x] PrimeiroAcessoConta: substituir seção "Preparação para Instalação" com novo conteúdo de segurança (serial do celular)
+- [x] PrimeiroAcessoConta: adicionar seção Multilojas com link para Sofia
+- [x] PrimeiroAcessoConta: adicionar seção Multiusuários com link para Sofia
+- [x] PrimeiroAcessoConta: manter seções de download, ativação e instalação
+- [x] PrimeiroAcessoConta: remover seções "Sua Maquininha", "Conexão da Maquininha" e "Pix na Maquininha"
