@@ -122,3 +122,6 @@
 - [x] PrimeiroAcessoConta: adicionar seção Multiusuários com link para Sofia
 - [x] PrimeiroAcessoConta: manter seções de download, ativação e instalação
 - [x] PrimeiroAcessoConta: remover seções "Sua Maquininha", "Conexão da Maquininha" e "Pix na Maquininha"
+
+## Correções Solicitadas (Abr 2026 - Rodada 5)
+- [ ] SimularTaxas: reconstruir fiel ao HTML original com tabela 1-21 parcelas na vertical, todas as colunas (taxa, valor maquininha/link, parcela, taxas), resumo final expandido e exportação PDF
