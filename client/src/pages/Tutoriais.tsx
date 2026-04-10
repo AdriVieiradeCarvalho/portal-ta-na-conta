@@ -2,16 +2,17 @@ import { useState } from "react";
 import { Link, useParams } from "wouter";
 import {
   Monitor, CreditCard, Link2, AlertTriangle, CheckCircle2,
-  Info, Play, ChevronRight
+  Info, Play, ChevronRight, ExternalLink
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
+      style={{ background: "rgba(240,165,0,0.08)", borderColor: "rgba(240,165,0,0.35)" }}
     >
-      <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
+      <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#b07800" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
@@ -21,9 +22,9 @@ function InfoBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.35 0.18 145 / 0.05)", borderColor: "oklch(0.35 0.18 145 / 0.2)" }}
+      style={{ background: "rgba(0,163,53,0.05)", borderColor: "rgba(0,163,53,0.20)" }}
     >
-      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.35 0.18 145)" }} />
+      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
@@ -38,8 +39,8 @@ function StepCard({ number, title, children, attention }: {
   return (
     <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
       <div
-        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-        style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+        className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+        style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
       >
         {number}
       </div>
@@ -49,10 +50,10 @@ function StepCard({ number, title, children, attention }: {
         {attention && (
           <div
             className="mt-3 rounded-lg p-3 border flex items-start gap-2"
-            style={{ background: "oklch(0.98 0.04 55 / 0.3)", borderColor: "oklch(0.72 0.18 55 / 0.3)" }}
+            style={{ background: "rgba(240,165,0,0.08)", borderColor: "rgba(240,165,0,0.30)" }}
           >
-            <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
-            <p className="text-xs" style={{ color: "oklch(0.40 0.12 55)" }}>{attention}</p>
+            <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#b07800" }} />
+            <p className="text-xs" style={{ color: "#7a5200" }}>{attention}</p>
           </div>
         )}
       </div>
@@ -65,75 +66,85 @@ function TutorialPlataformaSolar() {
   return (
     <div>
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+        <h2 className="text-2xl font-bold text-foreground mb-3">
           Como funciona o processo na Plataforma Solar
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed">
-          Entenda o fluxo completo desde o cadastro do projeto até o recebimento na sua conta digital — tudo em 1 dia útil.
+          Entenda o fluxo completo desde a criação do projeto até o recebimento na sua conta digital — tudo em 1 dia útil.
         </p>
       </div>
 
-      {/* Vídeo Tutorial Solar */}
-      <div
-        className="rounded-2xl overflow-hidden shadow-lg border border-border mb-8"
-        style={{ aspectRatio: "16/9" }}
-      >
-        <iframe
-          src="https://www.youtube.com/embed/TlWBqUZYfbs"
-          title="Tutorial Plataforma Solar Intelbras"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        />
+      {/* Botão Tutorial Drive */}
+      <div className="mb-8">
+        <a
+          href="https://drive.google.com/file/d/17xa1VIVx4j0euizlTU6_GSob-1JHkZPw/view?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            size="lg"
+            className="font-bold gap-2"
+            style={{ background: "#00d084", color: "#003318" }}
+          >
+            <ExternalLink className="w-5 h-5" />
+            Ver Tutorial: Pagamento na Plataforma Solar
+          </Button>
+        </a>
+        <p className="text-xs text-muted-foreground mt-2">Abre o tutorial completo em nova aba (Google Drive)</p>
       </div>
 
       <div className="space-y-4">
-        <StepCard number={1} title="Parceiro faz o projeto na Plataforma Solar Intelbras">
-          <p>Cadastre o projeto normalmente na <strong>Plataforma Solar Intelbras</strong>.</p>
-          <AttentionBox>
-            <strong>Atenção:</strong> A proposta deve conter <strong>apenas os equipamentos</strong>, sem os serviços. Os serviços serão cobrados separadamente via maquininha ou link de pagamento.
-          </AttentionBox>
+        <StepCard number={1} title="Parceiro cria o projeto na Plataforma Solar Intelbras">
+          <p>Cadastre o projeto normalmente na <strong>Plataforma Solar Intelbras</strong> com todos os equipamentos do projeto.</p>
         </StepCard>
 
         <StepCard number={2} title="Parceiro apresenta a proposta com valor dos serviços e taxas de parcelamento">
-          <p>Inclua no orçamento o valor dos serviços e, se houver parcelamento, as taxas correspondentes. Use o simulador para calcular os valores.</p>
+          <p>Inclua no orçamento o valor dos serviços e, se houver parcelamento, as taxas correspondentes. Use o <Link href="/simular-taxas"><span className="text-primary underline cursor-pointer">Simulador de Taxas</span></Link> para calcular os valores.</p>
         </StepCard>
 
-        <StepCard number={3} title="Cliente aprova o orçamento no Portal">
-          <p>O cliente acessa o Portal e aprova formalmente o orçamento apresentado.</p>
+        <StepCard number={3} title="Cliente aprova o orçamento">
+          <p>O cliente analisa e aprova formalmente o orçamento apresentado pelo parceiro.</p>
         </StepCard>
 
-        <StepCard number={4} title="Cliente paga pelo projeto na maquininha">
-          <p>O pagamento é realizado na maquininha.</p>
+        <StepCard number={4} title="Parceiro retira o valor dos serviços da Plataforma Solar Intelbras">
+          <p>Antes de cobrar na maquininha, o parceiro acessa a Plataforma Solar e retira (zera) o valor dos serviços do projeto, deixando apenas os produtos.</p>
+        </StepCard>
+
+        <StepCard number={5} title="Parceiro preenche valor dos produtos e serviços na maquininha">
+          <p>O parceiro digita na maquininha o valor total — produtos + serviços — que será cobrado do cliente.</p>
+        </StepCard>
+
+        <StepCard number={6} title="Cliente paga pelo projeto completo na maquininha">
+          <p>O cliente realiza o pagamento na maquininha (débito, crédito à vista ou parcelado).</p>
           <InfoBox>
             A venda pode ser feita com <strong>vários cartões</strong> — ideal para dividir o valor entre diferentes portadores.
           </InfoBox>
         </StepCard>
 
-        <StepCard number={5} title="Processo de split — retenção automática">
-          <p>A plataforma identifica o pagamento e realiza o <strong>split automático</strong>: a parte referente aos equipamentos é retida e a parte dos serviços fica disponível para você.</p>
+        <StepCard number={7} title="Cappta realiza o split dos produtos para Intelbras">
+          <p>A plataforma identifica o pagamento e realiza o <strong>split automático</strong>: a parte referente aos equipamentos é repassada à Intelbras e a parte dos serviços fica disponível para o parceiro.</p>
         </StepCard>
 
-        <StepCard number={6} title="Equipamentos separados e enviados">
-          <p>Após a confirmação do pagamento, os equipamentos são separados e enviados ao endereço do projeto.</p>
+        <StepCard number={8} title="Intelbras envia os equipamentos e emite NF dos produtos">
+          <p>Após a confirmação do split, a Intelbras separa, envia os equipamentos ao endereço do projeto e emite a nota fiscal dos produtos.</p>
         </StepCard>
 
-        <StepCard number={7} title="Parceiro realiza os serviços no cliente">
-          <p>Com os equipamentos em mãos, execute a instalação e os serviços contratados.</p>
+        <StepCard number={9} title="Parceiro instala os equipamentos">
+          <p>Com os equipamentos em mãos, o parceiro executa a instalação e os serviços contratados.</p>
         </StepCard>
 
-        <StepCard number={8} title="Parceiro emite nota fiscal para o cliente">
-          <p>Emita a nota fiscal referente aos serviços prestados.</p>
+        <StepCard number={10} title="Parceiro emite NF do serviço">
+          <p>Após a instalação, o parceiro emite a nota fiscal referente aos serviços prestados ao cliente.</p>
         </StepCard>
 
-        <StepCard number={9} title="Parceiro recebe na conta digital no próximo dia útil">
-          <p>O valor dos seus serviços é depositado na sua conta digital <strong>no próximo dia útil</strong>.</p>
+        <StepCard number={11} title="Parceiro recebe sua parte na Conta Digital no dia seguinte">
+          <p>O valor dos serviços é depositado na conta digital do parceiro <strong>no próximo dia útil</strong>.</p>
           <div
             className="mt-3 p-3 rounded-lg border flex items-center gap-2"
-            style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
+            style={{ background: "rgba(0,208,132,0.08)", borderColor: "rgba(0,163,53,0.30)" }}
           >
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
-            <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "#00A335" }} />
+            <p className="text-xs font-semibold" style={{ color: "#00A335" }}>
               Recebimento em 1 dia útil — Tá na Conta!
             </p>
           </div>
@@ -150,7 +161,7 @@ function TutorialMaquininha() {
   return (
     <div>
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+        <h2 className="text-2xl font-bold text-foreground mb-3">
           Venda na Maquininha
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed mb-4">
@@ -174,7 +185,7 @@ function TutorialMaquininha() {
         {/* Modalidades aceitas */}
         <div
           className="rounded-xl p-4 border mb-6"
-          style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
+          style={{ background: "rgba(0,163,53,0.04)", borderColor: "rgba(0,163,53,0.15)" }}
         >
           <p className="font-semibold text-sm text-foreground mb-3">Modalidades Aceitas</p>
           <div className="flex flex-wrap gap-2">
@@ -182,7 +193,7 @@ function TutorialMaquininha() {
               <span
                 key={m}
                 className="px-3 py-1 rounded-full text-xs font-semibold text-white"
-                style={{ background: "oklch(0.35 0.18 145)" }}
+                style={{ background: "#00A335" }}
               >
                 {m}
               </span>
@@ -197,7 +208,7 @@ function TutorialMaquininha() {
             className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all ${
               tab === "solar" ? "text-white shadow-md" : "bg-white border border-border text-muted-foreground hover:text-foreground"
             }`}
-            style={tab === "solar" ? { background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" } : {}}
+            style={tab === "solar" ? { background: "linear-gradient(135deg, #00A335, #00d084)" } : {}}
           >
             Solar com Maquininha
           </button>
@@ -206,7 +217,7 @@ function TutorialMaquininha() {
             className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all ${
               tab === "outras" ? "text-white shadow-md" : "bg-white border border-border text-muted-foreground hover:text-foreground"
             }`}
-            style={tab === "outras" ? { background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" } : {}}
+            style={tab === "outras" ? { background: "linear-gradient(135deg, #00A335, #00d084)" } : {}}
           >
             Outras Vendas
           </button>
@@ -218,7 +229,7 @@ function TutorialMaquininha() {
         <div className="space-y-4">
           <div
             className="rounded-xl p-4 border mb-2"
-            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
+            style={{ background: "rgba(0,163,53,0.04)", borderColor: "rgba(0,163,53,0.15)" }}
           >
             <p className="text-sm font-semibold text-foreground">Processo Plataforma Solar com Maquininha</p>
             <p className="text-xs text-muted-foreground mt-1">Siga este passo a passo para vendas de projetos de energia solar.</p>
@@ -239,13 +250,13 @@ function TutorialMaquininha() {
           <StepCard
             number={4}
             title="Ligue a maquininha"
-            attention="Segure o botão cromado por 3 segundos até que a bolinha laranja apareça. Aguarde a inicialização completa do terminal."
+            attention="Segure o botão cromado por 3 segundos até que a bolinha verde apareça. Aguarde a inicialização completa antes de continuar."
           >
-            <p>Pressione o botão cromado por 3 segundos até a bolinha laranja aparecer e aguarde a inicialização.</p>
+            <p>Pressione o botão cromado por 3 segundos até a bolinha verde aparecer e aguarde a inicialização.</p>
           </StepCard>
 
-          <StepCard number={5} title='Digite o valor e toque em "Pagar"'>
-            <p>Digite o valor total da venda (incluindo as taxas de parcelamento) e toque no botão <strong>"Pagar"</strong>.</p>
+          <StepCard number={5} title='Digite o valor total e toque em "Pagar"'>
+            <p>Digite o valor total da venda (produtos + serviços) e toque no botão <strong>"Pagar"</strong>.</p>
           </StepCard>
 
           <StepCard
@@ -268,12 +279,12 @@ function TutorialMaquininha() {
             <p>Imprima <strong>2 vias</strong>: uma para o cliente e uma para você.</p>
             <div
               className="mt-3 rounded-xl p-4 border-2 flex items-start gap-3"
-              style={{ background: "oklch(0.98 0.04 55 / 0.5)", borderColor: "oklch(0.65 0.18 55)" }}
+              style={{ background: "rgba(240,165,0,0.10)", borderColor: "rgba(240,165,0,0.55)" }}
             >
-              <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.50 0.18 55)" }} />
+              <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#b07800" }} />
               <div>
-                <p className="text-sm font-bold mb-1" style={{ color: "oklch(0.40 0.15 55)" }}>Ponto de Atenção Importante!</p>
-                <p className="text-sm" style={{ color: "oklch(0.35 0.10 55)" }}>
+                <p className="text-sm font-bold mb-1" style={{ color: "#7a5200" }}>Ponto de Atenção Importante!</p>
+                <p className="text-sm" style={{ color: "#7a5200" }}>
                   Guarde bem o comprovante impresso! Você precisará dele para fazer o <strong>upload na Plataforma Solar</strong> e confirmar o pagamento do projeto. Sem o comprovante, o processo de liberação dos equipamentos pode ser atrasado.
                 </p>
               </div>
@@ -292,10 +303,10 @@ function TutorialMaquininha() {
             <p>Escolha o pagamento com a <strong>"Maquininha Intelbras"</strong>. Tire uma foto do seu comprovante e faça o upload. Pronto — agora é só acompanhar o envio dos produtos pelo status da Plataforma Solar!</p>
             <div
               className="mt-3 p-3 rounded-lg border flex items-center gap-2"
-              style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
+              style={{ background: "rgba(0,208,132,0.08)", borderColor: "rgba(0,163,53,0.30)" }}
             >
-              <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
-              <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
+              <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "#00A335" }} />
+              <p className="text-xs font-semibold" style={{ color: "#00A335" }}>
                 Processo concluído! Acompanhe o envio pelo status da Plataforma Solar.
               </p>
             </div>
@@ -308,7 +319,7 @@ function TutorialMaquininha() {
         <div className="space-y-4">
           <div
             className="rounded-xl p-4 border mb-2"
-            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
+            style={{ background: "rgba(0,163,53,0.04)", borderColor: "rgba(0,163,53,0.15)" }}
           >
             <p className="text-sm font-semibold text-foreground">Outras Vendas na Maquininha (Intelbras ou não)</p>
             <p className="text-xs text-muted-foreground mt-1">Para vendas de outros produtos e serviços além dos projetos solares.</p>
@@ -328,9 +339,9 @@ function TutorialMaquininha() {
           <StepCard
             number={3}
             title="Ligue a maquininha"
-            attention="Segure o botão cromado por 3 segundos até que a bolinha laranja apareça. Aguarde a inicialização completa."
+            attention="Segure o botão cromado por 3 segundos até que a bolinha verde apareça. Aguarde a inicialização completa."
           >
-            <p>Pressione o botão cromado por 3 segundos até a bolinha laranja aparecer e aguarde a inicialização.</p>
+            <p>Pressione o botão cromado por 3 segundos até a bolinha verde aparecer e aguarde a inicialização.</p>
           </StepCard>
 
           <StepCard number={4} title='Digite o valor e toque em "Pagar" ou "Pix"'>
@@ -375,7 +386,7 @@ function TutorialLinkPagamento() {
   return (
     <div>
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+        <h2 className="text-2xl font-bold text-foreground mb-3">
           Venda com Link de Pagamento
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed mb-4">
@@ -465,10 +476,10 @@ function TutorialLinkPagamento() {
           <p>Tire um print dos links pagos na Plataforma Cappta. Faça o upload dessas comprovações na Plataforma Solar. Pronto — agora é só acompanhar o envio dos produtos e instalar!</p>
           <div
             className="mt-3 p-3 rounded-lg border flex items-center gap-2"
-            style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
+            style={{ background: "rgba(0,208,132,0.08)", borderColor: "rgba(0,163,53,0.30)" }}
           >
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
-            <p className="text-xs font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "#00A335" }} />
+            <p className="text-xs font-semibold" style={{ color: "#00A335" }}>
               Processo concluído! Acompanhe o envio pelo status da Plataforma Solar.
             </p>
           </div>
@@ -510,21 +521,18 @@ export default function Tutoriais() {
       {/* Hero */}
       <section
         className="py-14 lg:py-18 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
+        style={{ background: "linear-gradient(135deg, #003318 0%, #00A335 60%, #00d084 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-              style={{ background: "oklch(1 0 0 / 0.12)", border: "1px solid oklch(1 0 0 / 0.2)" }}
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <Play className="w-3.5 h-3.5" />
               Tutoriais
             </div>
-            <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Passo a passo descomplicado
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
@@ -557,7 +565,7 @@ export default function Tutoriais() {
       </div>
 
       {/* Desktop: layout com sidebar lateral */}
-      <div className="py-10" style={{ background: "oklch(0.97 0.005 145)" }}>
+      <div className="py-10" style={{ background: "#f5faf7" }}>
         <div className="container">
           <div className="flex gap-8 items-start">
 
@@ -576,15 +584,15 @@ export default function Tutoriais() {
                             ? "text-white shadow-md"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted"
                         }`}
-                        style={activeTab.id === tab.id ? { background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" } : {}}
+                        style={activeTab.id === tab.id ? { background: "linear-gradient(135deg, #00A335, #00d084)" } : {}}
                       >
                         <div
                           className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                             activeTab.id === tab.id ? "bg-white/20" : ""
                           }`}
-                          style={activeTab.id !== tab.id ? { background: "oklch(0.35 0.18 145 / 0.08)" } : {}}
+                          style={activeTab.id !== tab.id ? { background: "rgba(0,163,53,0.08)" } : {}}
                         >
-                          <span style={{ color: activeTab.id === tab.id ? "white" : "oklch(0.35 0.18 145)" }}>
+                          <span style={{ color: activeTab.id === tab.id ? "white" : "#00A335" }}>
                             {tab.icon}
                           </span>
                         </div>

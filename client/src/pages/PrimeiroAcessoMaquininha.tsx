@@ -8,7 +8,7 @@ function AttentionBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
+      style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}
     >
       <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
@@ -47,7 +47,7 @@ export default function PrimeiroAcessoMaquininha() {
             </div>
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
+              style={{ fontFamily: "Roboto, sans-serif" }}
             >
               Sua Maquininha
             </h1>
@@ -73,7 +73,7 @@ export default function PrimeiroAcessoMaquininha() {
                 <CreditCard className="w-6 h-6" style={{ color: "oklch(0.35 0.18 145)" }} />
               </div>
               <div>
-                <h2 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
+                <h2 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: "Roboto, sans-serif" }}>
                   A maquininha mais moderna do mercado
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -95,7 +95,7 @@ export default function PrimeiroAcessoMaquininha() {
             >
               <Wifi className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Conexão da Maquininha
             </h2>
           </div>
@@ -114,11 +114,11 @@ export default function PrimeiroAcessoMaquininha() {
           <div className="flex items-center gap-3 mb-6">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "oklch(0.72 0.18 55 / 0.12)" }}
+              style={{ background: "rgba(0,208,132,0.12)" }}
             >
               <Zap className="w-5 h-5" style={{ color: "oklch(0.55 0.15 55)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Como ligar a maquininha
             </h2>
           </div>
@@ -154,7 +154,7 @@ export default function PrimeiroAcessoMaquininha() {
             >
               <CheckCircle2 className="w-5 h-5" style={{ color: "oklch(0.40 0.18 145)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Pix na Maquininha
             </h2>
           </div>
@@ -205,7 +205,7 @@ export default function PrimeiroAcessoMaquininha() {
       {/* Modalidades aceitas */}
       <section className="py-12 bg-white">
         <div className="container max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Sora, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Roboto, sans-serif" }}>
             Modalidades aceitas
           </h2>
           <div className="grid sm:grid-cols-3 gap-4">
@@ -241,7 +241,7 @@ export default function PrimeiroAcessoMaquininha() {
         style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145), oklch(0.35 0.18 145))" }}
       >
         <div className="container max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Roboto, sans-serif" }}>
             Pronto para vender?
           </h2>
           <p className="text-white/70 mb-6 text-sm">
@@ -251,7 +251,7 @@ export default function PrimeiroAcessoMaquininha() {
             <Button
               size="lg"
               className="font-bold text-base px-8"
-              style={{ background: "linear-gradient(135deg, oklch(0.65 0.18 55), oklch(0.72 0.18 55))", color: "white" }}
+              style={{ background: "linear-gradient(135deg, #00d084, #00A335)", color: "white" }}
             >
               Ver Tutorial de Venda
               <ArrowRight className="w-5 h-5 ml-2" />

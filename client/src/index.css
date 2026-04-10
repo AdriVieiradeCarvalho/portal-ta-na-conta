@@ -42,78 +42,84 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ── Intelbras Brand Colors ──────────────────────────────────────────────────
+   Primary:   #00d084  (verde vibrante Intelbras)
+   Secondary: #00A335  (verde escuro Intelbras)
+   Hover:     #007A39  (verde hover)
+   Text sec:  #3E5055  (cinza-esverdeado)
+   White:     #FFFFFF
+   ─────────────────────────────────────────────────────────────────────────── */
+
 :root {
-  /* Intelbras Green #00A335 → oklch(0.60 0.20 145) */
-  --primary: oklch(0.60 0.20 145);
-  --primary-foreground: oklch(0.99 0 0);
-  /* Cappta Orange */
-  --secondary: oklch(0.72 0.18 55);
-  --secondary-foreground: oklch(0.15 0.02 55);
+  /* Primary: #00d084 → oklch(0.76 0.18 162) */
+  --primary: oklch(0.76 0.18 162);
+  --primary-foreground: oklch(0.10 0.02 162);
+  /* Secondary: #00A335 → oklch(0.60 0.20 145) */
+  --secondary: oklch(0.60 0.20 145);
+  --secondary-foreground: oklch(0.99 0 0);
   /* Accent: verde mais claro */
-  --accent: oklch(0.75 0.14 145);
-  --accent-foreground: oklch(0.15 0.05 145);
+  --accent: oklch(0.88 0.10 162);
+  --accent-foreground: oklch(0.20 0.08 145);
   --radius: 0.75rem;
   --background: oklch(0.99 0.002 145);
-  --foreground: oklch(0.15 0.02 145);
+  --foreground: oklch(0.20 0.04 200);
   --card: oklch(1.0 0 0);
-  --card-foreground: oklch(0.15 0.02 145);
+  --card-foreground: oklch(0.20 0.04 200);
   --popover: oklch(1.0 0 0);
-  --popover-foreground: oklch(0.15 0.02 145);
+  --popover-foreground: oklch(0.20 0.04 200);
   --muted: oklch(0.96 0.005 145);
-  --muted-foreground: oklch(0.50 0.03 145);
+  --muted-foreground: oklch(0.45 0.04 200);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.90 0.01 145);
   --input: oklch(0.90 0.01 145);
-  --ring: oklch(0.60 0.20 145);
-  --chart-1: oklch(0.60 0.20 145);
-  --chart-2: oklch(0.72 0.18 55);
-  --chart-3: oklch(0.75 0.14 145);
-  --chart-4: oklch(0.45 0.18 145);
-  --chart-5: oklch(0.60 0.18 310);
-  --sidebar: oklch(0.20 0.10 145);
+  --ring: oklch(0.76 0.18 162);
+  --chart-1: oklch(0.76 0.18 162);
+  --chart-2: oklch(0.60 0.20 145);
+  --chart-3: oklch(0.45 0.18 145);
+  --chart-4: oklch(0.35 0.15 145);
+  --chart-5: oklch(0.88 0.10 162);
+  --sidebar: oklch(0.18 0.08 145);
   --sidebar-foreground: oklch(0.95 0.005 145);
-  --sidebar-primary: oklch(0.60 0.20 145);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-primary: oklch(0.76 0.18 162);
+  --sidebar-primary-foreground: oklch(0.10 0.02 162);
   --sidebar-accent: oklch(0.28 0.08 145);
   --sidebar-accent-foreground: oklch(0.95 0.005 145);
   --sidebar-border: oklch(0.30 0.08 145);
-  --sidebar-ring: oklch(0.60 0.20 145);
+  --sidebar-ring: oklch(0.76 0.18 162);
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
+  --primary: oklch(0.76 0.18 162);
+  --primary-foreground: oklch(0.10 0.02 162);
+  --background: oklch(0.141 0.005 200);
+  --foreground: oklch(0.92 0.005 200);
+  --card: oklch(0.21 0.006 200);
+  --card-foreground: oklch(0.92 0.005 200);
+  --popover: oklch(0.21 0.006 200);
+  --popover-foreground: oklch(0.92 0.005 200);
+  --secondary: oklch(0.24 0.006 200);
+  --secondary-foreground: oklch(0.7 0.005 200);
+  --muted: oklch(0.274 0.006 200);
+  --muted-foreground: oklch(0.705 0.015 200);
+  --accent: oklch(0.274 0.006 200);
+  --accent-foreground: oklch(0.92 0.005 200);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --ring: oklch(0.76 0.18 162);
+  --chart-1: oklch(0.76 0.18 162);
+  --chart-2: oklch(0.60 0.20 145);
+  --chart-3: oklch(0.45 0.18 145);
+  --chart-4: oklch(0.35 0.15 145);
+  --chart-5: oklch(0.88 0.10 162);
+  --sidebar: oklch(0.21 0.006 200);
+  --sidebar-foreground: oklch(0.92 0.005 200);
+  --sidebar-accent: oklch(0.274 0.006 200);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --sidebar-ring: oklch(0.76 0.18 162);
 }
 
 @layer base {
@@ -122,10 +128,10 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', system-ui, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', system-ui, sans-serif;
     @apply font-bold tracking-tight;
   }
   button:not(:disabled),
@@ -142,24 +148,11 @@
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -170,7 +163,7 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
@@ -183,29 +176,34 @@
     }
   }
 
+  /* Gradiente principal verde Intelbras: #00A335 → #00d084 */
   .brand-gradient {
-    background: linear-gradient(135deg, oklch(0.20 0.12 250) 0%, oklch(0.30 0.16 250) 50%, oklch(0.40 0.18 250) 100%);
+    background: linear-gradient(135deg, #00A335 0%, #00d084 100%);
   }
 
+  /* Texto com gradiente verde */
   .brand-gradient-text {
-    background: linear-gradient(135deg, oklch(0.30 0.16 250) 0%, oklch(0.55 0.20 250) 60%, oklch(0.72 0.18 55) 100%);
+    background: linear-gradient(135deg, #00A335 0%, #00d084 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  /* Hero overlay verde escuro */
   .hero-overlay {
-    background: linear-gradient(135deg, oklch(0.12 0.08 145 / 0.92) 0%, oklch(0.20 0.12 145 / 0.75) 60%, oklch(0.28 0.14 145 / 0.50) 100%);
+    background: linear-gradient(135deg, rgba(0,40,20,0.92) 0%, rgba(0,90,40,0.75) 60%, rgba(0,163,53,0.50) 100%);
   }
 
+  /* Box de atenção — mantém âmbar para alertas de atenção (semântico) */
   .attention-box {
-    border-left: 4px solid oklch(0.72 0.18 55);
-    background-color: oklch(0.72 0.18 55 / 0.08);
+    border-left: 4px solid #f0a500;
+    background-color: rgba(240,165,0,0.08);
     @apply rounded-r-lg p-4;
   }
 
+  /* Badge numerado verde */
   .step-badge {
-    background: linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145));
+    background: linear-gradient(135deg, #00A335, #00d084);
     @apply w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0;
   }
 

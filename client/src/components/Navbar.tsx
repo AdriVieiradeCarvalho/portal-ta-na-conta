@@ -93,8 +93,8 @@ function DropdownMenu({ items, isOpen }: { items: DropdownItem[]; isOpen: boolea
             <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted cursor-pointer group transition-colors">
               {item.icon && (
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: "oklch(0.96 0.01 145)" }}>
-                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{item.icon}</span>
+                  style={{ background: "rgba(0,208,132,0.10)" }}>
+                  <span style={{ color: "#00A335" }}>{item.icon}</span>
                 </div>
               )}
               <div>
@@ -150,14 +150,18 @@ export default function Navbar() {
           {/* Logo: Cappta logo + Tá na Conta + parceria */}
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer group">
+              {/* Logo Cappta com filtro verde para visibilidade */}
               <img
                 src={CAPPTA_LOGO}
                 alt="Cappta"
                 className="h-8 w-auto object-contain"
-                style={{ maxWidth: "90px" }}
+                style={{
+                  maxWidth: "90px",
+                  filter: "invert(48%) sepia(97%) saturate(400%) hue-rotate(100deg) brightness(90%)"
+                }}
               />
               <div className="hidden sm:block border-l border-border pl-3">
-                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Sora, sans-serif", color: "oklch(0.25 0.15 145)" }}>
+                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Roboto, sans-serif", color: "#00A335" }}>
                   Tá na Conta
                 </p>
                 <p className="text-[10px] text-muted-foreground leading-tight">Uma parceria Intelbras e Cappta</p>
@@ -205,7 +209,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button → formulário de adesão */}
+          {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={FORM_ADESAO}
@@ -214,8 +218,8 @@ export default function Navbar() {
             >
               <Button
                 size="sm"
-                className="text-white font-semibold"
-                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+                className="font-semibold"
+                style={{ background: "#00d084", color: "#003318" }}
               >
                 Solicitar Maquininha
               </Button>
@@ -295,8 +299,8 @@ export default function Navbar() {
               className="block"
             >
               <Button
-                className="w-full text-white font-semibold"
-                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+                className="w-full font-semibold"
+                style={{ background: "#00d084", color: "#003318" }}
               >
                 Solicitar Maquininha
               </Button>

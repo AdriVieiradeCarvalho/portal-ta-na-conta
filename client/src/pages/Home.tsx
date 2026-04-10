@@ -169,12 +169,9 @@ export default function Home() {
         <div className="hero-overlay absolute inset-0" />
         <div className="relative container py-20 lg:py-28">
           <div className="max-w-2xl">
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Seu projeto em{" "}
-              <span style={{ color: "oklch(0.85 0.15 55)" }}>1 dia</span>
+              <span style={{ color: "#00d084" }}>1 dia</span>
               <br />
               <span className="text-white">Tá na Conta!</span>
             </h1>
@@ -190,7 +187,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="text-white font-bold text-base px-8 shadow-lg hover:shadow-xl transition-all"
-                  style={{ background: "linear-gradient(135deg, oklch(0.65 0.18 55), oklch(0.72 0.18 55))" }}
+                  style={{ background: "#00d084", color: "#003318" }}
                 >
                   Peça sua Maquininha
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -216,7 +213,7 @@ export default function Home() {
                 { value: "D+2", label: "Outros valores" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-2xl sm:text-3xl font-bold text-white" style={{ fontFamily: "Sora, sans-serif" }}>
+                  <p className="text-2xl sm:text-3xl font-bold text-white">
                     {stat.value}
                   </p>
                   <p className="text-xs text-white/60 mt-0.5">{stat.label}</p>
@@ -234,14 +231,13 @@ export default function Home() {
             <div>
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
+                style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
               >
                 <Zap className="w-3.5 h-3.5" />
                 Solução Completa
               </div>
               <h2
                 className="text-3xl lg:text-4xl font-bold text-foreground mb-5"
-                style={{ fontFamily: "Sora, sans-serif" }}
               >
                 O que é o Portal{" "}
                 <span className="brand-gradient-text">Tá na Conta?</span>
@@ -260,7 +256,7 @@ export default function Home() {
                   "Sem taxa de adesão e sem mensalidade condicional",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.60 0.20 145)" }} />
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
@@ -269,7 +265,7 @@ export default function Home() {
             <div className="relative">
               <div
                 className="absolute -inset-4 rounded-2xl opacity-20"
-                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.72 0.18 55))" }}
+                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}
               />
               <img
                 src={BUSINESS_IMAGE}
@@ -283,9 +279,9 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
-                  >
-                    <TrendingUp className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+                  style={{ background: "rgba(0,163,53,0.10)" }}
+                >
+                  <TrendingUp className="w-5 h-5" style={{ color: "#00A335" }} />
                   </div>
                   <div>
                     <p className="font-bold text-sm text-foreground">+10% de lucro</p>
@@ -304,7 +300,6 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2
               className="text-2xl lg:text-3xl font-bold text-foreground mb-3"
-              style={{ fontFamily: "Sora, sans-serif" }}
             >
               Por que seu cliente vai <span className="brand-gradient-text">fechar com você?</span>
             </h2>
@@ -318,9 +313,9 @@ export default function Home() {
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center"
-                  style={{ background: "oklch(0.72 0.18 55 / 0.12)" }}
+                  style={{ background: "rgba(0,163,53,0.08)" }}
                 >
-                  <span style={{ color: "oklch(0.55 0.15 55)" }}>{arg.icon}</span>
+                  <span style={{ color: "#00A335" }}>{arg.icon}</span>
                 </div>
                 <p className="font-bold text-sm text-foreground leading-snug">{arg.title}</p>
                 <p className="text-xs text-muted-foreground leading-relaxed">{arg.description}</p>
@@ -336,16 +331,15 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-              style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
+              style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
             >
               <Shield className="w-3.5 h-3.5" />
               Benefícios
             </div>
             <h2
               className="text-3xl lg:text-4xl font-bold text-foreground mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
-              Benefícios que vão além{" "}
+              >
+                Benefícios que vão além{" "}
               <span className="brand-gradient-text">da maquininha</span>
             </h2>
             <p className="text-muted-foreground">
@@ -361,13 +355,13 @@ export default function Home() {
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all group-hover:scale-110"
-                  style={{ background: "oklch(0.35 0.18 145 / 0.08)" }}
+                  style={{ background: "rgba(0,163,53,0.08)" }}
                 >
-                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{benefit.icon}</span>
+                  <span style={{ color: "#00A335" }}>{benefit.icon}</span>
                 </div>
                 <div
                   className="inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2"
-                  style={{ background: "oklch(0.72 0.18 55 / 0.12)", color: "oklch(0.55 0.15 55)" }}
+                  style={{ background: "rgba(0,208,132,0.15)", color: "#00A335" }}
                 >
                   {benefit.highlight}
                 </div>
@@ -386,14 +380,13 @@ export default function Home() {
             <div className="order-2 lg:order-1">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
+                style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 Processo Financeiro
               </div>
               <h2
                 className="text-3xl lg:text-4xl font-bold text-foreground mb-8"
-                style={{ fontFamily: "Sora, sans-serif" }}
               >
                 Como funciona o{" "}
                 <span className="brand-gradient-text">processo financeiro?</span>
@@ -404,7 +397,7 @@ export default function Home() {
                     <div className="flex flex-col items-center">
                       <div
                         className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                        style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+                        style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
                       >
                         {step.number}
                       </div>
@@ -437,13 +430,12 @@ export default function Home() {
       {/* ─── CONDIÇÕES COMERCIAIS ─── */}
       <section
         className="py-16 lg:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
+          style={{ background: "linear-gradient(135deg, #003318 0%, #00A335 60%, #00d084 100%)" }}
       >
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2
               className="text-3xl lg:text-4xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
             >
               Condições Comerciais
             </h2>
@@ -467,9 +459,9 @@ export default function Home() {
               >
                 <div
                   className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: "oklch(0.72 0.18 55 / 0.2)" }}
+                  style={{ background: "rgba(0,208,132,0.18)" }}
                 >
-                  <span style={{ color: "oklch(0.85 0.15 55)" }}>{item.icon}</span>
+                  <span style={{ color: "#00d084" }}>{item.icon}</span>
                 </div>
                 <div>
                   <p className="font-semibold text-sm text-white">{item.title}</p>
@@ -487,7 +479,7 @@ export default function Home() {
               <Button
                 size="lg"
                 className="font-bold text-base px-10 shadow-lg"
-                style={{ background: "linear-gradient(135deg, oklch(0.65 0.18 55), oklch(0.72 0.18 55))", color: "white" }}
+                style={{ background: "#00d084", color: "#003318" }}
               >
                 Peça Agora a Sua Maquininha
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -504,13 +496,12 @@ export default function Home() {
             <div className="text-center mb-12">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
+                style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
               >
                 Perguntas Frequentes
               </div>
               <h2
                 className="text-3xl lg:text-4xl font-bold text-foreground mb-4"
-                style={{ fontFamily: "Sora, sans-serif" }}
               >
                 Tire suas <span className="brand-gradient-text">dúvidas</span>
               </h2>

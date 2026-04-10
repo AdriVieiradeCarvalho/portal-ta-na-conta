@@ -7,7 +7,7 @@ function AttentionBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
+      style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}
     >
       <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
@@ -34,7 +34,7 @@ export default function PrimeiroAcessoPortal() {
             </div>
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
+              style={{ fontFamily: "Roboto, sans-serif" }}
             >
               Acessar o Portal de Gestão
             </h1>
@@ -49,7 +49,7 @@ export default function PrimeiroAcessoPortal() {
       <section className="py-12 bg-white">
         <div className="container max-w-3xl">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Roboto, sans-serif" }}>
               Funções Básicas do Portal
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xl mx-auto">
@@ -78,7 +78,7 @@ export default function PrimeiroAcessoPortal() {
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}>
               <KeyRound className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Usuário e Senha
             </h2>
           </div>
@@ -115,7 +115,7 @@ export default function PrimeiroAcessoPortal() {
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}>
               <Monitor className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Como acessar o Portal
             </h2>
           </div>
@@ -186,7 +186,7 @@ export default function PrimeiroAcessoPortal() {
       {/* Recursos do Portal */}
       <section className="py-12" style={{ background: "oklch(0.97 0.005 145)" }}>
         <div className="container max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Sora, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Roboto, sans-serif" }}>
             O que você pode fazer no Portal
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -222,7 +222,7 @@ export default function PrimeiroAcessoPortal() {
         style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145), oklch(0.35 0.18 145))" }}
       >
         <div className="container max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Roboto, sans-serif" }}>
             Pronto para começar?
           </h2>
           <p className="text-white/70 mb-6 text-sm">
@@ -236,7 +236,7 @@ export default function PrimeiroAcessoPortal() {
             <Button
               size="lg"
               className="font-bold text-base px-8"
-              style={{ background: "linear-gradient(135deg, oklch(0.65 0.18 55), oklch(0.72 0.18 55))", color: "white" }}
+              style={{ background: "linear-gradient(135deg, #00d084, #00A335)", color: "white" }}
             >
               Acessar o Portal Agora
               <ExternalLink className="w-5 h-5 ml-2" />

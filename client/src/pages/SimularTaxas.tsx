@@ -17,19 +17,19 @@ export default function SimularTaxas() {
     const styleEl = document.createElement("style");
     styleEl.id = "sim-scoped-styles";
     styleEl.textContent = `
-      #sim-root{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#333}
+      #sim-root{font-family:'Roboto',system-ui,sans-serif;color:#3E5055}
       #sim-root *{box-sizing:border-box}
-      #sim-root h1{margin:0 0 12px;color:#2c3e50;font-size:22px}
-      #sim-root h2{color:#2c3e50;font-size:18px;margin:0 0 8px}
+      #sim-root h1{margin:0 0 12px;color:#00A335;font-size:22px}
+      #sim-root h2{color:#00A335;font-size:18px;margin:0 0 8px}
       #sim-root .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
       #sim-root label{display:block;font-weight:600;margin-top:8px;font-size:14px}
       #sim-root input[type=number],#sim-root select{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d7de;font-size:14px;background:#fff;color:#333}
       #sim-root button{padding:10px 16px;border-radius:8px;border:none;font-size:14px;cursor:pointer;font-weight:600}
-      #sim-root .btn-primary{background:#27ae60;color:#fff}
-      #sim-root .btn-primary:hover{background:#1e8449}
+      #sim-root .btn-primary{background:#00d084;color:#003318}
+      #sim-root .btn-primary:hover{background:#007A39;color:#FFFFFF}
       #sim-root .btn-primary:disabled{background:#9ca3af;cursor:not-allowed}
-      #sim-root .btn-secondary{background:#2980b9;color:#fff}
-      #sim-root .btn-secondary:hover{background:#1f6391}
+      #sim-root .btn-secondary{background:#00A335;color:#FFFFFF}
+      #sim-root .btn-secondary:hover{background:#007A39}
       #sim-root .card{background:#fff;border:1px solid #d0d7de;border-radius:12px;padding:16px;margin-top:16px}
       #sim-root .panel-bg{background:#ecf0f1}
       #sim-root .muted{color:#6b7280;font-size:13px}
@@ -456,7 +456,7 @@ export default function SimularTaxas() {
           </div>
           <h1
             className="text-3xl md:text-4xl font-bold mb-3"
-            style={{ fontFamily: "Sora, sans-serif" }}
+            style={{ fontFamily: "Roboto, sans-serif" }}
           >
             Simule o pagamento
           </h1>
@@ -472,23 +472,27 @@ export default function SimularTaxas() {
 
         {/* Link planilha offline */}
         <div className="max-w-3xl mx-auto mt-8 mb-4">
-          <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-4 shadow-sm">
-            <span className="text-2xl">📊</span>
-            <div>
-              <p className="text-sm font-semibold text-gray-800">Prefere trabalhar offline?</p>
-              <p className="text-xs text-gray-500 mt-0.5">
-                Acesse a{" "}
-                <a
-                  href="https://docs.google.com/spreadsheets/d/12nK4LYA5gCsHEDPZIluhaLL6RoHfy8YatRZWsoMyQow/edit?gid=0#gid=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 underline font-medium hover:text-blue-800"
-                >
-                  planilha de cálculo de taxas offline
-                </a>{" "}
-                para simular sem internet.
-              </p>
+          <div
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl px-6 py-5 border"
+            style={{ background: "rgba(0,208,132,0.06)", borderColor: "rgba(0,163,53,0.20)" }}
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">📊</span>
+              <div>
+                <p className="text-sm font-semibold" style={{ color: "#3E5055" }}>Prefere trabalhar offline?</p>
+                <p className="text-xs mt-0.5" style={{ color: "#3E5055", opacity: 0.7 }}>Baixe a planilha de cálculo de taxas para simular sem internet.</p>
+              </div>
             </div>
+            <a
+              href="https://docs.google.com/spreadsheets/d/12nK4LYA5gCsHEDPZIluhaLL6RoHfy8YatRZWsoMyQow/edit?gid=0#gid=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm whitespace-nowrap transition-all hover:opacity-90"
+              style={{ background: "#00d084", color: "#003318" }}
+            >
+              Acessar Planilha Offline
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
         </div>
       </main>

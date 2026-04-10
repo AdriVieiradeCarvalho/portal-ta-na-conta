@@ -8,7 +8,7 @@ function AttentionBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
+      style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}
     >
       <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
@@ -78,7 +78,7 @@ export default function PrimeiroAcessoConta() {
             </div>
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
+              style={{ fontFamily: "Roboto, sans-serif" }}
             >
               Ativar sua Conta Digital
             </h1>
@@ -104,7 +104,7 @@ export default function PrimeiroAcessoConta() {
                 <CheckCircle2 className="w-6 h-6" style={{ color: "oklch(0.35 0.18 145)" }} />
               </div>
               <div>
-                <h2 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
+                <h2 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: "Roboto, sans-serif" }}>
                   Por que ativar a conta digital?
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -126,14 +126,14 @@ export default function PrimeiroAcessoConta() {
             >
               <ShieldAlert className="w-5 h-5" style={{ color: "oklch(0.55 0.18 55)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Preparação para instalação
             </h2>
           </div>
 
           <div
             className="rounded-2xl p-6 border"
-            style={{ background: "oklch(0.98 0.04 55 / 0.35)", borderColor: "oklch(0.72 0.18 55 / 0.5)" }}
+            style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.30)" }}
           >
             <div className="flex items-start gap-3 mb-4">
               <AlertTriangle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
@@ -153,7 +153,7 @@ export default function PrimeiroAcessoConta() {
               </p>
               <div
                 className="mt-3 p-3 rounded-xl border"
-                style={{ background: "oklch(0.98 0.04 55 / 0.4)", borderColor: "oklch(0.72 0.18 55 / 0.4)" }}
+                style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}
               >
                 <p>
                   Caso precise mudar o celular que usa a Conta Digital, <strong>solicite ao nosso suporte a liberação da instalação em outro aparelho</strong>.
@@ -174,7 +174,7 @@ export default function PrimeiroAcessoConta() {
             >
               <Download className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Download do App
             </h2>
           </div>
@@ -225,7 +225,7 @@ export default function PrimeiroAcessoConta() {
             >
               <Settings className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Instalação e Ativação
             </h2>
           </div>
@@ -269,7 +269,7 @@ export default function PrimeiroAcessoConta() {
       {/* 4. Informações Importantes da Conta */}
       <section className="py-12 bg-white">
         <div className="container max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground mb-8" style={{ fontFamily: "Sora, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-foreground mb-8" style={{ fontFamily: "Roboto, sans-serif" }}>
             Informações Importantes
           </h2>
 
@@ -289,7 +289,7 @@ export default function PrimeiroAcessoConta() {
           {/* Depósito mínimo */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.72 0.18 55 / 0.12)" }}>
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(0,208,132,0.12)" }}>
                 <Info className="w-5 h-5" style={{ color: "oklch(0.55 0.15 55)" }} />
               </div>
               <h3 className="font-bold text-lg text-foreground">Depósito Mínimo</h3>
@@ -392,7 +392,7 @@ export default function PrimeiroAcessoConta() {
         style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145), oklch(0.35 0.18 145))" }}
       >
         <div className="container max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Roboto, sans-serif" }}>
             Próximo passo: acesse o Portal
           </h2>
           <p className="text-white/70 mb-6 text-sm">
@@ -402,7 +402,7 @@ export default function PrimeiroAcessoConta() {
             <Button
               size="lg"
               className="font-bold text-base px-8"
-              style={{ background: "linear-gradient(135deg, oklch(0.65 0.18 55), oklch(0.72 0.18 55))", color: "white" }}
+              style={{ background: "linear-gradient(135deg, #00d084, #00A335)", color: "white" }}
             >
               Acessar o Portal
               <ArrowRight className="w-5 h-5 ml-2" />

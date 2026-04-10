@@ -58,7 +58,7 @@ export default function AtivarConta() {
             </div>
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
+              style={{ fontFamily: "Roboto, sans-serif" }}
             >
               Ativar Conta e Portal
             </h1>
@@ -84,7 +84,7 @@ export default function AtivarConta() {
                 <CheckCircle2 className="w-6 h-6" style={{ color: "oklch(0.35 0.18 145)" }} />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
+                <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Roboto, sans-serif" }}>
                   Por que ativar sua conta?
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -119,7 +119,7 @@ export default function AtivarConta() {
             >
               I
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Primeiro Acesso à Conta Digital
             </h2>
           </div>
@@ -262,7 +262,7 @@ export default function AtivarConta() {
             >
               II
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Primeiro Acesso ao Portal
             </h2>
           </div>
@@ -308,7 +308,7 @@ export default function AtivarConta() {
             >
               III
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Sora, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
               Uso da Maquininha
             </h2>
           </div>

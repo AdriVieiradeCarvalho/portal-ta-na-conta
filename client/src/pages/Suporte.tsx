@@ -11,27 +11,24 @@ export default function Suporte() {
       {/* Hero */}
       <section
         className="py-16 lg:py-24 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
+        style={{ background: "linear-gradient(135deg, #003318 0%, #00A335 60%, #00d084 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
             <div
               className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              style={{ background: "oklch(1 0 0 / 0.12)" }}
+              style={{ background: "rgba(255,255,255,0.12)" }}
             >
               <Headphones className="w-10 h-10 text-white" />
             </div>
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-              style={{ background: "oklch(1 0 0 / 0.12)", border: "1px solid oklch(1 0 0 / 0.2)" }}
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <Shield className="w-3.5 h-3.5" />
               Atendimento Exclusivo
             </div>
-            <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Suporte Técnico
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
@@ -44,30 +41,28 @@ export default function Suporte() {
       {/* CTA principal */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="container max-w-3xl">
-          {/* Imagem de suporte */}
-          <div className="flex justify-center mb-8">
-            <img
-              src={SUPORTE_IMG}
-              alt="Tá na Conta - Suporte"
-              className="w-32 h-32 rounded-2xl object-cover shadow-lg"
-            />
-          </div>
-
-          {/* Card de contato */}
+          {/* Card de contato com imagem dentro */}
           <div
             className="rounded-3xl p-8 lg:p-12 text-center border"
-            style={{ background: "oklch(0.97 0.005 145)", borderColor: "oklch(0.90 0.01 145)" }}
+            style={{ background: "#f5faf7", borderColor: "rgba(0,163,53,0.15)" }}
           >
+            {/* Imagem de identidade do suporte — em destaque dentro do card */}
+            <div className="flex justify-center mb-6">
+              <img
+                src={SUPORTE_IMG}
+                alt="Tá na Conta - Suporte Intelbras"
+                className="rounded-2xl object-cover shadow-lg"
+                style={{ width: "180px", height: "180px" }}
+              />
+            </div>
+
             <div
-              className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
               style={{ background: "#25D366" }}
             >
-              <MessageCircle className="w-10 h-10 text-white" />
+              <MessageCircle className="w-8 h-8 text-white" />
             </div>
-            <h2
-              className="text-2xl lg:text-3xl font-bold text-foreground mb-3"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
               Fale com nossa equipe
             </h2>
             <p className="text-muted-foreground mb-2 leading-relaxed">
@@ -75,7 +70,7 @@ export default function Suporte() {
             </p>
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-lg font-bold mb-8 mt-2"
-              style={{ background: "oklch(0.35 0.18 145 / 0.08)", color: "oklch(0.35 0.18 145)" }}
+              style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
             >
               <Phone className="w-5 h-5" />
               (11) 97440-9760
@@ -88,7 +83,7 @@ export default function Suporte() {
               >
                 <Button
                   size="lg"
-                  className="text-white font-bold text-base px-10 shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+                  className="font-bold text-base px-10 shadow-lg hover:shadow-xl transition-all w-full sm:w-auto text-white"
                   style={{ background: "#25D366" }}
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -105,7 +100,7 @@ export default function Suporte() {
       </section>
 
       {/* Info Cards */}
-      <section className="py-12 lg:py-16" style={{ background: "oklch(0.97 0.005 145)" }}>
+      <section className="py-12 lg:py-16" style={{ background: "#f5faf7" }}>
         <div className="container max-w-4xl">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -131,9 +126,9 @@ export default function Suporte() {
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: "oklch(0.35 0.18 145 / 0.08)" }}
+                  style={{ background: "rgba(0,163,53,0.08)" }}
                 >
-                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{card.icon}</span>
+                  <span style={{ color: "#00A335" }}>{card.icon}</span>
                 </div>
                 <h3 className="font-bold text-base text-foreground mb-2">{card.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
@@ -146,10 +141,7 @@ export default function Suporte() {
       {/* Temas de suporte */}
       <section className="py-12 lg:py-16 bg-white">
         <div className="container max-w-3xl">
-          <h2
-            className="text-2xl font-bold text-foreground mb-8 text-center"
-            style={{ fontFamily: "Sora, sans-serif" }}
-          >
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
             Podemos ajudar com
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -166,7 +158,7 @@ export default function Suporte() {
               "Cobranças recorrentes",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3 p-3 rounded-xl border border-border">
-                <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "oklch(0.60 0.20 145)" }} />
+                <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "#00d084" }} />
                 <span className="text-sm text-foreground">{item}</span>
               </div>
             ))}
@@ -179,7 +171,7 @@ export default function Suporte() {
             >
               <Button
                 size="lg"
-                className="text-white font-bold px-10"
+                className="font-bold px-10 text-white"
                 style={{ background: "#25D366" }}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
@@ -193,10 +185,10 @@ export default function Suporte() {
       {/* Footer note */}
       <section
         className="py-8 text-white text-center"
-        style={{ background: "oklch(0.20 0.10 145)" }}
+        style={{ background: "#003318" }}
       >
         <div className="container">
-          <p className="text-white/60 text-sm">
+          <p className="text-sm" style={{ color: "rgba(255,255,255,0.60)" }}>
             Este suporte é destinado exclusivamente aos parceiros da solução de pagamento <strong className="text-white/80">Tá na Conta</strong> — uma parceria Intelbras e Cappta.
           </p>
         </div>
