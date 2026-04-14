@@ -7,9 +7,10 @@ import {
   Clock, TrendingUp, Shield, DollarSign, CreditCard as CardIcon, Star, Layers
 } from "lucide-react";
 
-const GAROTO_INTELBRAS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/garoto-intelbras_f34f23fb.jpg";
+const GAROTO_INTELBRAS_NOBG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/garoto-intelbras-nobg_d2e4bc4d.png";
 const SOLAR_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-panels-bg_1672229c.webp";
 const BUSINESS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/business-payment_30f7d57c.jpg";
+const SOLAR_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-installer_3459730d.jpg";
 
 const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
 
@@ -171,7 +172,7 @@ export default function Home() {
           style={{ width: "45%" }}
         >
           <img
-            src={GAROTO_INTELBRAS}
+            src={GAROTO_INTELBRAS_NOBG}
             alt="Técnico Intelbras"
             className="h-full object-contain object-bottom"
             style={{ maxHeight: "100%", filter: "drop-shadow(-8px 0 24px rgba(0,0,0,0.35))" }}
@@ -423,8 +424,8 @@ export default function Home() {
             </div>
             <div className="order-1 lg:order-2 relative">
               <img
-                src={SOLAR_BG}
-                alt="Painéis solares instalados"
+                src={SOLAR_IMAGE}
+                alt="Instalador de energia solar"
                 className="rounded-2xl w-full object-cover shadow-2xl"
                 style={{ height: "500px" }}
               />
