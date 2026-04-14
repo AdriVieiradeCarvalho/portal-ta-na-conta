@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Smartphone, Download, Settings, CheckCircle2, AlertTriangle,
-  ArrowRight, ExternalLink, Apple, Info, Users, Store, ShieldAlert
+  ArrowRight, ExternalLink, Apple, Info, Users, Store, ShieldAlert, Star
 } from "lucide-react";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
@@ -10,7 +10,7 @@ function AttentionBox({ children }: { children: React.ReactNode }) {
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
       style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}
     >
-      <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
+      <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
@@ -20,9 +20,9 @@ function InfoBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="my-4 rounded-xl p-4 border flex items-start gap-3"
-      style={{ background: "oklch(0.35 0.18 145 / 0.05)", borderColor: "oklch(0.35 0.18 145 / 0.2)" }}
+      style={{ background: "rgba(0,208,132,0.07)", borderColor: "rgba(0,163,53,0.20)" }}
     >
-      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.35 0.18 145)" }} />
+      <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
       <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
@@ -38,7 +38,7 @@ function StepCard({ number, title, description, children }: {
     <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
       <div
         className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-        style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+        style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
       >
         {number}
       </div>
@@ -51,7 +51,7 @@ function StepCard({ number, title, description, children }: {
   );
 }
 
-const whatsappSofia = "https://api.whatsapp.com/send?phone=5511998013839&text=Oi,%20Intelig%C3%AAncia%20Artificial%20de%20Suporte";
+const whatsappSuporteLink = "https://api.whatsapp.com/send?phone=5511998013839&text=Oi,%20preciso%20de%20suporte%20com%20a%20Conta%20Digital";
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
@@ -65,127 +65,49 @@ export default function PrimeiroAcessoConta() {
       {/* Hero */}
       <section
         className="py-16 lg:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145) 0%, oklch(0.35 0.18 145) 60%, oklch(0.45 0.20 145) 100%)" }}
+        style={{ background: "linear-gradient(135deg, #003318 0%, #00A335 60%, #00d084 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-              style={{ background: "oklch(1 0 0 / 0.12)", border: "1px solid oklch(1 0 0 / 0.2)" }}
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <Smartphone className="w-3.5 h-3.5" />
               Primeiro Acesso — Conta Digital
             </div>
-            <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Roboto, sans-serif" }}
-            >
-              Ativar sua Conta Digital
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Ative sua Conta Digital o mais rápido possível!
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Siga o passo a passo para baixar, instalar e ativar sua conta digital Cappta — o coração financeiro do Tá na Conta.
+              Sem a conta ativada, os pagamentos ficam retidos e você não consegue acessar seus recebíveis. A ativação é simples, gratuita e leva menos de 5 minutos.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Por que ativar */}
-      <section className="py-12 bg-white">
-        <div className="container max-w-3xl">
-          <div
-            className="rounded-2xl p-6 lg:p-8 border"
-            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.15)" }}
-          >
-            <div className="flex items-start gap-4">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
-              >
-                <CheckCircle2 className="w-6 h-6" style={{ color: "oklch(0.35 0.18 145)" }} />
-              </div>
-              <div>
-                <h2 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: "Roboto, sans-serif" }}>
-                  Por que ativar a conta digital?
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  A conta digital é onde você recebe os valores dos seus serviços. Sem ela ativada, os pagamentos ficam retidos e você não consegue acessar seus recebíveis. A ativação é simples, gratuita e leva menos de 5 minutos.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ⚠️ 1. Preparação para Instalação */}
-      <section className="py-10" style={{ background: "oklch(0.97 0.005 145)" }}>
-        <div className="container max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "oklch(0.55 0.18 55 / 0.12)" }}
-            >
-              <ShieldAlert className="w-5 h-5" style={{ color: "oklch(0.55 0.18 55)" }} />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
-              Preparação para instalação
-            </h2>
-          </div>
-
-          <div
-            className="rounded-2xl p-6 border"
-            style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.30)" }}
-          >
-            <div className="flex items-start gap-3 mb-4">
-              <AlertTriangle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.18 55)" }} />
-              <h3 className="font-bold text-base" style={{ color: "oklch(0.40 0.15 55)" }}>
-                ⚠️ Atenção! ⚠️
-              </h3>
-            </div>
-            <div className="space-y-3 text-sm text-foreground leading-relaxed pl-9">
-              <p>
-                Para sua própria segurança, nossa <strong>Conta Digital salva o serial do celular instalado</strong> em nossos servidores, não permitindo o uso em outros equipamentos.
-              </p>
-              <p>
-                Isso <strong>evita fraudes e golpes cibernéticos</strong> após a instalação.
-              </p>
-              <p>
-                Por isso, <strong>escolha de antemão qual aparelho fará uso do aplicativo da Conta Digital</strong>, para que o seu financeiro possa realizar suas operações diárias com agilidade.
-              </p>
-              <div
-                className="mt-3 p-3 rounded-xl border"
-                style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}
-              >
-                <p>
-                  Caso precise mudar o celular que usa a Conta Digital, <strong>solicite ao nosso suporte a liberação da instalação em outro aparelho</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Download do App */}
+      {/* ─── Download do App — PRIMEIRO BLOCO ─── */}
       <section className="py-12 bg-white">
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
+              style={{ background: "rgba(0,163,53,0.10)" }}
             >
-              <Download className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+              <Download className="w-5 h-5" style={{ color: "#00A335" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
-              Download do App
+            <h2 className="text-2xl font-bold text-foreground">
+              Baixe o app da Conta Digital
             </h2>
           </div>
           <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-            Para baixar sua conta digital, vá na loja de aplicativos do seu celular e pesquise por: <strong>"Conta Cappta"</strong>. Você também pode usar os links diretos abaixo:
+            Na loja de aplicativos do seu celular, pesquise por: <strong>"Conta Cappta"</strong>. Você também pode usar os links diretos abaixo:
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <a href="https://apps.apple.com/br/app/conta-cappta/id6447267659" target="_blank" rel="noopener noreferrer">
               <Button
-                className="w-full flex items-center gap-3 h-14 text-white font-semibold"
-                style={{ background: "oklch(0.20 0.01 145)" }}
+                className="w-full flex items-center gap-3 h-14 font-semibold"
+                style={{ background: "#003318", color: "#FFFFFF" }}
               >
                 <Apple className="w-6 h-6" />
                 <div className="text-left">
@@ -197,8 +119,8 @@ export default function PrimeiroAcessoConta() {
             </a>
             <a href="https://play.google.com/store/apps/details?id=br.com.cappta.digital_account" target="_blank" rel="noopener noreferrer">
               <Button
-                className="w-full flex items-center gap-3 h-14 text-white font-semibold"
-                style={{ background: "oklch(0.40 0.18 145)" }}
+                className="w-full flex items-center gap-3 h-14 font-semibold"
+                style={{ background: "#00A335", color: "#FFFFFF" }}
               >
                 <Smartphone className="w-6 h-6" />
                 <div className="text-left">
@@ -210,79 +132,131 @@ export default function PrimeiroAcessoConta() {
             </a>
           </div>
           <p className="text-xs text-muted-foreground mt-3">
-            Aguarde o download e clique em <strong>Abrir</strong> quando terminar.
+            Aguarde o download e toque em <strong>Abrir</strong> quando terminar.
           </p>
         </div>
       </section>
 
-      {/* 3. Instalação e Ativação */}
-      <section className="py-12" style={{ background: "oklch(0.97 0.005 145)" }}>
+      {/* ─── Benefícios da Conta Digital ─── */}
+      <section className="py-10" style={{ background: "#f5faf7" }}>
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
-            >
-              <Settings className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
+              <Star className="w-5 h-5" style={{ color: "#00A335" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Roboto, sans-serif" }}>
-              Instalação e Ativação
-            </h2>
+            <h2 className="text-2xl font-bold text-foreground">Por que ter a Conta Digital?</h2>
           </div>
-          <div className="space-y-4">
-            <StepCard number={1} title="Abra o app e toque em Acessar" description="Ao abrir o app Conta Cappta pela primeira vez, toque no botão Acessar na tela inicial." />
-            <StepCard number={2} title="Digite o CPF do cadastro" description="Informe o CPF utilizado no momento do credenciamento." />
-            <StepCard number={3} title='Toque em "Digitar sua senha"' description='Na tela de login, toque na opção "Digitar sua senha".' />
-            <StepCard number={4} title='Clique em "É seu primeiro acesso?"'>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Abaixo de "Esqueci minha senha", toque em <strong>"É seu primeiro acesso?"</strong>.
-              </p>
-              <AttentionBox>
-                O Token tem validade curta. Faça a ativação imediatamente após solicitar e receber o e-mail.
-              </AttentionBox>
-            </StepCard>
-            <StepCard number={5} title="Localize o e-mail com o Token">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Procure no seu e-mail a mensagem enviada por{" "}
-                <strong>noreply-contadigital@cappta.com.br</strong> e copie o Token recebido.
-              </p>
-            </StepCard>
-            <StepCard number={6} title="Digite o Token" description="Cole ou digite o Token no campo indicado no app." />
-            <StepCard number={7} title='Clique em "Avançar"'>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Pronto! Agora você já pode acessar a conta digital do <strong>Tá na Conta</strong>!
-              </p>
-              <div
-                className="mt-3 p-4 rounded-xl border flex items-center gap-3"
-                style={{ background: "oklch(0.40 0.18 160 / 0.08)", borderColor: "oklch(0.40 0.18 160 / 0.3)" }}
-              >
-                <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "oklch(0.40 0.18 145)" }} />
-                <p className="text-sm font-semibold" style={{ color: "oklch(0.30 0.18 160)" }}>
-                  Conta digital ativada com sucesso!
-                </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { icon: <CheckCircle2 className="w-5 h-5" />, title: "Receba em 1 dia útil", desc: "O valor dos seus serviços cai na conta no próximo dia útil após a venda." },
+              { icon: <Smartphone className="w-5 h-5" />, title: "Pix e boletos", desc: "Realize transferências, pague boletos e receba via Pix direto pelo app." },
+              { icon: <Store className="w-5 h-5" />, title: "Multi-empresas", desc: "Gerencie vários CNPJs em uma única conta. Ideal para quem tem mais de uma empresa." },
+              { icon: <Users className="w-5 h-5" />, title: "Multi-usuários", desc: "Adicione colaboradores à conta com acesso controlado e seguro." },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl p-5 border border-border flex items-start gap-3 shadow-sm">
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,163,53,0.08)" }}>
+                  <span style={{ color: "#00A335" }}>{item.icon}</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
               </div>
-            </StepCard>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Informações Importantes da Conta */}
+      {/* ─── Preparação para Instalação ─── */}
+      <section className="py-10 bg-white">
+        <div className="container max-w-3xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.08)" }}>
+              <ShieldAlert className="w-5 h-5" style={{ color: "#00A335" }} />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Antes de instalar: atenção!</h2>
+          </div>
+          <div className="rounded-2xl p-6 border" style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.30)" }}>
+            <div className="space-y-3 text-sm text-foreground leading-relaxed">
+              <p>
+                A <strong>Conta Digital salva o serial do celular instalado</strong> em nossos servidores, não permitindo o uso em outros equipamentos. Isso <strong>evita fraudes e golpes cibernéticos</strong>.
+              </p>
+              <p>
+                <strong>Escolha de antemão qual aparelho usará o app da Conta Digital</strong> para que seu financeiro possa operar com agilidade no dia a dia.
+              </p>
+              <div className="mt-3 p-3 rounded-xl border" style={{ background: "white", borderColor: "rgba(0,163,53,0.20)" }}>
+                <p>
+                  Caso precise trocar de celular, <strong>solicite ao Atendimento Especializado a liberação da instalação em outro aparelho</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Instalação e Ativação ─── */}
+      <section className="py-12" style={{ background: "#f5faf7" }}>
+        <div className="container max-w-3xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
+              <Settings className="w-5 h-5" style={{ color: "#00A335" }} />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Instalação e Ativação</h2>
+          </div>
+          <div className="space-y-4">
+            <StepCard
+              number={1}
+              title="Abra o app, toque em Acessar e insira seu CPF e senha"
+              description='Ao abrir o app "Conta Cappta" pela primeira vez, toque em Acessar. Informe o CPF utilizado no credenciamento e toque em "Digitar sua senha".'
+            />
+            <StepCard number={2} title='Toque em "É seu primeiro acesso?"'>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Abaixo de "Esqueci minha senha", toque em <strong>"É seu primeiro acesso?"</strong> para iniciar a ativação.
+              </p>
+              <AttentionBox>
+                O Token tem validade curta. Faça a ativação <strong>imediatamente</strong> após solicitar e receber o e-mail.
+              </AttentionBox>
+            </StepCard>
+            <StepCard number={3} title="Localize o e-mail com o Token e cole no app">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Procure no seu e-mail a mensagem de <strong>noreply-contadigital@cappta.com.br</strong>. Copie o Token recebido, cole no campo indicado no app e toque em <strong>Avançar</strong>.
+              </p>
+            </StepCard>
+            <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
+              >
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-semibold text-base text-foreground mb-1" style={{ color: "#00A335" }}>
+                  Conta Digital ativada com sucesso!
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Agora você já pode acessar a Conta Digital do <strong>Tá na Conta</strong> e gerenciar seus recebíveis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Informações Importantes ─── */}
       <section className="py-12 bg-white">
         <div className="container max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground mb-8" style={{ fontFamily: "Roboto, sans-serif" }}>
-            Informações Importantes
-          </h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8">Informações Importantes</h2>
 
           {/* Pix na Conta Digital */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}>
-                <CheckCircle2 className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
+                <CheckCircle2 className="w-5 h-5" style={{ color: "#00A335" }} />
               </div>
               <h3 className="font-bold text-lg text-foreground">Pix na Conta Digital</h3>
             </div>
             <AttentionBox>
-              <strong>A Conta Digital também tem possibilidade de receber Pix</strong>, porém, por ser uma conta de pagamentos, há custo para entrada de valores em Pix. A taxa cobrada acompanha a taxa do débito. Retiradas da Conta Digital não têm custo.
+              <strong>A Conta Digital aceita recebimento via Pix</strong>, porém, por ser uma conta de pagamentos, há custo de <strong>2%</strong> para entrada de valores via Pix. Retiradas da Conta Digital não têm custo.
             </AttentionBox>
           </div>
 
@@ -290,7 +264,7 @@ export default function PrimeiroAcessoConta() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(0,208,132,0.12)" }}>
-                <Info className="w-5 h-5" style={{ color: "oklch(0.55 0.15 55)" }} />
+                <Info className="w-5 h-5" style={{ color: "#00A335" }} />
               </div>
               <h3 className="font-bold text-lg text-foreground">Depósito Mínimo</h3>
             </div>
@@ -302,85 +276,87 @@ export default function PrimeiroAcessoConta() {
           {/* Horário */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}>
-                <Settings className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
+                <Settings className="w-5 h-5" style={{ color: "#00A335" }} />
               </div>
               <h3 className="font-bold text-lg text-foreground">Horário de Pagamentos</h3>
             </div>
             <InfoBox>
-              O horário dos pagamentos é das <strong>8h às 18h</strong>, porém, como boa prática, executamos os depósitos até o <strong>meio-dia</strong>.
+              O horário dos pagamentos é das <strong>8h às 18h</strong>. Como boa prática, os depósitos são executados até o <strong>meio-dia</strong>.
             </InfoBox>
           </div>
         </div>
       </section>
 
-      {/* 5. Multilojas */}
-      <section className="py-10" style={{ background: "oklch(0.97 0.005 145)" }}>
+      {/* ─── Controle Multi-empresas e Multi-usuários ─── */}
+      <section className="py-10" style={{ background: "#f5faf7" }}>
         <div className="container max-w-3xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
+              <Store className="w-5 h-5" style={{ color: "#00A335" }} />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Controle Multi-empresas e Multi-usuários</h2>
+          </div>
+
+          {/* Multilojas */}
           <div
             className="rounded-2xl p-6 border mb-4"
-            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.2)" }}
+            style={{ background: "white", borderColor: "rgba(0,163,53,0.20)" }}
           >
             <div className="flex items-start gap-3 mb-3">
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                style={{ background: "oklch(0.35 0.18 145 / 0.12)" }}
-              >
-                <Store className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,163,53,0.10)" }}>
+                <Store className="w-5 h-5" style={{ color: "#00A335" }} />
               </div>
-              <h3 className="font-bold text-lg text-foreground">Sua conta é Multilojas!</h3>
-            </div>
-            <div className="pl-12 space-y-2 text-sm text-foreground leading-relaxed">
-              <p>
-                Você pode ter <strong>outros CNPJs associados ao mesmo usuário de conta digital</strong>. Assim, você consegue ter a gestão financeira de todos os seus negócios em uma única conta!
-              </p>
-              <p>
-                Para ter o Multilojas, você precisa estar com todos os seus negócios credenciados. Faça o cadastro de todos eles e peça à <strong>Sofia</strong> para uni-los!
-              </p>
-              <a
-                href={whatsappSofia}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg font-semibold text-white text-xs"
-                style={{ background: "oklch(0.40 0.18 145)" }}
-              >
-                <WhatsAppIcon />
-                Falar com a Sofia
-              </a>
+              <div>
+                <h3 className="font-bold text-base text-foreground mb-1">Multi-empresas (Multilojas)</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Você pode ter <strong>outros CNPJs associados ao mesmo usuário de conta digital</strong>. Assim, você consegue ter a gestão financeira de todos os seus negócios em uma única conta!
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+                  Para habilitar o Multilojas, certifique-se de que todos os seus negócios estão credenciados e entre em contato com o <strong>Atendimento Especializado</strong> para uni-los.
+                </p>
+                <a
+                  href={whatsappSuporteLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg font-semibold text-white text-xs"
+                  style={{ background: "#00A335" }}
+                >
+                  <WhatsAppIcon />
+                  Falar com Atendimento Especializado
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* 6. Multiusuários */}
+          {/* Multiusuários */}
           <div
             className="rounded-2xl p-6 border"
-            style={{ background: "oklch(0.35 0.18 145 / 0.04)", borderColor: "oklch(0.35 0.18 145 / 0.2)" }}
+            style={{ background: "white", borderColor: "rgba(0,163,53,0.20)" }}
           >
             <div className="flex items-start gap-3 mb-3">
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                style={{ background: "oklch(0.35 0.18 145 / 0.12)" }}
-              >
-                <Users className="w-5 h-5" style={{ color: "oklch(0.35 0.18 145)" }} />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,163,53,0.10)" }}>
+                <Users className="w-5 h-5" style={{ color: "#00A335" }} />
               </div>
-              <h3 className="font-bold text-lg text-foreground">Sua conta também é Multiusuários!</h3>
-            </div>
-            <div className="pl-12 space-y-2 text-sm text-foreground leading-relaxed">
-              <p>
-                Você também pode <strong>adicionar outros usuários na Conta Digital</strong> e instalar mais apps em outros celulares. Eles movimentarão a mesma conta do CNPJ credenciado.
-              </p>
-              <p>
-                Para isso, peça também à <strong>Sofia</strong>: ela enviará um <strong>Termo de Cessão para assinatura digital</strong>. Após a assinatura, será feita a liberação de mais um usuário da conta.
-              </p>
-              <a
-                href={whatsappSofia}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg font-semibold text-white text-xs"
-                style={{ background: "oklch(0.40 0.18 145)" }}
-              >
-                <WhatsAppIcon />
-                Falar com a Sofia
-              </a>
+              <div>
+                <h3 className="font-bold text-base text-foreground mb-1">Multi-usuários</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Você pode <strong>adicionar outros usuários na Conta Digital</strong> e instalar o app em outros celulares. Eles movimentarão a mesma conta do CNPJ credenciado.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+                  Para isso, entre em contato com o <strong>Atendimento Especializado</strong>: será enviado um <strong>Termo de Cessão para assinatura digital</strong>. Após a assinatura, um novo usuário será liberado.
+                </p>
+                <a
+                  href={whatsappSuporteLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg font-semibold text-white text-xs"
+                  style={{ background: "#00A335" }}
+                >
+                  <WhatsAppIcon />
+                  Falar com Atendimento Especializado
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -389,10 +365,10 @@ export default function PrimeiroAcessoConta() {
       {/* CTA */}
       <section
         className="py-12 text-white"
-        style={{ background: "linear-gradient(135deg, oklch(0.20 0.10 145), oklch(0.35 0.18 145))" }}
+        style={{ background: "linear-gradient(135deg, #003318, #00A335)" }}
       >
         <div className="container max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Roboto, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-white mb-3">
             Próximo passo: acesse o Portal
           </h2>
           <p className="text-white/70 mb-6 text-sm">
@@ -402,7 +378,7 @@ export default function PrimeiroAcessoConta() {
             <Button
               size="lg"
               className="font-bold text-base px-8"
-              style={{ background: "linear-gradient(135deg, #00d084, #00A335)", color: "white" }}
+              style={{ background: "#00d084", color: "#003318" }}
             >
               Acessar o Portal
               <ArrowRight className="w-5 h-5 ml-2" />

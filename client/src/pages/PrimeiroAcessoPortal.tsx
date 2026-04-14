@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
-  Monitor, ExternalLink, AlertTriangle, CheckCircle2, KeyRound, Mail, Users, Shield
+  Monitor, ExternalLink, AlertTriangle, CheckCircle2, KeyRound, Mail
 } from "lucide-react";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
@@ -124,36 +124,22 @@ export default function PrimeiroAcessoPortal() {
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}
               >
                 1
               </div>
               <div className="flex-1">
                 <h4 className="font-semibold text-base text-foreground mb-2">Abra a Plataforma de Gestão</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Clique no botão abaixo para acessar a plataforma de gestão do Tá na Conta.
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Acesse <strong>intelbras.posportal.com.br</strong> no navegador do seu computador ou celular.
                 </p>
-                <a
-                  href="https://intelbras.posportal.com.br/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    size="sm"
-                    className="text-white font-semibold"
-                    style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
-                  >
-                    Acessar Plataforma de Gestão
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
-                </a>
               </div>
             </div>
 
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}
               >
                 2
               </div>
@@ -168,7 +154,7 @@ export default function PrimeiroAcessoPortal() {
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
+                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}
               >
                 3
               </div>
@@ -183,38 +169,7 @@ export default function PrimeiroAcessoPortal() {
         </div>
       </section>
 
-      {/* Recursos do Portal */}
-      <section className="py-12" style={{ background: "oklch(0.97 0.005 145)" }}>
-        <div className="container max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Roboto, sans-serif" }}>
-            O que você pode fazer no Portal
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {[
-              { icon: <CheckCircle2 className="w-5 h-5" />, title: "Gestão Financeira", desc: "Acompanhe sua agenda financeira e antecipe recebíveis." },
-              { icon: <Shield className="w-5 h-5" />, title: "Links de Pagamento", desc: "Crie e gerencie links avulsos e recorrentes." },
-              { icon: <Users className="w-5 h-5" />, title: "Gestão de Usuários", desc: "Crie usuários adicionais para sua equipe com segurança." },
-              { icon: <Monitor className="w-5 h-5" />, title: "Relatórios", desc: "Visualize todas as suas transações e vendas em tempo real." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="bg-white rounded-2xl p-5 border border-border flex items-start gap-3"
-              >
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: "oklch(0.35 0.18 145 / 0.1)" }}
-                >
-                  <span style={{ color: "oklch(0.35 0.18 145)" }}>{item.icon}</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA */}
       <section

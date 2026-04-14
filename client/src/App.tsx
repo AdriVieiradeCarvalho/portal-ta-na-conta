@@ -13,7 +13,6 @@ import PrimeiroAcessoMaquininha from "./pages/PrimeiroAcessoMaquininha";
 import SimularTaxas from "./pages/SimularTaxas";
 import Tutoriais from "./pages/Tutoriais";
 import Suporte from "./pages/Suporte";
-import LinkPagamento from "./pages/LinkPagamento";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -38,8 +37,6 @@ function Router() {
       <Route path="/ativar-conta" component={() => <Layout><PrimeiroAcessoConta /></Layout>} />
       {/* Simulador */}
       <Route path="/simular-taxas" component={() => <Layout><SimularTaxas /></Layout>} />
-      {/* Link de pagamento */}
-      <Route path="/link-pagamento" component={() => <Layout><LinkPagamento /></Layout>} />
       {/* Tutoriais - rota dinâmica com parâmetro :tipo */}
       <Route path="/tutoriais" component={() => <Layout><Tutoriais /></Layout>} />
       <Route path="/tutoriais/:tipo" component={() => <Layout><Tutoriais /></Layout>} />

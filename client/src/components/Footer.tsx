@@ -31,7 +31,6 @@ export default function Footer() {
                 { label: "Ativar Conta", href: "/primeiro-acesso/conta" },
                 { label: "Acessar o Portal", href: "/primeiro-acesso/portal" },
                 { label: "Simular Taxas", href: "/simular-taxas" },
-                { label: "Link de Pagamento", href: "/link-pagamento" },
                 { label: "Suporte Técnico", href: "/suporte" },
               ].map((item) => (
                 <li key={item.href}>
@@ -55,7 +54,7 @@ export default function Footer() {
               {[
                 { label: "Plataforma Solar", href: "/tutoriais/plataforma-solar" },
                 { label: "Venda na Maquininha", href: "/tutoriais/maquininha" },
-                { label: "Venda com Link", href: "/tutoriais/link-pagamento" },
+
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>

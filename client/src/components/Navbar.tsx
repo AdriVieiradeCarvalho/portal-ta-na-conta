@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lucide-react";
+import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
@@ -44,10 +44,6 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Link de Pagamento",
-    href: "/link-pagamento",
-  },
-  {
     label: "Simular Taxas",
     href: "/simular-taxas",
   },
@@ -66,12 +62,7 @@ const navItems: NavItem[] = [
         icon: <CreditCard className="w-4 h-4" />,
         description: "Passo a passo para vender com a maquininha",
       },
-      {
-        label: "Venda com Link",
-        href: "/tutoriais/link-pagamento",
-        icon: <Link2 className="w-4 h-4" />,
-        description: "Como gerar e enviar links de pagamento",
-      },
+
     ],
   },
   {
