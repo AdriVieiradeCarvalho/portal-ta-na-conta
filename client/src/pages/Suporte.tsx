@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Clock, Shield, Headphones, CheckCircle2, ArrowRight } from "lucide-react";
+import { MessageCircle, Phone, Clock, Shield, CheckCircle2, ArrowRight } from "lucide-react";
 
 const SUPORTE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/suporte-ta-na-conta_9e0bdbe1.png";
 
@@ -10,17 +10,11 @@ export default function Suporte() {
     <div className="min-h-screen">
       {/* Hero */}
       <section
-        className="py-16 lg:py-24 text-white"
+        className="py-10 lg:py-14 text-white"
         style={{ background: "linear-gradient(135deg, #003318 0%, #00A335 60%, #00d084 100%)" }}
       >
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div
-              className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              style={{ background: "rgba(255,255,255,0.12)" }}
-            >
-              <Headphones className="w-10 h-10 text-white" />
-            </div>
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
               style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
@@ -56,12 +50,6 @@ export default function Suporte() {
               />
             </div>
 
-            <div
-              className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-              style={{ background: "#25D366" }}
-            >
-              <MessageCircle className="w-8 h-8 text-white" />
-            </div>
             <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
               Fale com nossa equipe
             </h2>
@@ -112,9 +100,6 @@ export default function Suporte() {
                 <span><strong className="text-foreground">Dom/Feriado</strong> 09h–17h</span>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground mt-3">
-              Ao clicar, você será redirecionado para o WhatsApp com uma mensagem pré-preenchida.
-            </p>
           </div>
         </div>
       </section>
