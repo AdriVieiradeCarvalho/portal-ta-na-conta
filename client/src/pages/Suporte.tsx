@@ -92,47 +92,29 @@ export default function Suporte() {
                 </Button>
               </a>
             </div>
-            <p className="text-xs text-muted-foreground mt-4">
+            {/* Horários horizontais dentro do card */}
+            <div
+              className="flex flex-wrap justify-center gap-x-5 gap-y-1 mt-5 pt-4 border-t"
+              style={{ borderColor: "rgba(0,163,53,0.15)" }}
+            >
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00A335" }} />
+                <span><strong className="text-foreground">Seg–Sex</strong> 07h–22h</span>
+              </div>
+              <span className="text-muted-foreground/30 text-xs hidden sm:inline">•</span>
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00A335" }} />
+                <span><strong className="text-foreground">Sáb</strong> 08h–18h</span>
+              </div>
+              <span className="text-muted-foreground/30 text-xs hidden sm:inline">•</span>
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00A335" }} />
+                <span><strong className="text-foreground">Dom/Feriado</strong> 09h–17h</span>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground mt-3">
               Ao clicar, você será redirecionado para o WhatsApp com uma mensagem pré-preenchida.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Horários de Atendimento */}
-      <section className="py-12 lg:py-16" style={{ background: "#f5faf7" }}>
-        <div className="container max-w-3xl">
-          <div className="bg-white rounded-2xl border border-border p-6 shadow-sm">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.08)" }}>
-                <Clock className="w-5 h-5" style={{ color: "#00A335" }} />
-              </div>
-              <h3 className="font-bold text-lg text-foreground">Horários de Atendimento</h3>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ background: "#f0fdf4" }}>
-                    <th className="text-left px-4 py-2.5 font-semibold text-foreground rounded-tl-lg">Dia</th>
-                    <th className="text-center px-4 py-2.5 font-semibold text-foreground rounded-tr-lg">Horário</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-t border-border">
-                    <td className="px-4 py-3 font-medium text-foreground">Segunda a Sexta</td>
-                    <td className="px-4 py-3 text-center text-muted-foreground">07h às 22h</td>
-                  </tr>
-                  <tr className="border-t border-border" style={{ background: "rgba(0,208,132,0.04)" }}>
-                    <td className="px-4 py-3 font-medium text-foreground">Sábado</td>
-                    <td className="px-4 py-3 text-center text-muted-foreground">08h às 18h</td>
-                  </tr>
-                  <tr className="border-t border-border">
-                    <td className="px-4 py-3 font-medium text-foreground">Domingo e Feriados</td>
-                    <td className="px-4 py-3 text-center text-muted-foreground">09h às 17h</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </section>

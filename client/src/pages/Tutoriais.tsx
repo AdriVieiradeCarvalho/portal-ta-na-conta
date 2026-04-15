@@ -108,9 +108,6 @@ function TutorialPlataformaSolar() {
 
         <StepCard number={4} title="Parceiro retira o valor dos serviços e clica em Salvar">
           <p>Antes de cobrar na maquininha, o parceiro acessa a Plataforma Solar, retira (zera) o valor dos serviços do projeto, deixando apenas os produtos, e clica em <strong>"Salvar"</strong> para confirmar o orçamento.</p>
-          <AttentionBox>
-            Não esqueça de clicar em <strong>"Salvar"</strong> na Plataforma Solar Intelbras antes de prosseguir para a cobrança na maquininha.
-          </AttentionBox>
         </StepCard>
 
         <StepCard number={5} title="Parceiro preenche valor dos produtos e serviços na maquininha">

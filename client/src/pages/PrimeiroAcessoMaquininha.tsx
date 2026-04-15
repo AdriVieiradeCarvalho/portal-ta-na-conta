@@ -232,82 +232,40 @@ export default function PrimeiroAcessoMaquininha() {
         </div>
       </section>
 
-      {/* Conexão */}
+      {/* Conexão + Como Ligar lado a lado */}
       <section className="py-10 bg-white">
         <div className="container max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
-              <Wifi className="w-5 h-5" style={{ color: "#00A335" }} />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground">Conexão</h2>
-          </div>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-            Sua maquininha está conectada com a <strong>Vivo</strong>! Sugerimos mantê-la configurada também ao Wi-Fi da loja e ao plano de dados do celular — assim você sempre terá opções de conexão, mesmo em instalações no interior do Brasil.
-          </p>
-          <InfoBox>
-            Para configurar o Wi-Fi, arraste a tela da maquininha de cima para baixo — o mesmo gesto que você faz no celular Android para acessar as configurações rápidas.
-          </InfoBox>
-        </div>
-      </section>
-
-      {/* Como ligar */}
-      <section className="py-10" style={{ background: "#f5faf7" }}>
-        <div className="container max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,208,132,0.12)" }}>
-              <Zap className="w-5 h-5" style={{ color: "#00A335" }} />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground">Como ligar</h2>
-          </div>
-          <div className="bg-white rounded-2xl border border-border p-6 shadow-sm">
-            <div className="flex gap-4">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
-              >
-                1
-              </div>
-              <div>
-                <h4 className="font-semibold text-base text-foreground mb-1">Pressione o botão cromado por 3 segundos</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Aguarde até que a tela acenda. Espere a inicialização completa antes de realizar qualquer operação.
-                </p>
-                <AttentionBox>
-                  Aguarde a inicialização completa do terminal antes de realizar qualquer operação. A maquininha precisa carregar todos os aplicativos antes de estar pronta para uso.
-                </AttentionBox>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pix na maquininha */}
-      <section className="py-12 bg-white">
-        <div className="container max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
-              <CheckCircle2 className="w-5 h-5" style={{ color: "#00A335" }} />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground">Pix na Maquininha</h2>
-          </div>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            A venda em Pix também está habilitada. Usar o Pix na maquininha oferece vantagens importantes:
-          </p>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {[
-              { icon: <Shield className="w-5 h-5" />, title: "Segurança", desc: "O recibo sai na hora e você tem certeza de que o Pix cairá na conta correta, evitando golpes." },
-              { icon: <BarChart2 className="w-5 h-5" />, title: "Conciliação fácil", desc: "As vendas constarão no Portal e os valores cairão junto com as vendas em cartão." },
-              { icon: <Zap className="w-5 h-5" />, title: "Flexibilidade", desc: "Qualquer colaborador pode fazer a venda sem precisar ter acesso à conta principal." },
-              { icon: <CheckCircle2 className="w-5 h-5" />, title: "Eficiência financeira", desc: "Os valores transacionados podem ser usados para pagar os produtos da proposta comercial solar." },
-            ].map((item) => (
-              <div key={item.title} className="p-5 rounded-2xl border border-border bg-white shadow-sm">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3" style={{ background: "rgba(0,163,53,0.10)" }}>
-                  <span style={{ color: "#00A335" }}>{item.icon}</span>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Conexão */}
+            <div className="rounded-2xl border border-border p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,163,53,0.10)" }}>
+                  <Wifi className="w-5 h-5" style={{ color: "#00A335" }} />
                 </div>
-                <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                <h2 className="text-lg font-bold text-foreground">Conexão</h2>
               </div>
-            ))}
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Sua maquininha está conectada com a <strong>Vivo</strong>. Sugerimos mantê-la configurada também ao Wi-Fi da loja e ao plano de dados do celular.
+              </p>
+              <div className="rounded-xl p-3 border text-xs text-foreground leading-relaxed" style={{ background: "rgba(0,208,132,0.07)", borderColor: "rgba(0,163,53,0.20)" }}>
+                <strong>Dica:</strong> Para configurar o Wi-Fi, arraste a tela de cima para baixo — igual ao Android.
+              </div>
+            </div>
+            {/* Como ligar */}
+            <div className="rounded-2xl border border-border p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,208,132,0.12)" }}>
+                  <Zap className="w-5 h-5" style={{ color: "#00A335" }} />
+                </div>
+                <h2 className="text-lg font-bold text-foreground">Como ligar</h2>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Pressione o <strong>botão cromado por 3 segundos</strong> até a bolinha laranja aparecer. Aguarde a inicialização completa antes de qualquer operação.
+              </p>
+              <div className="rounded-xl p-3 border text-xs text-foreground leading-relaxed" style={{ background: "#f0fdf4", borderColor: "rgba(0,163,53,0.25)" }}>
+                <strong>Atenção:</strong> A maquininha precisa carregar todos os aplicativos antes de estar pronta para uso.
+              </div>
+            </div>
           </div>
         </div>
       </section>

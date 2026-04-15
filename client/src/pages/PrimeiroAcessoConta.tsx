@@ -186,7 +186,7 @@ export default function PrimeiroAcessoConta() {
               </p>
               <div className="mt-3 p-3 rounded-xl border" style={{ background: "white", borderColor: "rgba(0,163,53,0.20)" }}>
                 <p>
-                  Caso precise trocar de celular, <strong>solicite ao Atendimento Especializado a liberação da instalação em outro aparelho</strong>.
+                  Caso precise trocar de celular, <strong>solicite ao Suporte a liberação da instalação em outro aparelho</strong>.
                 </p>
               </div>
             </div>
@@ -313,7 +313,7 @@ export default function PrimeiroAcessoConta() {
                   Você pode ter <strong>outros CNPJs associados ao mesmo usuário de conta digital</strong>. Assim, você consegue ter a gestão financeira de todos os seus negócios em uma única conta!
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed mt-2">
-                  Para habilitar o Multilojas, certifique-se de que todos os seus negócios estão credenciados e entre em contato com o <strong>Atendimento Especializado</strong> para uni-los.
+                  Para habilitar o Multilojas, certifique-se de que todos os seus negócios estão credenciados e entre em contato com o <strong>Suporte</strong> para uni-los.
                 </p>
                 <a
                   href={whatsappSuporteLink}
@@ -323,7 +323,7 @@ export default function PrimeiroAcessoConta() {
                   style={{ background: "#00A335" }}
                 >
                   <WhatsAppIcon />
-                  Falar com Atendimento Especializado
+                  Falar com o Suporte
                 </a>
               </div>
             </div>
@@ -344,7 +344,7 @@ export default function PrimeiroAcessoConta() {
                   Você pode <strong>adicionar outros usuários na Conta Digital</strong> e instalar o app em outros celulares. Eles movimentarão a mesma conta do CNPJ credenciado.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed mt-2">
-                  Para isso, entre em contato com o <strong>Atendimento Especializado</strong>: será enviado um <strong>Termo de Cessão para assinatura digital</strong>. Após a assinatura, um novo usuário será liberado.
+                  Para isso, entre em contato com o <strong>Suporte</strong>: será enviado um <strong>Termo de Cessão para assinatura digital</strong>. Após a assinatura, um novo usuário será liberado.
                 </p>
                 <a
                   href={whatsappSuporteLink}
@@ -354,7 +354,7 @@ export default function PrimeiroAcessoConta() {
                   style={{ background: "#00A335" }}
                 >
                   <WhatsAppIcon />
-                  Falar com Atendimento Especializado
+                  Falar com o Suporte
                 </a>
               </div>
             </div>

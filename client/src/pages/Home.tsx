@@ -45,12 +45,6 @@ const benefits = [
     description: "Aceite pagamento com vários cartões na mesma venda. Ideal para projetos de maior valor.",
     highlight: "Flexível",
   },
-  {
-    icon: <Smartphone className="w-6 h-6" />,
-    title: "Pix na conta digital",
-    description: "Portabilidade de chave Pix, pagamento de boletos e visualização de vendas direto pelo app.",
-    highlight: "App incluso",
-  },
 ];
 
 const steps = [
@@ -109,7 +103,7 @@ const faqs = [
   },
   {
     question: "Quando a mensalidade da maquininha é gratuita?",
-    answer: "A mensalidade da maquininha é de R$79,90/mês. Quando você processa R$15.000,00 ou mais em um mês, a mensalidade do mês seguinte é automaticamente gratuita.",
+    answer: "É simples: só passar R$15.000,00 ou mais por mês na maquininha que a mensalidade do mês seguinte será grátis! A mensalidade da maquininha Tá na Conta é de R$79,90.",
   },
   {
     question: "Tem taxa de adesão?",
@@ -117,7 +111,7 @@ const faqs = [
   },
   {
     question: "Posso me credenciar com CPF?",
-    answer: "Não. O credenciamento deve ser feito com CNPJ. Consulte nosso suporte para mais informações sobre os requisitos.",
+    answer: "Não, apenas com CNPJ. Para reter o valor dos equipamentos pelo sistema da Cappta, a Intelbras precisa que seu cadastro seja feito no mesmo CNPJ de revenda da vertical de Energia Solar.",
   },
   {
     question: "O que é o regime de comodato da maquininha?",
@@ -235,7 +229,7 @@ export default function Home() {
               {[
                 { value: "1 Dia", label: "Recebimento" },
                 { value: "+10%", label: "Lucro no serviço" },
-                { value: "Link = Máq.", label: "Mesma taxa" },
+                { value: "Taxa do Link", label: "= Taxa da Maquininha" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-xl sm:text-2xl font-bold text-white">{stat.value}</p>
@@ -296,11 +290,11 @@ export default function Home() {
                     className="w-10 h-10 rounded-full flex items-center justify-center"
                     style={{ background: "rgba(0,163,53,0.10)" }}
                   >
-                    <TrendingUp className="w-5 h-5" style={{ color: "#00A335" }} />
+                    <Clock className="w-5 h-5" style={{ color: "#00A335" }} />
                   </div>
                   <div>
-                    <p className="font-bold text-sm text-foreground">+10% de lucro</p>
-                    <p className="text-xs text-muted-foreground">nos serviços solares</p>
+                    <p className="font-bold text-sm text-foreground">Em 1 dia</p>
+                    <p className="text-xs text-muted-foreground">Tá na Conta!</p>
                   </div>
                 </div>
               </div>
@@ -452,8 +446,8 @@ export default function Home() {
             {[
               { icon: <Clock className="w-5 h-5" />, title: "Receba em 1 dia útil", desc: "Para todos os projetos solares" },
               { icon: <Shield className="w-5 h-5" />, title: "Sem taxa de adesão", desc: "Zero custo para começar" },
-              { icon: <Smartphone className="w-5 h-5" />, title: "Mensalidade gratuita", desc: "Processando R$15.000 ou mais/mês" },
-              { icon: <CreditCard className="w-5 h-5" />, title: "R$79,90/mês", desc: "Quando processar menos de R$15.000" },
+              { icon: <Smartphone className="w-5 h-5" />, title: "Mensalidade gratuita", desc: "Faturando R$15.000 ou mais por mês" },
+              { icon: <CreditCard className="w-5 h-5" />, title: "R$79,90/mês", desc: "Para faturamento abaixo de R$15.000/mês" },
               { icon: <CheckCircle2 className="w-5 h-5" />, title: "Frete grátis", desc: "Envio da maquininha" },
               { icon: <DollarSign className="w-5 h-5" />, title: "Comodato", desc: "Maquininha emprestada sem custo" },
             ].map((item) => (
