@@ -1,34 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
 export default function SimularTaxas() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [iframeHeight, setIframeHeight] = useState(820);
-
-  // Auto-resize iframe based on its content height
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-
-    const checkHeight = () => {
-      try {
-        const doc = iframe.contentDocument || iframe.contentWindow?.document;
-        if (doc && doc.body) {
-          const h = doc.documentElement.scrollHeight || doc.body.scrollHeight;
-          if (h > 100) setIframeHeight(h + 40);
-        }
-      } catch {
-        // cross-origin: ignore
-      }
-    };
-
-    const interval = setInterval(checkHeight, 400);
-    iframe.addEventListener("load", checkHeight);
-    return () => {
-      clearInterval(interval);
-      iframe.removeEventListener("load", checkHeight);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "#f5faf7" }}>
 
@@ -62,12 +32,10 @@ export default function SimularTaxas() {
             style={{ borderColor: "rgba(0,163,53,0.20)", background: "#fff" }}
           >
             <iframe
-              ref={iframeRef}
               src="/simulador-taxas.html"
               title="Simulador de Taxas"
               width="100%"
-              height={iframeHeight}
-              style={{ border: "none", display: "block" }}
+              style={{ border: "none", display: "block", height: "100vh", minHeight: "700px" }}
               sandbox="allow-scripts allow-same-origin allow-downloads allow-popups allow-modals allow-forms"
             />
           </div>
