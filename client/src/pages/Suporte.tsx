@@ -99,41 +99,40 @@ export default function Suporte() {
         </div>
       </section>
 
-      {/* Info Cards */}
+      {/* Horários de Atendimento */}
       <section className="py-12 lg:py-16" style={{ background: "#f5faf7" }}>
-        <div className="container max-w-4xl">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              {
-                icon: <Clock className="w-6 h-6" />,
-                title: "Horário de Atendimento",
-                description: "Segunda a sexta, das 8h às 18h. Respondemos no menor tempo possível.",
-              },
-              {
-                icon: <Shield className="w-6 h-6" />,
-                title: "Atendimento Especializado",
-                description: "Nossa equipe é treinada exclusivamente para o Tá na Conta e soluções de pagamento.",
-              },
-              {
-                icon: <CheckCircle2 className="w-6 h-6" />,
-                title: "Resolução Rápida",
-                description: "A maioria dos problemas é resolvida no mesmo atendimento, sem necessidade de abertura de chamados.",
-              },
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="bg-white rounded-2xl p-6 border border-border"
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: "rgba(0,163,53,0.08)" }}
-                >
-                  <span style={{ color: "#00A335" }}>{card.icon}</span>
-                </div>
-                <h3 className="font-bold text-base text-foreground mb-2">{card.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
+        <div className="container max-w-3xl">
+          <div className="bg-white rounded-2xl border border-border p-6 shadow-sm">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.08)" }}>
+                <Clock className="w-5 h-5" style={{ color: "#00A335" }} />
               </div>
-            ))}
+              <h3 className="font-bold text-lg text-foreground">Horários de Atendimento</h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr style={{ background: "#f0fdf4" }}>
+                    <th className="text-left px-4 py-2.5 font-semibold text-foreground rounded-tl-lg">Dia</th>
+                    <th className="text-center px-4 py-2.5 font-semibold text-foreground rounded-tr-lg">Horário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-border">
+                    <td className="px-4 py-3 font-medium text-foreground">Segunda a Sexta</td>
+                    <td className="px-4 py-3 text-center text-muted-foreground">07h às 22h</td>
+                  </tr>
+                  <tr className="border-t border-border" style={{ background: "rgba(0,208,132,0.04)" }}>
+                    <td className="px-4 py-3 font-medium text-foreground">Sábado</td>
+                    <td className="px-4 py-3 text-center text-muted-foreground">08h às 18h</td>
+                  </tr>
+                  <tr className="border-t border-border">
+                    <td className="px-4 py-3 font-medium text-foreground">Domingo e Feriados</td>
+                    <td className="px-4 py-3 text-center text-muted-foreground">09h às 17h</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
