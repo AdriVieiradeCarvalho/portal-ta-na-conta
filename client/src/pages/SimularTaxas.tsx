@@ -1,21 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 
-const SIMULATOR_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/simulador-taxas_e54ff793.html";
-
 export default function SimularTaxas() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [iframeHeight, setIframeHeight] = useState(700);
+  const [iframeHeight, setIframeHeight] = useState(820);
 
-  // Listen for height messages from the iframe to auto-resize
+  // Auto-resize iframe based on its content height
   useEffect(() => {
-    const handler = (event: MessageEvent) => {
-      if (event.data && typeof event.data === "object" && event.data.type === "sim-height") {
-        setIframeHeight(Math.max(500, event.data.height + 40));
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const checkHeight = () => {
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow?.document;
+        if (doc && doc.body) {
+          const h = doc.documentElement.scrollHeight || doc.body.scrollHeight;
+          if (h > 100) setIframeHeight(h + 40);
+        }
+      } catch {
+        // cross-origin: ignore
       }
     };
-    window.addEventListener("message", handler);
-    return () => window.removeEventListener("message", handler);
+
+    const interval = setInterval(checkHeight, 400);
+    iframe.addEventListener("load", checkHeight);
+    return () => {
+      clearInterval(interval);
+      iframe.removeEventListener("load", checkHeight);
+    };
   }, []);
 
   return (
@@ -43,7 +54,7 @@ export default function SimularTaxas() {
         </div>
       </section>
 
-      {/* Simulator iframe */}
+      {/* Simulator */}
       <main className="flex-1 py-8 px-4">
         <div className="max-w-3xl mx-auto">
           <div
@@ -52,13 +63,12 @@ export default function SimularTaxas() {
           >
             <iframe
               ref={iframeRef}
-              src={SIMULATOR_URL}
+              src="/simulador-taxas-html"
               title="Simulador de Taxas"
               width="100%"
               height={iframeHeight}
               style={{ border: "none", display: "block" }}
-              allow="downloads"
-              sandbox="allow-scripts allow-same-origin allow-downloads allow-popups allow-modals"
+              sandbox="allow-scripts allow-same-origin allow-downloads allow-popups allow-modals allow-forms"
             />
           </div>
 
