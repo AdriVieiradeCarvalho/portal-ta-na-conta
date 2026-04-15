@@ -58,13 +58,32 @@ function StepCard({ number, title, description, children, highlight }: {
   );
 }
 
-// Taxas por bandeira conforme planilha fornecida
+// Taxas por bandeira — valores ANTECIPADOS conforme tabela oficial
+// Colunas: parcela | Visa/Master | Amex | Elo | Hiper
 const taxasBandeira = [
-  { bandeira: "Visa", debito: "1,49%", credito1x: "2,49%", credito2a6: "2,99%", credito7a12: "3,49%", credito13a21: "3,99%" },
-  { bandeira: "Mastercard", debito: "1,49%", credito1x: "2,49%", credito2a6: "2,99%", credito7a12: "3,49%", credito13a21: "3,99%" },
-  { bandeira: "Elo", debito: "1,49%", credito1x: "2,49%", credito2a6: "2,99%", credito7a12: "3,49%", credito13a21: "3,99%" },
-  { bandeira: "Hipercard", debito: "1,49%", credito1x: "2,49%", credito2a6: "2,99%", credito7a12: "3,49%", credito13a21: "3,99%" },
-  { bandeira: "Amex", debito: "—", credito1x: "2,49%", credito2a6: "2,99%", credito7a12: "3,49%", credito13a21: "3,99%" },
+  { parcela: "Débito",     visaMaster: "1,29%",  amex: "—",      elo: "2,49%",  hiper: "—" },
+  { parcela: "Crédito 1x", visaMaster: "3,49%",  amex: "4,29%",  elo: "4,99%",  hiper: "4,99%" },
+  { parcela: "2x",         visaMaster: "5,19%",  amex: "5,74%",  elo: "6,29%",  hiper: "6,29%" },
+  { parcela: "3x",         visaMaster: "5,99%",  amex: "6,54%",  elo: "7,09%",  hiper: "7,09%" },
+  { parcela: "4x",         visaMaster: "6,67%",  amex: "7,23%",  elo: "7,79%",  hiper: "7,79%" },
+  { parcela: "5x",         visaMaster: "7,39%",  amex: "7,94%",  elo: "8,49%",  hiper: "8,49%" },
+  { parcela: "6x",         visaMaster: "7,99%",  amex: "8,59%",  elo: "9,19%",  hiper: "9,19%" },
+  { parcela: "7x",         visaMaster: "8,79%",  amex: "9,39%",  elo: "9,99%",  hiper: "9,99%" },
+  { parcela: "8x",         visaMaster: "9,49%",  amex: "9,99%",  elo: "10,59%", hiper: "10,59%" },
+  { parcela: "9x",         visaMaster: "9,99%",  amex: "10,64%", elo: "11,29%", hiper: "11,29%" },
+  { parcela: "10x",        visaMaster: "10,99%", amex: "11,49%", elo: "11,99%", hiper: "11,99%" },
+  { parcela: "11x",        visaMaster: "11,59%", amex: "12,09%", elo: "12,59%", hiper: "12,59%" },
+  { parcela: "12x",        visaMaster: "12,29%", amex: "12,79%", elo: "13,29%", hiper: "13,29%" },
+  { parcela: "13x",        visaMaster: "12,64%", amex: "13,26%", elo: "14,29%", hiper: "14,29%" },
+  { parcela: "14x",        visaMaster: "12,99%", amex: "14,14%", elo: "15,29%", hiper: "15,29%" },
+  { parcela: "15x",        visaMaster: "13,99%", amex: "15,14%", elo: "16,29%", hiper: "16,29%" },
+  { parcela: "16x",        visaMaster: "14,99%", amex: "16,14%", elo: "17,29%", hiper: "17,29%" },
+  { parcela: "17x",        visaMaster: "15,99%", amex: "17,14%", elo: "18,29%", hiper: "18,29%" },
+  { parcela: "18x",        visaMaster: "16,99%", amex: "18,14%", elo: "19,29%", hiper: "19,29%" },
+  { parcela: "19x",        visaMaster: "17,99%", amex: "19,14%", elo: "20,29%", hiper: "20,29%" },
+  { parcela: "20x",        visaMaster: "18,99%", amex: "20,14%", elo: "21,29%", hiper: "21,29%" },
+  { parcela: "21x",        visaMaster: "19,99%", amex: "21,14%", elo: "22,29%", hiper: "22,29%" },
+  { parcela: "Pix",        visaMaster: "1,29%",  amex: "—",      elo: "—",      hiper: "—", pix: true },
 ];
 
 export default function PrimeiroAcessoMaquininha() {
@@ -134,23 +153,29 @@ export default function PrimeiroAcessoMaquininha() {
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: "#00A335", color: "#FFFFFF" }}>
-                  <th className="text-left px-4 py-3 font-semibold rounded-tl-2xl">Bandeira</th>
-                  <th className="text-center px-3 py-3 font-semibold">Débito</th>
-                  <th className="text-center px-3 py-3 font-semibold">Créd. 1x</th>
-                  <th className="text-center px-3 py-3 font-semibold">Créd. 2–6x</th>
-                  <th className="text-center px-3 py-3 font-semibold">Créd. 7–12x</th>
-                  <th className="text-center px-3 py-3 font-semibold rounded-tr-2xl">Créd. 13–21x</th>
+                  <th className="text-left px-4 py-3 font-semibold rounded-tl-2xl">ANTECIPADA</th>
+                  <th className="text-center px-3 py-3 font-semibold">Visa ou Master</th>
+                  <th className="text-center px-3 py-3 font-semibold">Amex</th>
+                  <th className="text-center px-3 py-3 font-semibold">Elo</th>
+                  <th className="text-center px-3 py-3 font-semibold rounded-tr-2xl">Hiper</th>
                 </tr>
               </thead>
               <tbody>
                 {taxasBandeira.map((row, i) => (
-                  <tr key={row.bandeira} style={{ background: i % 2 === 0 ? "white" : "rgba(0,208,132,0.04)" }}>
-                    <td className="px-4 py-3 font-semibold text-foreground">{row.bandeira}</td>
-                    <td className="px-3 py-3 text-center text-muted-foreground">{row.debito}</td>
-                    <td className="px-3 py-3 text-center text-muted-foreground">{row.credito1x}</td>
-                    <td className="px-3 py-3 text-center text-muted-foreground">{row.credito2a6}</td>
-                    <td className="px-3 py-3 text-center text-muted-foreground">{row.credito7a12}</td>
-                    <td className="px-3 py-3 text-center text-muted-foreground">{row.credito13a21}</td>
+                  <tr
+                    key={row.parcela}
+                    style={{
+                      background: row.pix
+                        ? "rgba(0,208,132,0.10)"
+                        : i % 2 === 0 ? "white" : "rgba(0,208,132,0.04)",
+                      fontWeight: (row.parcela === "Débito" || row.parcela === "Pix") ? 600 : undefined
+                    }}
+                  >
+                    <td className="px-4 py-2.5 font-semibold text-foreground">{row.parcela}{row.pix ? <span className="ml-2 text-xs font-normal text-muted-foreground">(Min R$0,30 por operação)</span> : null}</td>
+                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.visaMaster}</td>
+                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.amex}</td>
+                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.elo}</td>
+                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.hiper}</td>
                   </tr>
                 ))}
               </tbody>
