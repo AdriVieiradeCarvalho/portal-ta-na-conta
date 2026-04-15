@@ -34,16 +34,10 @@ const benefits = [
     highlight: "+10% lucro",
   },
   {
-    icon: <CreditCard className="w-6 h-6" />,
-    title: "Venda mais com parcelamento",
-    description: "Parcele em até 21x. Parcelar no cartão é mais barato que qualquer linha de crédito ou empréstimo.",
-    highlight: "Até 21x",
-  },
-  {
     icon: <Layers className="w-6 h-6" />,
-    title: "Múltiplos cartões aceitos",
-    description: "Aceite pagamento com vários cartões na mesma venda. Ideal para projetos de maior valor.",
-    highlight: "Flexível",
+    title: "Flexibilidade no pagamento",
+    description: "Parcele em até 21x e aceite múltiplos cartões na mesma venda. Ideal para projetos de maior valor onde o cliente quer dividir entre portadores.",
+    highlight: "Até 21x • Multi-cartões",
   },
 ];
 
