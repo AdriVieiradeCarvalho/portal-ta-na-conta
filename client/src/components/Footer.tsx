@@ -54,7 +54,7 @@ export default function Footer() {
               {[
                 { label: "Plataforma Solar", href: "/tutoriais/plataforma-solar" },
                 { label: "Venda na Maquininha", href: "/tutoriais/maquininha" },
-
+                { label: "Venda com Link", href: "/tutoriais/link-pagamento" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>
