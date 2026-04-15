@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import {
   CreditCard, CheckCircle2, AlertTriangle,
-  ArrowRight, Wifi, Info, Zap, Shield, BarChart2, TrendingDown, Upload
+  ArrowRight, Wifi, Info, Zap, Shield, BarChart2, TrendingDown, Upload, ChevronDown
 } from "lucide-react";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
@@ -86,6 +87,61 @@ const taxasBandeira = [
   { parcela: "Pix",        visaMaster: "1,29%",  amex: "—",      elo: "—",      hiper: "—", pix: true },
 ];
 
+function TaxasAccordion() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-2xl border border-border shadow-sm overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-sm text-white transition-colors"
+        style={{ background: "#00A335" }}
+      >
+        <span>Saiba mais — Tabela completa de taxas por bandeira</span>
+        <ChevronDown
+          className="w-5 h-5 flex-shrink-0 transition-transform duration-300"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+        />
+      </button>
+      {open && (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr style={{ background: "#f0fdf4" }}>
+                <th className="text-left px-4 py-3 font-semibold text-foreground">ANTECIPADA</th>
+                <th className="text-center px-3 py-3 font-semibold text-foreground">Visa ou Master</th>
+                <th className="text-center px-3 py-3 font-semibold text-foreground">Amex</th>
+                <th className="text-center px-3 py-3 font-semibold text-foreground">Elo</th>
+                <th className="text-center px-3 py-3 font-semibold text-foreground">Hiper</th>
+              </tr>
+            </thead>
+            <tbody>
+              {taxasBandeira.map((row, i) => (
+                <tr
+                  key={row.parcela}
+                  style={{
+                    background: row.pix
+                      ? "rgba(0,208,132,0.10)"
+                      : i % 2 === 0 ? "white" : "rgba(0,208,132,0.04)",
+                  }}
+                >
+                  <td className="px-4 py-2.5 font-semibold text-foreground">
+                    {row.parcela}
+                    {row.pix && <span className="ml-2 text-xs font-normal text-muted-foreground">(Min R$0,30 por operação)</span>}
+                  </td>
+                  <td className="px-3 py-2.5 text-center text-muted-foreground">{row.visaMaster}</td>
+                  <td className="px-3 py-2.5 text-center text-muted-foreground">{row.amex}</td>
+                  <td className="px-3 py-2.5 text-center text-muted-foreground">{row.elo}</td>
+                  <td className="px-3 py-2.5 text-center text-muted-foreground">{row.hiper}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function PrimeiroAcessoMaquininha() {
   return (
     <div className="min-h-screen">
@@ -148,39 +204,8 @@ export default function PrimeiroAcessoMaquininha() {
             Confira nossas taxas e compare com o mercado. Você vai perceber que o Tá na Conta oferece condições diferenciadas para integradores de energia solar.
           </p>
 
-          {/* Tabela de taxas */}
-          <div className="overflow-x-auto rounded-2xl border border-border shadow-sm">
-            <table className="w-full text-sm">
-              <thead>
-                <tr style={{ background: "#00A335", color: "#FFFFFF" }}>
-                  <th className="text-left px-4 py-3 font-semibold rounded-tl-2xl">ANTECIPADA</th>
-                  <th className="text-center px-3 py-3 font-semibold">Visa ou Master</th>
-                  <th className="text-center px-3 py-3 font-semibold">Amex</th>
-                  <th className="text-center px-3 py-3 font-semibold">Elo</th>
-                  <th className="text-center px-3 py-3 font-semibold rounded-tr-2xl">Hiper</th>
-                </tr>
-              </thead>
-              <tbody>
-                {taxasBandeira.map((row, i) => (
-                  <tr
-                    key={row.parcela}
-                    style={{
-                      background: row.pix
-                        ? "rgba(0,208,132,0.10)"
-                        : i % 2 === 0 ? "white" : "rgba(0,208,132,0.04)",
-                      fontWeight: (row.parcela === "Débito" || row.parcela === "Pix") ? 600 : undefined
-                    }}
-                  >
-                    <td className="px-4 py-2.5 font-semibold text-foreground">{row.parcela}{row.pix ? <span className="ml-2 text-xs font-normal text-muted-foreground">(Min R$0,30 por operação)</span> : null}</td>
-                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.visaMaster}</td>
-                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.amex}</td>
-                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.elo}</td>
-                    <td className="px-3 py-2.5 text-center text-muted-foreground">{row.hiper}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {/* Tabela de taxas — accordion sanfona */}
+          <TaxasAccordion />
 
           <div className="mt-4 grid sm:grid-cols-2 gap-4">
             <div
@@ -287,84 +312,70 @@ export default function PrimeiroAcessoMaquininha() {
         </div>
       </section>
 
-      {/* ─── Passo a passo: Venda Solar ─── */}
+      {/* ─── Passo a passo ─── */}
       <section className="py-12" style={{ background: "#f5faf7" }}>
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
               <ArrowRight className="w-5 h-5" style={{ color: "#00A335" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">Passo a Passo: Venda Solar</h2>
+            <h2 className="text-2xl font-bold text-foreground">Passo a Passo</h2>
           </div>
           <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-            Siga o fluxo completo para realizar uma cobrança de projeto solar com a maquininha integrada à Plataforma Solar Intelbras.
+            Siga o fluxo para realizar uma cobrança com a maquininha. Para o fluxo completo de Venda Solar, consulte o tutorial dedicado.
           </p>
+
+          {/* Botão para Venda Solar */}
+          <a href="/tutoriais/solar" className="inline-flex items-center gap-2 mb-6 px-4 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
+            style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}>
+            <ArrowRight className="w-4 h-4" />
+            Ver Tutorial: Venda Solar na Plataforma Solar
+          </a>
+
           <div className="space-y-4">
             <StepCard
               number={1}
-              title="Finalize o projeto na Plataforma Solar"
-              description='Antes de cobrar, certifique-se de que o projeto está salvo e aprovado na Plataforma Solar Intelbras. Clique em "Salvar" para confirmar o orçamento.'
+              title="Consulte as taxas e simule o parcelamento"
+              description="Acesse o Simulador de Taxas para calcular o valor a cobrar na maquininha. Você pode optar por assumir as taxas ou repassá-las ao cliente — o simulador mostra o valor líquido a receber em cada cenário."
             />
             <StepCard
               number={2}
-              title="Retire o valor dos serviços da Plataforma Solar"
-              description="Na Plataforma Solar, identifique o valor dos serviços (mão de obra, instalação etc.) que ficará com o integrador. Esse é o valor que será cobrado na maquininha."
+              title="Mantenha a maquininha sempre carregada"
+              description="Deixe a maquininha na tomada quando não estiver em uso. Clientes que visitam a loja precisam encontrá-la pronta para operar."
             />
             <StepCard
               number={3}
-              title="Preencha o valor na maquininha"
-              description="No app da maquininha, insira o valor total do projeto (produtos + serviços) conforme acordado com o cliente."
+              title="Ligue e aguarde a inicialização"
+              description='Pressione o botão cromado por 3 segundos até a bolinha laranja aparecer. Aguarde a inicialização completa antes de qualquer operação.'
             />
             <StepCard
               number={4}
-              title="Cliente realiza o pagamento"
-              description="O cliente paga pelo projeto completo na maquininha — em débito, crédito à vista ou parcelado em até 21x."
+              title='Digite o valor e toque em "Pagar" ou "Pix"'
+              description="Insira o valor total da venda e selecione a forma de pagamento. Para Pix, o QR Code será gerado automaticamente."
             />
             <StepCard
               number={5}
-              title="Imprima as 2 vias do comprovante"
+              title="Selecione débito, crédito à vista ou parcelado"
+              description="Em crédito parcelado, toque em 'Parcelado' e selecione o prazo combinado. Confira se a bandeira do cartão é a mesma usada na simulação!"
+            />
+            <StepCard
+              number={6}
+              title="Passe o cartão e imprima as 2 vias"
               highlight
             >
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Imprima <strong>2 vias</strong>: uma para o cliente e uma para o seu controle. Guarde o comprovante — ele será necessário para o próximo passo.
+                Após a aprovação, imprima <strong>2 vias</strong>: uma para o cliente e uma para o seu controle.
               </p>
               <AttentionBox>
-                <strong>Ponto de Atenção Importante!</strong> Imprima sempre as 2 vias do comprovante. Não feche a transação antes de imprimir.
+                <strong>Ponto de Atenção Importante!</strong> Não feche a transação antes de imprimir as 2 vias.
               </AttentionBox>
             </StepCard>
             <StepCard
-              number={6}
-              title="Faça o upload do comprovante na Plataforma Solar"
-            >
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Após o pagamento, acesse a Plataforma Solar Intelbras e faça o <strong>upload do comprovante de pagamento</strong> no projeto correspondente. Esse registro é obrigatório para que a Cappta processe o split corretamente.
-              </p>
-              <div className="flex items-center gap-2 mt-3 p-3 rounded-xl border" style={{ background: "rgba(0,208,132,0.07)", borderColor: "rgba(0,163,53,0.20)" }}>
-                <Upload className="w-4 h-4 flex-shrink-0" style={{ color: "#00A335" }} />
-                <p className="text-xs text-muted-foreground">Acesse o projeto na Plataforma Solar → Pagamentos → Anexar comprovante.</p>
-              </div>
-            </StepCard>
-            <StepCard
               number={7}
-              title="Cappta realiza o split automaticamente"
-              description="A Cappta identifica o pagamento e realiza o split: o valor dos produtos é direcionado para a Intelbras e o valor dos serviços fica na sua Conta Digital."
-            />
-            <StepCard
-              number={8}
-              title="Intelbras envia os equipamentos e emite a NF"
-              description="Com o split confirmado, a Intelbras processa o pedido, emite a nota fiscal dos produtos e envia os equipamentos para a instalação."
-            />
-            <StepCard
-              number={9}
-              title="Instale os equipamentos e emita sua NF de serviço"
-              description="Após receber os equipamentos, realize a instalação e emita a nota fiscal dos serviços prestados."
-            />
-            <StepCard
-              number={10}
-              title="Receba na Conta Digital no próximo dia útil"
+              title="No dia seguinte, seu dinheiro Tá na Conta!"
             >
               <p className="text-sm text-muted-foreground leading-relaxed">
-                O valor dos seus serviços estará disponível na Conta Digital no <strong>próximo dia útil</strong> após a confirmação do split.
+                O valor da venda estará disponível na sua Conta Digital no <strong>próximo dia útil</strong>.
               </p>
               <div className="mt-3 p-3 rounded-xl border flex items-center gap-3" style={{ background: "rgba(0,208,132,0.07)", borderColor: "rgba(0,163,53,0.25)" }}>
                 <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "#00A335" }} />
