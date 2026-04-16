@@ -287,7 +287,7 @@ export default function PrimeiroAcessoMaquininha() {
           <a href="/tutoriais/solar" className="inline-flex items-center gap-2 mb-6 px-4 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
             style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}>
             <ArrowRight className="w-4 h-4" />
-            Ver Tutorial: Venda Solar na Plataforma Solar
+            Ver Tutorial: Venda com a Plataforma Solar
           </a>
 
           <div className="space-y-4">
