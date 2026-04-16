@@ -77,7 +77,7 @@ export default function PrimeiroAcessoConta() {
               Primeiro Acesso — Conta Digital
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Ative sua Conta Digital o mais rápido possível!
+              Ative sua Conta Digital!
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
               Sem a conta ativada, os pagamentos ficam retidos e você não consegue acessar seus recebíveis. A ativação é simples, gratuita e leva menos de 5 minutos.
