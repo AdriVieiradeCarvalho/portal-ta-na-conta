@@ -191,46 +191,6 @@ export default function PrimeiroAcessoMaquininha() {
         </div>
       </section>
 
-      {/* ─── Taxas Competitivas ─── */}
-      <section className="py-12" style={{ background: "#f5faf7" }}>
-        <div className="container max-w-3xl">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
-              <TrendingDown className="w-5 h-5" style={{ color: "#00A335" }} />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground">Taxas Competitivas por Bandeira</h2>
-          </div>
-          <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-            Confira nossas taxas e compare com o mercado. Você vai perceber que o Tá na Conta oferece condições diferenciadas para integradores de energia solar.
-          </p>
-
-          {/* Tabela de taxas — accordion sanfona */}
-          <TaxasAccordion />
-
-          <div className="mt-4 grid sm:grid-cols-2 gap-4">
-            <div
-              className="rounded-xl p-4 border flex items-start gap-3"
-              style={{ background: "white", borderColor: "rgba(0,163,53,0.20)" }}
-            >
-              <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
-              <div>
-                <p className="font-semibold text-sm text-foreground mb-0.5">Recebimento em 1 dia útil</p>
-                <p className="text-xs text-muted-foreground">O valor cai na sua conta no próximo dia útil após a venda.</p>
-              </div>
-            </div>
-            <div
-              className="rounded-xl p-4 border flex items-start gap-3"
-              style={{ background: "white", borderColor: "rgba(0,163,53,0.20)" }}
-            >
-              <Shield className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
-              <div>
-                <p className="font-semibold text-sm text-foreground mb-0.5">Mesma taxa no Link de Pagamento</p>
-                <p className="text-xs text-muted-foreground">As taxas acima também valem para vendas via link — sem surpresas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Conexão + Como Ligar lado a lado */}
       <section className="py-10 bg-white">
