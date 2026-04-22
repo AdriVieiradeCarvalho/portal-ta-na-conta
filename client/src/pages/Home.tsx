@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
-  CreditCard, Smartphone, Link2, BarChart3, RefreshCw, Zap,
+  CreditCard, Smartphone, Link2, BarChart3, Zap,
   CheckCircle2, ArrowRight, ChevronDown, ChevronUp,
   Clock, TrendingUp, Shield, DollarSign, CreditCard as CardIcon, Star, Layers
 } from "lucide-react";
@@ -113,6 +113,88 @@ const faqs = [
   },
 ];
 
+// Taxas por bandeira — valores ANTECIPADOS conforme tabela oficial
+const taxasBandeira = [
+  { parcela: "Débito",     visaMaster: "1,29%",  amex: "—",      elo: "2,49%",  hiper: "—" },
+  { parcela: "Crédito 1x", visaMaster: "3,49%",  amex: "4,29%",  elo: "4,99%",  hiper: "4,99%" },
+  { parcela: "2x",         visaMaster: "5,19%",  amex: "5,74%",  elo: "6,29%",  hiper: "6,29%" },
+  { parcela: "3x",         visaMaster: "5,99%",  amex: "6,54%",  elo: "7,09%",  hiper: "7,09%" },
+  { parcela: "4x",         visaMaster: "6,67%",  amex: "7,23%",  elo: "7,79%",  hiper: "7,79%" },
+  { parcela: "5x",         visaMaster: "7,39%",  amex: "7,94%",  elo: "8,49%",  hiper: "8,49%" },
+  { parcela: "6x",         visaMaster: "7,99%",  amex: "8,59%",  elo: "9,19%",  hiper: "9,19%" },
+  { parcela: "7x",         visaMaster: "8,79%",  amex: "9,39%",  elo: "9,99%",  hiper: "9,99%" },
+  { parcela: "8x",         visaMaster: "9,49%",  amex: "9,99%",  elo: "10,59%", hiper: "10,59%" },
+  { parcela: "9x",         visaMaster: "9,99%",  amex: "10,64%", elo: "11,29%", hiper: "11,29%" },
+  { parcela: "10x",        visaMaster: "10,99%", amex: "11,49%", elo: "11,99%", hiper: "11,99%" },
+  { parcela: "11x",        visaMaster: "11,59%", amex: "12,09%", elo: "12,59%", hiper: "12,59%" },
+  { parcela: "12x",        visaMaster: "12,29%", amex: "12,79%", elo: "13,29%", hiper: "13,29%" },
+  { parcela: "13x",        visaMaster: "12,64%", amex: "13,26%", elo: "14,29%", hiper: "14,29%" },
+  { parcela: "14x",        visaMaster: "12,99%", amex: "14,14%", elo: "15,29%", hiper: "15,29%" },
+  { parcela: "15x",        visaMaster: "13,99%", amex: "15,14%", elo: "16,29%", hiper: "16,29%" },
+  { parcela: "16x",        visaMaster: "14,99%", amex: "16,14%", elo: "17,29%", hiper: "17,29%" },
+  { parcela: "17x",        visaMaster: "15,99%", amex: "17,14%", elo: "18,29%", hiper: "18,29%" },
+  { parcela: "18x",        visaMaster: "16,99%", amex: "18,14%", elo: "19,29%", hiper: "19,29%" },
+  { parcela: "19x",        visaMaster: "17,99%", amex: "19,14%", elo: "20,29%", hiper: "20,29%" },
+  { parcela: "20x",        visaMaster: "18,99%", amex: "20,14%", elo: "21,29%", hiper: "21,29%" },
+  { parcela: "21x",        visaMaster: "19,99%", amex: "21,14%", elo: "22,29%", hiper: "22,29%" },
+  { parcela: "Pix",        visaMaster: "1,29%",  amex: "—",      elo: "—",      hiper: "—", pix: true },
+];
+
+function TaxasAccordion() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.20)" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-sm transition-colors"
+        style={{ background: "rgba(255,255,255,0.12)", color: "#FFFFFF" }}
+      >
+        <span>Ver tabela completa de taxas por bandeira</span>
+        <ChevronDown
+          className="w-5 h-5 flex-shrink-0 transition-transform duration-300"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", color: "#00d084" }}
+        />
+      </button>
+      {open && (
+        <div className="overflow-x-auto" style={{ background: "rgba(0,0,0,0.20)" }}>
+          <table className="w-full text-sm">
+            <thead>
+              <tr style={{ background: "rgba(0,208,132,0.15)" }}>
+                <th className="text-left px-4 py-3 font-semibold text-white">ANTECIPADA</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Visa ou Master</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Amex</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Elo</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Hiper</th>
+              </tr>
+            </thead>
+            <tbody>
+              {taxasBandeira.map((row, i) => (
+                <tr
+                  key={row.parcela}
+                  style={{
+                    background: row.pix
+                      ? "rgba(0,208,132,0.12)"
+                      : i % 2 === 0 ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <td className="px-4 py-2.5 font-semibold text-white">
+                    {row.parcela}
+                    {row.pix && <span className="ml-2 text-xs font-normal text-white/60">(Min R$0,30 por operação)</span>}
+                  </td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.visaMaster}</td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.amex}</td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.elo}</td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.hiper}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -142,7 +224,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
+      <section className="relative h-screen max-h-[700px] min-h-[560px] flex items-center overflow-hidden">
         {/* Fundo: painéis solares */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -184,7 +266,7 @@ export default function Home() {
         </div>
 
         {/* Conteúdo principal */}
-        <div className="relative container py-20 lg:py-28">
+        <div className="relative container py-16 lg:py-20">
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Seu projeto em{" "}
@@ -219,7 +301,7 @@ export default function Home() {
             </div>
 
             {/* Quick stats — apenas 3 */}
-            <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/15">
+            <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-white/15">
               {[
                 { value: "1 Dia", label: "Recebimento" },
                 { value: "+10%", label: "Lucro no serviço" },
@@ -232,6 +314,15 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Seta pulsante — indica que há mais conteúdo abaixo */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+          <span className="text-white/50 text-xs tracking-widest uppercase">Saiba mais</span>
+          <ChevronDown
+            className="w-6 h-6 text-white/70"
+            style={{ animation: "bounce 1.8s infinite" }}
+          />
         </div>
       </section>
 
@@ -258,114 +349,75 @@ export default function Home() {
                   "Maquininha com parcelamento em até 21x",
                   "Link de pagamento com mesma taxa da maquininha",
                   "Possibilidade de pagamento com múltiplos cartões",
-                  "Economia de 10% do valor dos serviços com mais lucro nos seus serviços",
+                  "Conta digital com Pix e recebimento D+1",
                 ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
+                  <div key={item} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "#00A335" }} />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div
-                className="absolute -inset-4 rounded-2xl opacity-20"
-                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}
+            <div className="grid grid-cols-2 gap-4">
+              <img
+                src={SOLAR_IMAGE}
+                alt="Instalação solar"
+                className="rounded-2xl object-cover w-full h-48 lg:h-56 shadow-md"
               />
               <img
                 src={BUSINESS_IMAGE}
-                alt="Integrador usando maquininha de pagamento"
-                className="relative rounded-2xl w-full object-cover shadow-2xl"
-                style={{ height: "400px" }}
+                alt="Pagamento com cartão"
+                className="rounded-2xl object-cover w-full h-48 lg:h-56 shadow-md mt-6"
               />
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-xl border border-border">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(0,163,53,0.10)" }}
-                  >
-                    <Clock className="w-5 h-5" style={{ color: "#00A335" }} />
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm text-foreground">Em 1 dia</p>
-                    <p className="text-xs text-muted-foreground">Tá na Conta!</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── ARGUMENTOS DE VENDAS ─── */}
-      <section className="py-14 lg:py-20" style={{ background: "#f5faf7" }}>
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
-              Por que seu cliente vai <span className="brand-gradient-text">fechar com você?</span>
-            </h2>
-            <p className="text-muted-foreground text-sm">Use esses argumentos na hora de apresentar o parcelamento.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            {salesArguments.map((arg) => (
-              <div
-                key={arg.title}
-                className="bg-white rounded-2xl p-6 border border-border shadow-sm flex flex-col gap-3"
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(0,163,53,0.08)" }}
-                >
-                  <span style={{ color: "#00A335" }}>{arg.icon}</span>
-                </div>
-                <p className="font-bold text-sm text-foreground leading-snug">{arg.title}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{arg.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ─── BENEFÍCIOS ─── */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24" style={{ background: "#f5faf7" }}>
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
               style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
             >
-              <Shield className="w-3.5 h-3.5" />
-              Benefícios Reais
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              Vantagens
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Benefícios que vão além{" "}
-              <span className="brand-gradient-text">da maquininha</span>
+              Benefícios que vão além da maquininha
             </h2>
             <p className="text-muted-foreground">
-              Uma plataforma financeira completa para impulsionar o seu negócio de energia solar.
+              Uma solução pensada para integradores que querem crescer.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl p-6 border border-border card-hover group"
-                style={{ background: "#f5faf7" }}
+                className="p-6 rounded-2xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow"
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all group-hover:scale-110"
-                  style={{ background: "rgba(0,163,53,0.08)" }}
-                >
-                  <span style={{ color: "#00A335" }}>{benefit.icon}</span>
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: "linear-gradient(135deg, rgba(0,163,53,0.10), rgba(0,208,132,0.15))" }}
+                  >
+                    <span style={{ color: "#00A335" }}>{benefit.icon}</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <h3 className="font-bold text-base text-foreground">{benefit.title}</h3>
+                      <span
+                        className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                        style={{ background: "rgba(0,208,132,0.12)", color: "#00A335" }}
+                      >
+                        {benefit.highlight}
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  </div>
                 </div>
-                <div
-                  className="inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2"
-                  style={{ background: "rgba(0,208,132,0.15)", color: "#00A335" }}
-                >
-                  {benefit.highlight}
-                </div>
-                <h3 className="font-bold text-base text-foreground mb-2">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -373,51 +425,75 @@ export default function Home() {
       </section>
 
       {/* ─── PROCESSO ─── */}
-      <section className="py-16 lg:py-24 overflow-hidden" style={{ background: "#f5faf7" }}>
+      <section className="py-16 lg:py-24 bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
-              >
-                <RefreshCw className="w-3.5 h-3.5" />
-                Processo Financeiro
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">
-                Como funciona o{" "}
-                <span className="brand-gradient-text">processo financeiro?</span>
-              </h2>
-              <div className="space-y-6">
-                {steps.map((step, idx) => (
-                  <div key={step.number} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                        style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
-                      >
-                        {step.number}
-                      </div>
-                      {idx < steps.length - 1 && (
-                        <div className="w-0.5 h-full mt-2" style={{ background: "rgba(0,163,53,0.20)" }} />
-                      )}
-                    </div>
-                    <div className="pb-6">
-                      <h3 className="font-bold text-base text-foreground mb-1">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                    </div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
+              style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
+            >
+              <Zap className="w-3.5 h-3.5" />
+              Como funciona
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              Do projeto ao recebimento em <span className="brand-gradient-text">4 passos</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {steps.map((step, index) => (
+              <div key={step.number} className="relative">
+                <div className="p-6 rounded-2xl border border-border bg-white shadow-sm text-center">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-xl mx-auto mb-4"
+                    style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
+                  >
+                    {step.number}
                   </div>
-                ))}
+                  <h3 className="font-bold text-base text-foreground mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10">
+                    <ArrowRight className="w-5 h-5" style={{ color: "#00A335" }} />
+                  </div>
+                )}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ARGUMENTOS DE VENDA ─── */}
+      <section className="py-16 lg:py-20" style={{ background: "#f5faf7" }}>
+        <div className="container">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
+              style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
+            >
+              <Smartphone className="w-3.5 h-3.5" />
+              Argumentos de Venda
             </div>
-            <div className="order-1 lg:order-2 relative">
-              <img
-                src={SOLAR_IMAGE}
-                alt="Instalador de energia solar"
-                className="rounded-2xl w-full object-cover shadow-2xl"
-                style={{ height: "500px" }}
-              />
-            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              Como convencer seu cliente a pagar no cartão
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {salesArguments.map((arg) => (
+              <div
+                key={arg.title}
+                className="p-6 rounded-2xl bg-white border border-border shadow-sm"
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                  style={{ background: "linear-gradient(135deg, rgba(0,163,53,0.10), rgba(0,208,132,0.15))" }}
+                >
+                  <span style={{ color: "#00A335" }}>{arg.icon}</span>
+                </div>
+                <h3 className="font-bold text-sm text-foreground mb-2">{arg.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{arg.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -436,14 +512,14 @@ export default function Home() {
               Transparência total, sem letras miúdas.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+
+          {/* Cards de condições — sem "Receba em 1 dia útil" e sem "Comodato" */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto mb-10">
             {[
-              { icon: <Clock className="w-5 h-5" />, title: "Receba em 1 dia útil", desc: "Para todos os projetos solares" },
               { icon: <Shield className="w-5 h-5" />, title: "Sem taxa de adesão", desc: "Zero custo para começar" },
               { icon: <Smartphone className="w-5 h-5" />, title: "Mensalidade gratuita", desc: "Faturando R$15.000 ou mais por mês" },
               { icon: <CreditCard className="w-5 h-5" />, title: "R$79,90/mês", desc: "Para faturamento abaixo de R$15.000/mês" },
-              { icon: <CheckCircle2 className="w-5 h-5" />, title: "Frete grátis", desc: "Envio da maquininha" },
-              { icon: <DollarSign className="w-5 h-5" />, title: "Comodato", desc: "Maquininha emprestada sem custo" },
+              { icon: <DollarSign className="w-5 h-5" />, title: "Frete grátis", desc: "Envio da maquininha sem custo" },
             ].map((item) => (
               <div
                 key={item.title}
@@ -463,7 +539,13 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+
+          {/* Tabela de taxas por bandeira */}
+          <div className="max-w-4xl mx-auto mb-10">
+            <TaxasAccordion />
+          </div>
+
+          <div className="text-center">
             <a href={FORM_ADESAO} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
