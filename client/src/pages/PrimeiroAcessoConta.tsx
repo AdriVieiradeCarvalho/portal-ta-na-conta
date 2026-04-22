@@ -51,7 +51,7 @@ function StepCard({ number, title, description, children }: {
   );
 }
 
-const whatsappSuporteLink = "https://api.whatsapp.com/send?phone=5511998013839&text=Oi,%20preciso%20de%20suporte%20com%20a%20Conta%20Digital";
+const whatsappSuporteLink = "https://wa.me/5511974409760?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20para%20o%20T%C3%A1%20na%20Conta.";
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
@@ -80,7 +80,7 @@ export default function PrimeiroAcessoConta() {
               Ative sua Conta Digital!
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Sem a conta ativada, os pagamentos ficam retidos e você não consegue acessar seus recebíveis. A ativação é simples, gratuita e leva menos de 5 minutos.
+              A ativação é simples, gratuita e leva menos de 5 minutos. Sem a conta ativada, os pagamentos ficam retidos e você não consegue acessar seus recebíveis.
             </p>
           </div>
         </div>
