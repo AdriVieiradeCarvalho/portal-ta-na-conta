@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lu
 import { Button } from "@/components/ui/button";
 
 const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
-const LOGO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-tanaconta_e37f93c4.png";
+const LOGO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-tanaconta-v2_34d062b1.png";
 const SIMBOLO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/simbolo-tanaconta_0b1519e4.png";
 
 interface DropdownItem {
@@ -154,12 +154,15 @@ export default function Navbar() {
                 className="h-10 w-10 object-contain rounded-lg flex-shrink-0"
               />
               {/* Logo completa Tá na Conta com tagline */}
-              <img
-                src={LOGO_TANACONTA}
-                alt="Tá na Conta — Uma parceria Intelbras + Cappta"
-                className="hidden sm:block h-10 w-auto object-contain"
-                style={{ maxWidth: "200px" }}
-              />
+              <div className="hidden sm:flex flex-col leading-none">
+                <img
+                  src={LOGO_TANACONTA}
+                  alt="Tá na Conta"
+                  className="h-8 w-auto object-contain"
+                  style={{ maxWidth: "160px" }}
+                />
+                <span className="text-[9px] text-muted-foreground mt-0.5" style={{ fontFamily: "Roboto, sans-serif", letterSpacing: "0.01em" }}>Uma parceria Intelbras + Cappta</span>
+              </div>
             </div>
           </Link>
 
