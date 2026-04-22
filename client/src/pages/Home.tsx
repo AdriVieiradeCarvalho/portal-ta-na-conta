@@ -224,7 +224,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* ─── HERO ─── */}
-      <section className="relative h-screen max-h-[700px] min-h-[560px] flex items-center overflow-hidden">
+      <section className="relative flex items-center overflow-hidden" style={{ height: "75vh", minHeight: "480px", maxHeight: "620px" }}>
         {/* Fundo: painéis solares */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -266,11 +266,10 @@ export default function Home() {
         </div>
 
         {/* Seta pulsante — indica que há mais conteúdo abaixo */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
-          <span className="text-white/50 text-xs tracking-widest uppercase">Saiba mais</span>
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10 cursor-pointer" onClick={() => window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' })}>
+          <span className="text-white/60 text-xs tracking-widest uppercase font-semibold animate-pulse">Saiba mais</span>
           <ChevronDown
-            className="w-6 h-6 text-white/70"
-            style={{ animation: "bounce 1.8s infinite" }}
+            className="w-7 h-7 text-white animate-bounce"
           />
         </div>
 

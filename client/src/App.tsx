@@ -1,7 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
+import { useEffect } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
@@ -13,6 +14,14 @@ import PrimeiroAcessoMaquininha from "./pages/PrimeiroAcessoMaquininha";
 import SimularTaxas from "./pages/SimularTaxas";
 import Tutoriais from "./pages/Tutoriais";
 import Suporte from "./pages/Suporte";
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
+  return null;
+}
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -26,7 +35,9 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 function Router() {
   return (
-    <Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
       <Route path="/" component={() => <Layout><Home /></Layout>} />
       {/* Primeiro Acesso */}
       <Route path="/primeiro-acesso/conta" component={() => <Layout><PrimeiroAcessoConta /></Layout>} />
@@ -44,7 +55,8 @@ function Router() {
       <Route path="/suporte" component={() => <Layout><Suporte /></Layout>} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
-    </Switch>
+      </Switch>
+    </>
   );
 }
 
