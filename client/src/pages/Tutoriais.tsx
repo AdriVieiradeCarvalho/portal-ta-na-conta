@@ -275,7 +275,7 @@ function TutorialLinkPagamento() {
         <StepCard number={3} title="Preencha os dados do link">
           <div className="space-y-2 mt-1">
             <p><strong>Nome do Produto:</strong> Cole o número do projeto da Plataforma Solar.</p>
-            <p><strong>Valor:</strong> Preencha o valor total da venda (sem juros — veja o passo 4).</p>
+            <p><strong>Valor:</strong> Preencha o valor total da venda (sem taxas — veja o passo 4).</p>
             <p><strong>Data de expiração:</strong> Defina a data limite para pagamento.</p>
             <p><strong>Descrição:</strong> Aparecerá para o cliente — use para reforçar prazos ou condições.</p>
             <p><strong>Dados do Pagador:</strong> Preencha todos os campos. <strong>Tipo:</strong> Único/Avulso.</p>
@@ -286,19 +286,19 @@ function TutorialLinkPagamento() {
           number={4}
           title="Taxas ao Portador: entenda e configure corretamente"
         >
-          <p className="mb-3">Esta opção define quem paga os juros do parcelamento:</p>
+          <p className="mb-3">Esta opção define quem paga as taxas do parcelamento:</p>
           <div className="space-y-3">
             <div className="p-3 rounded-lg border" style={{ background: "rgba(0,163,53,0.05)", borderColor: "rgba(0,163,53,0.20)" }}>
               <p className="text-sm font-semibold text-foreground mb-1">Taxas ao Portador: <span style={{ color: "#00A335" }}>SIM</span></p>
-              <p className="text-xs text-muted-foreground">O sistema recalcula os juros automaticamente conforme a bandeira do cartão (Visa, Amex, Elo etc.), protegendo o seu valor líquido. Use quando você colocar o valor <strong>original sem juros</strong> no link.</p>
+              <p className="text-xs text-muted-foreground">O sistema recalcula as taxas automaticamente conforme a bandeira do cartão (Visa, Amex, Elo etc.), protegendo o seu valor líquido. Use quando você colocar o valor <strong>original sem taxas</strong> no link.</p>
             </div>
             <div className="p-3 rounded-lg border" style={{ background: "rgba(240,165,0,0.06)", borderColor: "rgba(240,165,0,0.30)" }}>
               <p className="text-sm font-semibold text-foreground mb-1">Taxas ao Portador: <span style={{ color: "#b07800" }}>NÃO</span></p>
-              <p className="text-xs text-muted-foreground">Use quando você já incluiu os juros no valor total informado no link (calculado pelo simulador).</p>
+              <p className="text-xs text-muted-foreground">Use quando você já incluiu as taxas no valor total informado no link (calculado pelo simulador).</p>
             </div>
           </div>
           <AttentionBox>
-            <strong>Recomendação:</strong> Coloque o valor original (sem juros) no link e habilite <strong>Taxas ao Portador: SIM</strong>. Isso evita cobrança dupla e garante que o cliente pague exatamente o valor correto conforme a bandeira do cartão.
+            <strong>Recomendação:</strong> Coloque o valor original (sem taxas) no link e habilite <strong>Taxas ao Portador: SIM</strong>. Isso evita cobrança dupla e garante que o cliente pague exatamente o valor correto conforme a bandeira do cartão.
           </AttentionBox>
         </StepCard>
 

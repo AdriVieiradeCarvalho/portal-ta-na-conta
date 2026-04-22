@@ -68,7 +68,7 @@ const salesArguments = [
   {
     icon: <CardIcon className="w-6 h-6" />,
     title: "Pagar com Cartão é mais barato que pegar empréstimo!",
-    description: "Mostre ao seu cliente que parcelar no cartão tem juros menores que qualquer linha de crédito.",
+    description: "Mostre ao seu cliente que parcelar no cartão tem taxas menores que qualquer linha de crédito.",
   },
   {
     icon: <Star className="w-6 h-6" />,
