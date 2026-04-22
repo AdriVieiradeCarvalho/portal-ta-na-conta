@@ -77,7 +77,7 @@ function TutorialPlataformaSolar() {
       {/* Botão Tutorial Drive */}
       <div className="mb-8">
         <a
-          href="https://drive.google.com/file/d/17xa1VIVx4j0euizlTU6_GSob-1JHkZPw/view?usp=drive_link"
+          href="/manus-storage/tutorial-plataforma-solar_9bc3e3f6.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -90,7 +90,7 @@ function TutorialPlataformaSolar() {
             Ver Tutorial: Pagamento na Plataforma Solar
           </Button>
         </a>
-        <p className="text-xs text-muted-foreground mt-2">Abre o tutorial completo em nova aba (Google Drive)</p>
+        <p className="text-xs text-muted-foreground mt-2">Abre o tutorial completo em PDF em nova aba</p>
       </div>
 
       <div className="space-y-4">
