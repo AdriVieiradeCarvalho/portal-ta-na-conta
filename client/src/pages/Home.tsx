@@ -7,6 +7,88 @@ import {
   Clock, TrendingUp, Shield, DollarSign, CreditCard as CardIcon, Star, Layers
 } from "lucide-react";
 
+// Taxas por bandeira — valores ANTECIPADOS conforme tabela oficial
+const taxasBandeira = [
+  { parcela: "Débito",     visaMaster: "1,29%",  amex: "—",      elo: "2,49%",  hiper: "—" },
+  { parcela: "Crédito 1x", visaMaster: "3,49%",  amex: "4,29%",  elo: "4,99%",  hiper: "4,99%" },
+  { parcela: "2x",         visaMaster: "5,19%",  amex: "5,74%",  elo: "6,29%",  hiper: "6,29%" },
+  { parcela: "3x",         visaMaster: "5,99%",  amex: "6,54%",  elo: "7,09%",  hiper: "7,09%" },
+  { parcela: "4x",         visaMaster: "6,67%",  amex: "7,23%",  elo: "7,79%",  hiper: "7,79%" },
+  { parcela: "5x",         visaMaster: "7,39%",  amex: "7,94%",  elo: "8,49%",  hiper: "8,49%" },
+  { parcela: "6x",         visaMaster: "7,99%",  amex: "8,59%",  elo: "9,19%",  hiper: "9,19%" },
+  { parcela: "7x",         visaMaster: "8,79%",  amex: "9,39%",  elo: "9,99%",  hiper: "9,99%" },
+  { parcela: "8x",         visaMaster: "9,49%",  amex: "9,99%",  elo: "10,59%", hiper: "10,59%" },
+  { parcela: "9x",         visaMaster: "9,99%",  amex: "10,64%", elo: "11,29%", hiper: "11,29%" },
+  { parcela: "10x",        visaMaster: "10,99%", amex: "11,49%", elo: "11,99%", hiper: "11,99%" },
+  { parcela: "11x",        visaMaster: "11,59%", amex: "12,09%", elo: "12,59%", hiper: "12,59%" },
+  { parcela: "12x",        visaMaster: "12,29%", amex: "12,79%", elo: "13,29%", hiper: "13,29%" },
+  { parcela: "13x",        visaMaster: "12,64%", amex: "13,26%", elo: "14,29%", hiper: "14,29%" },
+  { parcela: "14x",        visaMaster: "12,99%", amex: "14,14%", elo: "15,29%", hiper: "15,29%" },
+  { parcela: "15x",        visaMaster: "13,99%", amex: "15,14%", elo: "16,29%", hiper: "16,29%" },
+  { parcela: "16x",        visaMaster: "14,99%", amex: "16,14%", elo: "17,29%", hiper: "17,29%" },
+  { parcela: "17x",        visaMaster: "15,99%", amex: "17,14%", elo: "18,29%", hiper: "18,29%" },
+  { parcela: "18x",        visaMaster: "16,99%", amex: "18,14%", elo: "19,29%", hiper: "19,29%" },
+  { parcela: "19x",        visaMaster: "17,99%", amex: "19,14%", elo: "20,29%", hiper: "20,29%" },
+  { parcela: "20x",        visaMaster: "18,99%", amex: "20,14%", elo: "21,29%", hiper: "21,29%" },
+  { parcela: "21x",        visaMaster: "19,99%", amex: "21,14%", elo: "22,29%", hiper: "22,29%" },
+  { parcela: "Pix",        visaMaster: "1,29%",  amex: "—",      elo: "—",      hiper: "—", pix: true },
+];
+
+function TaxasAccordion() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.20)" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-sm transition-colors"
+        style={{ background: "rgba(255,255,255,0.12)", color: "#FFFFFF" }}
+      >
+        <span>Ver tabela completa de taxas por bandeira</span>
+        <ChevronDown
+          className="w-5 h-5 flex-shrink-0 transition-transform duration-300"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", color: "#00d084" }}
+        />
+      </button>
+      {open && (
+        <div className="overflow-x-auto" style={{ background: "rgba(0,0,0,0.20)" }}>
+          <table className="w-full text-sm">
+            <thead>
+              <tr style={{ background: "rgba(0,208,132,0.15)" }}>
+                <th className="text-left px-4 py-3 font-semibold text-white">ANTECIPADA</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Visa ou Master</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Amex</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Elo</th>
+                <th className="text-center px-3 py-3 font-semibold text-white">Hiper</th>
+              </tr>
+            </thead>
+            <tbody>
+              {taxasBandeira.map((row, i) => (
+                <tr
+                  key={row.parcela}
+                  style={{
+                    background: row.pix
+                      ? "rgba(0,208,132,0.12)"
+                      : i % 2 === 0 ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <td className="px-4 py-2.5 font-semibold text-white">
+                    {row.parcela}
+                    {row.pix && <span className="ml-2 text-xs font-normal text-white/60">(Min R$0,30 por operação)</span>}
+                  </td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.visaMaster}</td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.amex}</td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.elo}</td>
+                  <td className="px-3 py-2.5 text-center text-white/80">{row.hiper}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
 const GAROTO_INTELBRAS_NOBG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/garoto-intelbras-nobg_d2e4bc4d.png";
 const SOLAR_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-panels-bg_1672229c.webp";
 const BUSINESS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/business-payment_30f7d57c.jpg";
@@ -142,7 +224,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
+      <section className="relative h-screen max-h-[700px] min-h-[560px] flex items-center overflow-hidden">
         {/* Fundo: painéis solares */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -181,6 +263,15 @@ export default function Home() {
               Intelbras + Cappta
             </p>
           </div>
+        </div>
+
+        {/* Seta pulsante — indica que há mais conteúdo abaixo */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
+          <span className="text-white/50 text-xs tracking-widest uppercase">Saiba mais</span>
+          <ChevronDown
+            className="w-6 h-6 text-white/70"
+            style={{ animation: "bounce 1.8s infinite" }}
+          />
         </div>
 
         {/* Conteúdo principal */}
@@ -436,14 +527,12 @@ export default function Home() {
               Transparência total, sem letras miúdas.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
             {[
-              { icon: <Clock className="w-5 h-5" />, title: "Receba em 1 dia útil", desc: "Para todos os projetos solares" },
               { icon: <Shield className="w-5 h-5" />, title: "Sem taxa de adesão", desc: "Zero custo para começar" },
               { icon: <Smartphone className="w-5 h-5" />, title: "Mensalidade gratuita", desc: "Faturando R$15.000 ou mais por mês" },
               { icon: <CreditCard className="w-5 h-5" />, title: "R$79,90/mês", desc: "Para faturamento abaixo de R$15.000/mês" },
               { icon: <CheckCircle2 className="w-5 h-5" />, title: "Frete grátis", desc: "Envio da maquininha" },
-              { icon: <DollarSign className="w-5 h-5" />, title: "Comodato", desc: "Maquininha emprestada sem custo" },
             ].map((item) => (
               <div
                 key={item.title}
@@ -463,7 +552,12 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          {/* Tabela de taxas por bandeira */}
+          <div className="max-w-4xl mx-auto mt-8 mb-4">
+            <TaxasAccordion />
+          </div>
+
+          <div className="text-center mt-8">
             <a href={FORM_ADESAO} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
