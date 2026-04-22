@@ -178,7 +178,7 @@ export default function Home() {
               Uma parceria
             </p>
             <p className="font-bold text-sm leading-tight" style={{ color: "#00d084" }}>
-              Intelbras &amp; Cappta
+              Intelbras + Cappta
             </p>
           </div>
         </div>
