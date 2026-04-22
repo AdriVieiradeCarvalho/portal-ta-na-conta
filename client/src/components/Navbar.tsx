@@ -4,7 +4,8 @@ import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lu
 import { Button } from "@/components/ui/button";
 
 const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
-const CAPPTA_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-cappta-silhueta_44f8aafd.png";
+const LOGO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-tanaconta_e37f93c4.png";
+const SIMBOLO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/simbolo-tanaconta_0b1519e4.png";
 
 interface DropdownItem {
   label: string;
@@ -145,23 +146,20 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo: Cappta logo + Tá na Conta + parceria */}
           <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer group">
-              {/* Logo Cappta com filtro verde para visibilidade */}
+            <div className="flex items-center gap-2 cursor-pointer group">
+              {/* Símbolo Tá na Conta (ícone quadrado verde) */}
               <img
-                src={CAPPTA_LOGO}
-                alt="Cappta"
-                className="h-8 w-auto object-contain"
-                style={{
-                  maxWidth: "90px",
-                  filter: "invert(48%) sepia(97%) saturate(400%) hue-rotate(100deg) brightness(90%)"
-                }}
+                src={SIMBOLO_TANACONTA}
+                alt="Símbolo Tá na Conta"
+                className="h-10 w-10 object-contain rounded-lg flex-shrink-0"
               />
-              <div className="hidden sm:block border-l border-border pl-3">
-                <p className="font-bold text-base leading-tight" style={{ fontFamily: "Roboto, sans-serif", color: "#00A335" }}>
-                  Tá na Conta
-                </p>
-                <p className="text-[10px] text-muted-foreground leading-tight">Uma parceria Intelbras e Cappta</p>
-              </div>
+              {/* Logo completa Tá na Conta com tagline */}
+              <img
+                src={LOGO_TANACONTA}
+                alt="Tá na Conta — Uma parceria Intelbras + Cappta"
+                className="hidden sm:block h-10 w-auto object-contain"
+                style={{ maxWidth: "200px" }}
+              />
             </div>
           </Link>
 
