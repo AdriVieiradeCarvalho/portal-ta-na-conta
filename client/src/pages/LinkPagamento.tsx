@@ -283,6 +283,41 @@ export default function LinkPagamento() {
           </InfoBox>
         </div>
       </section>
+
+      {/* Seção 3D Secure */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-8">
+            <span
+              className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
+              style={{ background: "#e6f4ec", color: "#00A335" }}
+            >
+              Segurança
+            </span>
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">O que é 3D Secure?</h2>
+            <p className="text-muted-foreground text-base max-w-2xl mx-auto">
+              Entenda como funciona a camada extra de proteção nos pagamentos online e o passo a passo de cada banco.
+            </p>
+          </div>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100vh",
+              overflow: "hidden",
+              borderRadius: "12px",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <iframe
+              src="https://www.cappta.com.br/3ds"
+              style={{ width: "100%", height: "100%", border: "none" }}
+              loading="lazy"
+              title="3D Secure — Segurança nos pagamentos online"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
