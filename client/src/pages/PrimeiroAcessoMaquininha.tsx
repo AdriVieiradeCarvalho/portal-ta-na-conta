@@ -163,7 +163,7 @@ export default function PrimeiroAcessoMaquininha() {
               Sua Maquininha
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Conheça a conexão, os recursos e o passo a passo completo para realizar sua primeira venda de projeto solar com a maquininha Tá na Conta.
+              Conheça os recursos e o passo a passo completo para realizar sua primeira venda de projeto solar com a maquininha Tá na Conta.
             </p>
           </div>
         </div>
