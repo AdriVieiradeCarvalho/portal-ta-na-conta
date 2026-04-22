@@ -17,7 +17,7 @@ export default function Footer() {
                 style={{ maxWidth: "200px" }}
               />
               <p className="text-sm mt-2" style={{ color: "rgba(255,255,255,0.70)" }}>
-                Uma parceria Intelbras e Cappta
+                Uma parceria Intelbras + Cappta
               </p>
             </div>
             <p className="text-sm leading-relaxed max-w-sm mb-6" style={{ color: "rgba(255,255,255,0.65)" }}>
