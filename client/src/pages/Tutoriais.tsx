@@ -2,8 +2,151 @@ import { useState } from "react";
 import { Link, useParams } from "wouter";
 import {
   Monitor, CreditCard, Link2, AlertTriangle, CheckCircle2,
-  Info, Play, ChevronRight, ExternalLink
+  Info, Play, ChevronRight, ExternalLink, ChevronDown
 } from "lucide-react";
+
+const bancos3DS = [
+  {
+    nome: "Banco do Brasil",
+    cor: "#FFD700",
+    corTexto: "#1a1a1a",
+    descricao: "No Banco do Brasil, a autenticação 3DS ocorre via token enviado por SMS ou pelo app BB.",
+    passos: [
+      "Após inserir os dados do cartão, uma janela de autenticação do Banco do Brasil é exibida.",
+      "O banco envia um token por SMS para o celular cadastrado.",
+      "Insira o token na tela para confirmar a compra.",
+    ],
+    nota: "O método de autenticação pode variar. Siga as instruções exibidas na tela do checkout.",
+  },
+  {
+    nome: "Bradesco",
+    cor: "#CC0000",
+    corTexto: "#ffffff",
+    descricao: "No Bradesco, a autenticação ocorre via SMS ou pelo app do banco.",
+    passos: [
+      'Após inserir os dados do cartão, uma janela do Bradesco exibe: \"Para continuar com sua compra online é necessária uma autenticação. Abaixo o seu método de autenticação com o Bradesco.\"',
+      "O proprietário do cartão receberá no celular cadastrado no Bradesco um token para inserir no site.",
+    ],
+    nota: "O método apresentado é o mais comum. Pode haver situações em que apareça um desafio diferente.",
+  },
+  {
+    nome: "Inter",
+    cor: "#FF6600",
+    corTexto: "#ffffff",
+    descricao: "No Banco Inter, a autenticação ocorre com um token gerado pelo recurso i-Safe, disponível no aplicativo do banco.",
+    passos: [
+      "O cliente acessa o app do Inter e gera o token no i-Safe.",
+      "Insere o código no site para confirmar a compra.",
+      "A transação é aprovada.",
+    ],
+    nota: "O recurso já está ativo em todos os cartões Inter. Funciona com cartões físicos e virtuais.",
+  },
+  {
+    nome: "Itaú",
+    cor: "#003399",
+    corTexto: "#ffffff",
+    descricao: "No Itaú, o 3DS utiliza um token gerado no aplicativo do banco. O cliente recebe a solicitação para gerar um token no app após inserir os dados do cartão.",
+    passos: [
+      "Acesse o app Itaú e gere o token de segurança.",
+      "Insira o token na tela de checkout para confirmar a compra.",
+      "A compra é autorizada.",
+    ],
+    nota: "O 3DS está ativo em todos os cartões Itaú via Mastercard Identity Check. Funciona com cartões físicos e virtuais.",
+  },
+  {
+    nome: "Neon",
+    cor: "#00CFFF",
+    corTexto: "#1a1a1a",
+    descricao: "O Neon utiliza biometria ou senha no app para validar compras online. O cliente recebe uma notificação e escolhe a forma de autenticação: selfie, senha ou digital.",
+    passos: [
+      'Uma notificação push aparece no app: \"Está tentando realizar uma compra online?\"',
+      "O cliente confirma usando biometria, selfie ou senha.",
+      "A transação é liberada após a validação.",
+    ],
+    nota: "O recurso já está disponível para todos os clientes Neon. É mais seguro usar cartões virtuais em compras online.",
+  },
+  {
+    nome: "Nubank",
+    cor: "#8A05BE",
+    corTexto: "#ffffff",
+    descricao: "No Nubank, a autenticação é feita no aplicativo. O cliente recebe uma notificação e tem 3 minutos para aprovar ou negar a transação.",
+    passos: [
+      "Uma notificação aparece no app Nubank.",
+      'O cliente escolhe \"Sim\" ou \"Não\" para confirmar ou recusar a compra.',
+      "Sem a confirmação, a transação não é autorizada.",
+    ],
+    nota: "Usa o protocolo Mastercard Identity Check. Funciona com cartões físicos e virtuais.",
+  },
+  {
+    nome: "PagBank",
+    cor: "#F5C518",
+    corTexto: "#1a1a1a",
+    descricao: "O PagBank utiliza códigos de segurança enviados por SMS. O cliente digita o token recebido para confirmar a compra.",
+    passos: [
+      'A mensagem exibida: \"Para a segurança da sua compra online, precisamos do Token recebido por SMS no seu celular cadastrado.\"',
+      "Insira o token.",
+      "Transação aprovada.",
+    ],
+    nota: "Todos os cartões já contam com o 3DS habilitado. Funciona com cartões físicos e virtuais.",
+  },
+  {
+    nome: "Santander",
+    cor: "#EC0000",
+    corTexto: "#ffffff",
+    descricao: "No Santander, a autenticação 3DS é feita via token enviado por SMS ou pelo app do banco.",
+    passos: [
+      "Após inserir os dados do cartão, uma janela de autenticação do Santander é exibida.",
+      "O banco envia um token por SMS para o celular cadastrado.",
+      "Insira o token na tela para confirmar a compra.",
+    ],
+    nota: "O método de autenticação pode variar. Siga as instruções exibidas na tela do checkout.",
+  },
+];
+
+function Accordion3DS() {
+  const [aberto, setAberto] = useState<number | null>(null);
+  return (
+    <div className="space-y-2">
+      {bancos3DS.map((banco, idx) => (
+        <div key={banco.nome} className="rounded-xl border border-border overflow-hidden">
+          <button
+            className="w-full flex items-center justify-between px-5 py-4 text-left font-bold text-sm transition-colors"
+            style={{
+              background: aberto === idx ? banco.cor : "#f9fafb",
+              color: aberto === idx ? banco.corTexto : "#1a1a1a",
+            }}
+            onClick={() => setAberto(aberto === idx ? null : idx)}
+          >
+            <span>{banco.nome}</span>
+            <ChevronDown
+              className="w-4 h-4 transition-transform flex-shrink-0"
+              style={{ transform: aberto === idx ? "rotate(180deg)" : "rotate(0deg)" }}
+            />
+          </button>
+          {aberto === idx && (
+            <div className="px-5 py-4 bg-white border-t border-border">
+              <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{banco.descricao}</p>
+              <ul className="space-y-2 mb-3">
+                {banco.passos.map((passo, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-foreground">
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
+                    {passo}
+                  </li>
+                ))}
+              </ul>
+              <div
+                className="rounded-lg p-3 text-xs leading-relaxed"
+                style={{ background: "rgba(0,163,53,0.06)", color: "#555" }}
+              >
+                <strong>Importante:</strong> {banco.nota}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 import { Button } from "@/components/ui/button";
 
 function AttentionBox({ children }: { children: React.ReactNode }) {
@@ -328,6 +471,43 @@ function TutorialLinkPagamento() {
             </p>
           </div>
         </StepCard>
+      </div>
+
+      {/* Seção 3D Secure */}
+      <div className="mt-12 pt-8 border-t border-border">
+        <div className="mb-5">
+          <span
+            className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
+            style={{ background: "#e6f4ec", color: "#00A335" }}
+          >
+            Segurança
+          </span>
+          <h3 className="text-xl font-bold text-foreground mb-2">O que é 3D Secure (3DS)?</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            O 3DS é uma camada extra de proteção nas compras online. Quando o cliente pagar pelo link, o banco pode solicitar uma autenticação adicional. Veja o passo a passo de cada banco:
+          </p>
+        </div>
+        <Accordion3DS />
+        <div className="mt-8">
+          <p className="text-xs text-muted-foreground text-center mb-3">Confira a página completa de informações sobre o 3DS:</p>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100vh",
+              overflow: "hidden",
+              borderRadius: "12px",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <iframe
+              src="https://www.cappta.com.br/3ds"
+              style={{ width: "100%", height: "100%", border: "none" }}
+              loading="lazy"
+              title="3D Secure — Segurança nos pagamentos online"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
