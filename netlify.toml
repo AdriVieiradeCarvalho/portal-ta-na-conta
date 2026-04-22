@@ -1,0 +1,20 @@
+[build]
+  command = "vite build"
+  publish = "dist/public"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Redireciona chamadas /api/* para a Netlify Function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# Redireciona /simulador-taxas.html para o arquivo estático (já está em dist/public)
+# SPA fallback: todas as outras rotas vão para index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
