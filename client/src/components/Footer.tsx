@@ -10,10 +10,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <p className="font-bold text-xl leading-tight" style={{ color: "#00d084", fontFamily: "Roboto, sans-serif" }}>
-                Tá na Conta
-              </p>
-              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.70)" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-footer-tanaconta_af9ccdb4.png"
+                alt="Tá na Conta"
+                className="h-10 w-auto object-contain"
+                style={{ maxWidth: "200px" }}
+              />
+              <p className="text-sm mt-2" style={{ color: "rgba(255,255,255,0.70)" }}>
                 Uma parceria Intelbras e Cappta
               </p>
             </div>
