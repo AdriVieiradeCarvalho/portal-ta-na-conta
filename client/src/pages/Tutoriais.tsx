@@ -475,38 +475,32 @@ function TutorialLinkPagamento() {
 
       {/* Seção 3D Secure */}
       <div className="mt-12 pt-8 border-t border-border">
-        <div className="mb-5">
+        <div className="mb-4">
           <span
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
             style={{ background: "#e6f4ec", color: "#00A335" }}
           >
             Segurança
           </span>
-          <h3 className="text-xl font-bold text-foreground mb-2">O que é 3D Secure (3DS)?</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            O 3DS é uma camada extra de proteção nas compras online. Quando o cliente pagar pelo link, o banco pode solicitar uma autenticação adicional. Veja o passo a passo de cada banco:
-          </p>
+          <h3 className="text-xl font-bold text-foreground mb-1">3D Secure (3DS)</h3>
+          <p className="text-sm text-muted-foreground">Informações completas sobre autenticação 3DS por banco:</p>
         </div>
-        <Accordion3DS />
-        <div className="mt-8">
-          <p className="text-xs text-muted-foreground text-center mb-3">Confira a página completa de informações sobre o 3DS:</p>
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "100vh",
-              overflow: "hidden",
-              borderRadius: "12px",
-              border: "1px solid #e5e7eb",
-            }}
-          >
-            <iframe
-              src="https://www.cappta.com.br/3ds"
-              style={{ width: "100%", height: "100%", border: "none" }}
-              loading="lazy"
-              title="3D Secure — Segurança nos pagamentos online"
-            />
-          </div>
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "2800px",
+            overflow: "hidden",
+            borderRadius: "12px",
+            border: "1px solid #e5e7eb",
+          }}
+        >
+          <iframe
+            src="https://www.cappta.com.br/3ds"
+            style={{ width: "100%", height: "100%", border: "none" }}
+            loading="lazy"
+            title="3D Secure — Segurança nos pagamentos online"
+          />
         </div>
       </div>
     </div>
