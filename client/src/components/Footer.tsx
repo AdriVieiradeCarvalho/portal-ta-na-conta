@@ -50,9 +50,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Tutoriais */}
+          {/* Como usar */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>Tutoriais</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>Como usar</h4>
             <ul className="space-y-2.5">
               {[
                 { label: "Plataforma Solar", href: "/tutoriais/plataforma-solar" },
