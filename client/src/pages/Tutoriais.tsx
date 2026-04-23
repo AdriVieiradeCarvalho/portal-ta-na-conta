@@ -233,7 +233,7 @@ function TutorialPlataformaSolar() {
             Ver Como usar: Pagamento na Plataforma Solar
           </Button>
         </a>
-        <p className="text-xs text-muted-foreground mt-2">Abre o guia completo em PDF em nova aba</p>
+        <p className="text-xs text-muted-foreground mt-2">Veja o guia completo em PDF.</p>
       </div>
 
       <div className="space-y-4">
