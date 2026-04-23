@@ -274,15 +274,15 @@ export default function Home() {
         </div>
 
         {/* Conteúdo principal */}
-        <div className="relative container py-20 lg:py-28">
+        <div className="relative container py-12 lg:py-16">
           <div className="max-w-xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
               Seu projeto em{" "}
               <span style={{ color: "#00d084" }}>1 dia</span>
               <br />
               <span className="text-white">Tá na Conta!</span>
             </h1>
-            <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-lg">
+            <p className="text-base text-white/80 leading-relaxed mb-6 max-w-lg">
               Em parceria com a Cappta, desenvolvemos uma solução financeira completa para integradores terem mais opções de pagamento, receberem em 1 dia e aumentarem seus ganhos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
