@@ -353,7 +353,7 @@ export default function AtivarConta() {
                 className="text-white font-semibold"
                 style={{ background: "linear-gradient(135deg, oklch(0.35 0.18 145), oklch(0.60 0.20 145))" }}
               >
-                Ver Tutorial de Vendas
+                Ver Guia de Vendas
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>

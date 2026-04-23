@@ -193,7 +193,7 @@ export default function LinkPagamento() {
                     className="font-bold text-base px-8"
                     style={{ background: "#00d084", color: "#003318" }}
                   >
-                    Ver Tutorial Completo
+                    Ver Guia Completo
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
@@ -340,7 +340,7 @@ export default function LinkPagamento() {
                 className="font-bold px-10"
                 style={{ background: "#00d084", color: "#003318" }}
               >
-                Ver Tutorial Completo
+                Ver Guia Completo
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>

@@ -230,10 +230,10 @@ function TutorialPlataformaSolar() {
             style={{ background: "#00d084", color: "#003318" }}
           >
             <ExternalLink className="w-5 h-5" />
-            Ver Tutorial: Pagamento na Plataforma Solar
+            Ver Como usar: Pagamento na Plataforma Solar
           </Button>
         </a>
-        <p className="text-xs text-muted-foreground mt-2">Abre o tutorial completo em PDF em nova aba</p>
+        <p className="text-xs text-muted-foreground mt-2">Abre o guia completo em PDF em nova aba</p>
       </div>
 
       <div className="space-y-4">
@@ -323,7 +323,7 @@ function TutorialMaquininha() {
         >
           <iframe
             src="https://www.youtube.com/embed/TlWBqUZYfbs?start=250"
-            title="Tutorial venda na maquininha"
+            title="Como usar: venda na maquininha"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full"
@@ -366,7 +366,7 @@ function TutorialMaquininha() {
           >
             <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: "#00A335" }} />
             <p className="text-xs font-semibold" style={{ color: "#00A335" }}>
-              Venda concluída! Para o fluxo completo de Venda Solar, consulte o tutorial <Link href="/tutoriais/plataforma-solar"><span className="underline cursor-pointer">Plataforma Solar</span></Link>.
+              Venda concluída! Para o fluxo completo de Venda Solar, consulte o guia <Link href="/tutoriais/plataforma-solar"><span className="underline cursor-pointer">Plataforma Solar</span></Link>.
             </p>
           </div>
         </StepCard>
@@ -394,7 +394,7 @@ function TutorialLinkPagamento() {
         >
           <iframe
             src="https://www.youtube.com/embed/oQiHxWyy8wU"
-            title="Tutorial link de pagamento"
+            title="Como usar: link de pagamento"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full"
@@ -548,13 +548,13 @@ export default function Tutoriais() {
               style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <Play className="w-3.5 h-3.5" />
-              Tutoriais
+              Como usar
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Passo a passo descomplicado
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Aprenda a usar o Tá na Conta com tutoriais didáticos, pontos de atenção destacados e vídeos explicativos.
+              Aprenda a usar o Tá na Conta com guias didáticos, pontos de atenção destacados e vídeos explicativos.
             </p>
           </div>
         </div>
@@ -591,7 +591,7 @@ export default function Tutoriais() {
             <aside className="hidden lg:block w-64 flex-shrink-0 sticky top-24">
               <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
                 <div className="px-4 py-3 border-b border-border">
-                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tutoriais</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Como usar</p>
                 </div>
                 <nav className="p-2">
                   {tabs.map((tab) => (

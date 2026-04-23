@@ -240,14 +240,14 @@ export default function PrimeiroAcessoMaquininha() {
             <h2 className="text-2xl font-bold text-foreground">Passo a Passo</h2>
           </div>
           <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-            Siga o fluxo para realizar uma cobrança com a maquininha. Para o fluxo completo de Venda Solar, consulte o tutorial dedicado.
+            Siga o fluxo para realizar uma cobrança com a maquininha. Para o fluxo completo de Venda Solar, consulte o guia dedicado.
           </p>
 
           {/* Botão para Venda Solar */}
           <a href="/tutoriais/solar" className="inline-flex items-center gap-2 mb-6 px-4 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
             style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}>
             <ArrowRight className="w-4 h-4" />
-            Ver Tutorial: Venda com a Plataforma Solar
+            Ver Como usar: Venda com a Plataforma Solar
           </a>
 
           <div className="space-y-4">
@@ -312,7 +312,7 @@ export default function PrimeiroAcessoMaquininha() {
         <div className="container max-w-3xl text-center">
           <h2 className="text-2xl font-bold text-white mb-3">Pronto para vender?</h2>
           <p className="text-white/70 mb-6 text-sm">
-            Veja o tutorial completo de como realizar uma venda na maquininha.
+            Veja o guia completo de como realizar uma venda na maquininha.
           </p>
           <a href="/tutoriais/maquininha">
             <Button
@@ -320,7 +320,7 @@ export default function PrimeiroAcessoMaquininha() {
               className="font-bold text-base px-8"
               style={{ background: "#00d084", color: "#003318" }}
             >
-              Ver Tutorial de Venda
+              Ver Guia de Venda
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </a>
