@@ -49,7 +49,7 @@ const navItems: NavItem[] = [
     href: "/simular-taxas",
   },
   {
-    label: "Tutoriais",
+    label: "Como usar",
     dropdown: [
       {
         label: "Plataforma Solar",
