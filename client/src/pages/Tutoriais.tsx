@@ -220,7 +220,7 @@ function TutorialPlataformaSolar() {
       {/* Botão Tutorial Drive */}
       <div className="mb-8">
         <a
-          href="/manus-storage/tutorial-plataforma-solar_9bc3e3f6.pdf"
+          href="/Atualizado%20-%20Tutorial%20-%20Plataforma%20Solar%20Intelbras%20(2).pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
