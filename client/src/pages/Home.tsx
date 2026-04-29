@@ -89,7 +89,7 @@ function TaxasAccordion() {
   );
 }
 
-const GAROTO_INTELBRAS_NOBG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/garoto-intelbras-nobg_d2e4bc4d.png";
+const GAROTO_INTELBRAS_NOBG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/tecnico-maquininha-hero-v3-WSxjo3FY4eibPPYq6t6VwN.webp";
 const SOLAR_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-panels-bg_1672229c.webp";
 const BUSINESS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/business-payment_30f7d57c.jpg";
 const SOLAR_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-installer_3459730d.jpg";
@@ -233,37 +233,9 @@ export default function Home() {
         {/* Overlay verde escuro */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(120deg, rgba(0,51,24,0.88) 0%, rgba(0,51,24,0.75) 55%, rgba(0,51,24,0.30) 100%)" }}
+          style={{ background: "linear-gradient(105deg, rgba(0,51,24,0.92) 0%, rgba(0,51,24,0.82) 45%, rgba(0,40,18,0.60) 70%, rgba(0,30,12,0.75) 100%)" }}
         />
 
-        {/* Garoto propaganda — posicionado à direita */}
-        <div
-          className="absolute bottom-0 right-0 h-full hidden lg:flex items-end justify-end"
-          style={{ width: "45%" }}
-        >
-          <img
-            src={GAROTO_INTELBRAS_NOBG}
-            alt="Técnico Intelbras"
-            className="h-full object-contain object-bottom"
-            style={{ maxHeight: "100%", filter: "drop-shadow(-8px 0 24px rgba(0,0,0,0.35))" }}
-          />
-          {/* Selo de parceria — sobre a imagem, canto superior direito */}
-          <div
-            className="absolute top-8 right-8 px-4 py-3 rounded-2xl text-center"
-            style={{
-              background: "rgba(0,0,0,0.0)",
-              border: "1.5px solid rgba(255,255,255,0.55)",
-              backdropFilter: "blur(4px)",
-            }}
-          >
-            <p className="text-white font-bold text-xs leading-tight tracking-wide uppercase">
-              Uma parceria
-            </p>
-            <p className="font-bold text-sm leading-tight" style={{ color: "#00d084" }}>
-              Intelbras + Cappta
-            </p>
-          </div>
-        </div>
 
         {/* Seta pulsante — indica que há mais conteúdo abaixo */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10 cursor-pointer" onClick={() => window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' })}>
@@ -277,13 +249,13 @@ export default function Home() {
         <div className="relative container py-12 lg:py-16">
           <div className="max-w-xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-              Seu projeto em{" "}
-              <span style={{ color: "#00d084" }}>1 dia</span>
+              Suas vendas em{" "}
+              <span style={{ color: "#00d084" }}>1 dia</span><span className="text-white">,</span>
               <br />
               <span className="text-white">Tá na Conta!</span>
             </h1>
             <p className="text-base text-white/80 leading-relaxed mb-6 max-w-lg">
-              Em parceria com a Cappta, desenvolvemos uma solução financeira completa para integradores terem mais opções de pagamento, receberem em 1 dia e aumentarem seus ganhos.
+              Solução financeira completa para integradores terem mais opções de pagamento, receberem em 1 dia útil e aumentarem seus ganhos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href={FORM_ADESAO} target="_blank" rel="noopener noreferrer">
@@ -338,7 +310,7 @@ export default function Home() {
                 Solução Financeira
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-5">
-                O <span className="brand-gradient-text">Tá na Conta</span> é a solução financeira desenvolvida pela Intelbras em parceria com a Cappta
+                O <span className="brand-gradient-text">Tá na Conta</span> é a solução financeira desenvolvida pela Cappta em parceria com a Intelbras
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Pensada especialmente para integradores de energia solar, a solução oferece maquininha de cartão, link de pagamento e conta digital para que você receba mais rápido e feche mais projetos.
@@ -349,6 +321,7 @@ export default function Home() {
                   "Link de pagamento com mesma taxa da maquininha",
                   "Possibilidade de pagamento com múltiplos cartões",
                   "Economia de 10% do valor dos serviços com mais lucro nos seus serviços",
+                  "Use para qualquer tipo de venda",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
@@ -526,30 +499,49 @@ export default function Home() {
               Transparência total, sem letras miúdas.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
-            {[
-              { icon: <Shield className="w-5 h-5" />, title: "Sem taxa de adesão", desc: "Zero custo para começar" },
-              { icon: <Smartphone className="w-5 h-5" />, title: "Mensalidade gratuita", desc: "Faturando R$15.000 ou mais por mês" },
-              { icon: <CreditCard className="w-5 h-5" />, title: "R$79,90/mês", desc: "Para faturamento abaixo de R$15.000/mês" },
-              { icon: <CheckCircle2 className="w-5 h-5" />, title: "Frete grátis", desc: "Envio da maquininha" },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="flex items-start gap-3 p-4 rounded-xl"
-                style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
-              >
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(0,208,132,0.18)" }}
-                >
-                  <span style={{ color: "#00d084" }}>{item.icon}</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-sm text-white">{item.title}</p>
-                  <p className="text-xs text-white/60">{item.desc}</p>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+            {/* Card 1 */}
+            <div
+              className="flex items-start gap-3 p-4 rounded-xl"
+              style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+            >
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,208,132,0.18)" }}>
+                <span style={{ color: "#00d084" }}><Shield className="w-5 h-5" /></span>
               </div>
-            ))}
+              <div>
+                <p className="font-semibold text-sm text-white">Sem taxa de adesão</p>
+                <p className="text-xs text-white/60">Zero custo para começar</p>
+              </div>
+            </div>
+            {/* Card 2 — mensalidade isenta */}
+            <div
+              className="flex items-start gap-3 p-4 rounded-xl"
+              style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+            >
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,208,132,0.18)" }}>
+                <span style={{ color: "#00d084" }}><CreditCard className="w-5 h-5" /></span>
+              </div>
+              <div>
+                <p className="font-semibold text-sm text-white">
+                  Isento de mensalidade{" "}
+                  <span className="line-through text-white/50">(R$ 79,90)</span>
+                </p>
+                <p className="text-xs text-white/60">Faturando no mínimo R$15.000/mês</p>
+              </div>
+            </div>
+            {/* Card 3 */}
+            <div
+              className="flex items-start gap-3 p-4 rounded-xl"
+              style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+            >
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,208,132,0.18)" }}>
+                <span style={{ color: "#00d084" }}><CheckCircle2 className="w-5 h-5" /></span>
+              </div>
+              <div>
+                <p className="font-semibold text-sm text-white">Frete grátis</p>
+                <p className="text-xs text-white/60">Envio da maquininha</p>
+              </div>
+            </div>
           </div>
           {/* Tabela de taxas por bandeira */}
           <div className="max-w-4xl mx-auto mt-8 mb-4">
