@@ -35,6 +35,7 @@ export default function Footer() {
                 { label: "Acessar o Portal", href: "/primeiro-acesso/portal" },
                 { label: "Simular Taxas", href: "/simular-taxas" },
                 { label: "Suporte Técnico", href: "/suporte" },
+                { label: "Política de Privacidade", href: "/politica-de-privacidade" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>
@@ -96,6 +97,18 @@ export default function Footer() {
             <p className="text-xs text-center sm:text-left" style={{ color: "rgba(255,255,255,0.35)" }}>
               © 2025 Portal Tá na Conta. Todos os direitos reservados.
             </p>
+            <div className="flex items-center gap-4">
+              <Link href="/politica-de-privacidade">
+                <span
+                  className="text-xs cursor-pointer transition-colors"
+                  style={{ color: "rgba(255,255,255,0.40)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#00d084")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.40)")}
+                >
+                  Política de Privacidade
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
