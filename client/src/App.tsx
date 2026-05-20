@@ -14,6 +14,7 @@ import PrimeiroAcessoMaquininha from "./pages/PrimeiroAcessoMaquininha";
 import SimularTaxas from "./pages/SimularTaxas";
 import Tutoriais from "./pages/Tutoriais";
 import Suporte from "./pages/Suporte";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -53,6 +54,8 @@ function Router() {
       <Route path="/tutoriais/:tipo" component={() => <Layout><Tutoriais /></Layout>} />
       {/* Suporte */}
       <Route path="/suporte" component={() => <Layout><Suporte /></Layout>} />
+      {/* Política de Privacidade */}
+      <Route path="/politica-de-privacidade" component={() => <Layout><PoliticaPrivacidade /></Layout>} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
       </Switch>
