@@ -101,10 +101,10 @@ export default function PrimeiroAcessoConta() {
             </h2>
           </div>
           <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-            Na loja de aplicativos do seu celular, pesquise por: <strong>"Conta Cappta"</strong>. Você também pode usar os links diretos abaixo:
+            Na loja de aplicativos do seu celular, pesquise por: <strong>"Tá na Conta"</strong>. Você também pode usar os links diretos abaixo:
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
-            <a href="https://apps.apple.com/br/app/conta-cappta/id6447267659" target="_blank" rel="noopener noreferrer">
+            <a href="https://apps.apple.com/br/app/t%C3%A1-na-conta/id6775972812" target="_blank" rel="noopener noreferrer">
               <Button
                 className="w-full flex items-center gap-3 h-14 font-semibold"
                 style={{ background: "#003318", color: "#FFFFFF" }}
@@ -117,7 +117,7 @@ export default function PrimeiroAcessoConta() {
                 <ExternalLink className="w-4 h-4 ml-auto opacity-60" />
               </Button>
             </a>
-            <a href="https://play.google.com/store/apps/details?id=br.com.cappta.digital_account" target="_blank" rel="noopener noreferrer">
+            <a href="https://play.google.com/store/apps/details?id=br.com.intelbras.digital_account" target="_blank" rel="noopener noreferrer">
               <Button
                 className="w-full flex items-center gap-3 h-14 font-semibold"
                 style={{ background: "#00A335", color: "#FFFFFF" }}
