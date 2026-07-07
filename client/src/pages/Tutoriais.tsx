@@ -412,7 +412,7 @@ function TutorialLinkPagamento() {
         </StepCard>
 
         <StepCard number={2} title="Acesse o portal e crie o link">
-          <p>Após a aprovação, acesse <a href="https://intelbras.posportal.com.br/" target="_blank" rel="noopener noreferrer" className="text-primary underline"><strong>intelbras.posportal.com.br</strong></a>. No menu, clique em <strong>Financeiro &gt; Links de Pagamento &gt; Cadastrar novo Link</strong>.</p>
+          <p>Após a aprovação, acesse <a href="https://intelbras.posportal.com.br/" target="_blank" rel="noopener noreferrer" className="text-primary underline"><strong>intelbras.posportal.com.br</strong></a>. No menu, clique em <strong>Gestão de Cobrança &gt; Links de Pagamento &gt; Cadastrar Novo Link &gt; Preenche as informações necessárias e escolhe o Tipo &gt; Criar link de Pagamento</strong>.</p>
         </StepCard>
 
         <StepCard number={3} title="Preencha os dados do link">
