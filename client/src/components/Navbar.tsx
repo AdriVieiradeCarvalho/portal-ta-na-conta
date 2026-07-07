@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const FORM_ADESAO = "https://docs.google.com/forms/d/e/1FAIpQLSeLbIIAsCJgrfCjGZ7u5YgRBLlENhksEa4w9Zmgkz1Fg4rnWg/viewform";
+const FORM_ADESAO = "https://appintelbras.netlify.app/adesao";
 const LOGO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/logo-tanaconta-v2_34d062b1.png";
 const SIMBOLO_TANACONTA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/simbolo-tanaconta_0b1519e4.png";
 
