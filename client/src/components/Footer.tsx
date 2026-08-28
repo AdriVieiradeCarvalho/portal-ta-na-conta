@@ -30,9 +30,9 @@ export default function Footer() {
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>Navegação</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Conhecer o Portal", href: "/" },
-                { label: "Ativar Conta", href: "/primeiro-acesso/conta" },
-                { label: "Acessar o Portal", href: "/primeiro-acesso/portal" },
+                { label: "Início", href: "/" },
+                { label: "Energia Solar", href: "/conheca/solar" },
+                { label: "Venda integrada com o Distribuidor", href: "/conheca/distribuidor" },
                 { label: "Simular Taxas", href: "/simular-taxas" },
                 { label: "Suporte Técnico", href: "/suporte" },
                 { label: "Política de Privacidade", href: "/politica-de-privacidade" },
@@ -56,8 +56,9 @@ export default function Footer() {
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>Como usar</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Plataforma Solar", href: "/tutoriais/plataforma-solar" },
-                { label: "Venda na Maquininha", href: "/tutoriais/maquininha" },
+                { label: "Venda Solar", href: "/tutoriais/plataforma-solar" },
+                { label: "Venda integrada com o Distribuidor", href: "/tutoriais/distribuidor" },
+                { label: "Outras Vendas (Maquininha)", href: "/tutoriais/maquininha" },
                 { label: "Venda com Link", href: "/tutoriais/link-pagamento" },
               ].map((item) => (
                 <li key={item.href}>

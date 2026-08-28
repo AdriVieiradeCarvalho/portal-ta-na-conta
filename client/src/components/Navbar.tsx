@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2 } from "lucide-react";
+import { Menu, X, ChevronDown, CreditCard, Smartphone, Monitor, Link2, Sun, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FORM_ADESAO = "https://appintelbras.netlify.app/adesao";
@@ -21,6 +21,23 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
+  {
+    label: "Conheça",
+    dropdown: [
+      {
+        label: "Energia Solar",
+        href: "/conheca/solar",
+        icon: <Sun className="w-4 h-4" />,
+        description: "Venda solar e receba no dia seguinte",
+      },
+      {
+        label: "Venda integrada com o Distribuidor",
+        href: "/conheca/distribuidor",
+        icon: <Building2 className="w-4 h-4" />,
+        description: "Venda integrada com split para o Distribuidor",
+      },
+    ],
+  },
   {
     label: "Primeiro Acesso",
     dropdown: [
@@ -52,13 +69,19 @@ const navItems: NavItem[] = [
     label: "Como usar",
     dropdown: [
       {
-        label: "Plataforma Solar",
+        label: "Venda Solar",
         href: "/tutoriais/plataforma-solar",
-        icon: <Monitor className="w-4 h-4" />,
+        icon: <Sun className="w-4 h-4" />,
         description: "Como funciona o processo na Plataforma Solar",
       },
       {
-        label: "Venda na Maquininha",
+        label: "Venda integrada com o Distribuidor",
+        href: "/tutoriais/distribuidor",
+        icon: <Building2 className="w-4 h-4" />,
+        description: "Fluxo de venda integrada com split",
+      },
+      {
+        label: "Outras Vendas (Maquininha)",
         href: "/tutoriais/maquininha",
         icon: <CreditCard className="w-4 h-4" />,
         description: "Passo a passo para vender com a maquininha",
