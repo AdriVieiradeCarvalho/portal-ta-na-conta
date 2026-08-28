@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   CreditCard, Smartphone, Link2, BarChart3, RefreshCw, Zap,
   CheckCircle2, ArrowRight, ChevronDown, ChevronUp,
-  Clock, TrendingUp, Shield, DollarSign, CreditCard as CardIcon, Star, Layers
+  Clock, Shield, DollarSign, Star, Layers, Sun, Building2
 } from "lucide-react";
 
 // Taxas por bandeira — valores ANTECIPADOS conforme tabela oficial
@@ -37,9 +37,11 @@ const taxasBandeira = [
 function TaxasAccordion() {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.20)" }}>
+    <div className="taxas-accordion rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.20)" }}>
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls="taxas-por-bandeira"
         className="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-sm transition-colors"
         style={{ background: "rgba(255,255,255,0.12)", color: "#FFFFFF" }}
       >
@@ -49,16 +51,28 @@ function TaxasAccordion() {
           style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", color: "#00d084" }}
         />
       </button>
-      {open && (
-        <div className="overflow-x-auto" style={{ background: "rgba(0,0,0,0.20)" }}>
-          <table className="w-full text-sm">
+      <div
+        id="taxas-por-bandeira"
+        className={`taxas-accordion-panel ${open ? "is-open" : ""}`}
+        aria-hidden={!open}
+      >
+        <div className="taxas-accordion-panel-inner">
+          <div className="taxas-table-scroll" style={{ background: "rgba(0,0,0,0.20)" }}>
+          <table className="taxas-table">
+            <colgroup>
+              <col className="taxas-col-modalidade" />
+              <col className="taxas-col-visa" />
+              <col className="taxas-col-bandeira" />
+              <col className="taxas-col-bandeira" />
+              <col className="taxas-col-bandeira" />
+            </colgroup>
             <thead>
               <tr style={{ background: "rgba(0,208,132,0.15)" }}>
-                <th className="text-left px-4 py-3 font-semibold text-white">ANTECIPADA</th>
-                <th className="text-center px-3 py-3 font-semibold text-white">Visa ou Master</th>
-                <th className="text-center px-3 py-3 font-semibold text-white">Amex</th>
-                <th className="text-center px-3 py-3 font-semibold text-white">Elo</th>
-                <th className="text-center px-3 py-3 font-semibold text-white">Hiper</th>
+                <th className="text-left font-semibold text-white">ANTECIPADA</th>
+                <th className="text-center font-semibold text-white">Visa ou Master</th>
+                <th className="text-center font-semibold text-white">Amex</th>
+                <th className="text-center font-semibold text-white">Elo</th>
+                <th className="text-center font-semibold text-white">Hiper</th>
               </tr>
             </thead>
             <tbody>
@@ -71,96 +85,102 @@ function TaxasAccordion() {
                       : i % 2 === 0 ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.08)",
                   }}
                 >
-                  <td className="px-4 py-2.5 font-semibold text-white">
+                  <td className="font-semibold text-white">
                     {row.parcela}
                     {row.pix && <span className="ml-2 text-xs font-normal text-white/60">(Min R$0,30 por operação)</span>}
                   </td>
-                  <td className="px-3 py-2.5 text-center text-white/80">{row.visaMaster}</td>
-                  <td className="px-3 py-2.5 text-center text-white/80">{row.amex}</td>
-                  <td className="px-3 py-2.5 text-center text-white/80">{row.elo}</td>
-                  <td className="px-3 py-2.5 text-center text-white/80">{row.hiper}</td>
+                  <td className="text-center text-white/80">{row.visaMaster}</td>
+                  <td className="text-center text-white/80">{row.amex}</td>
+                  <td className="text-center text-white/80">{row.elo}</td>
+                  <td className="text-center text-white/80">{row.hiper}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
-const GAROTO_INTELBRAS_NOBG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/tecnico-maquininha-hero-v3-WSxjo3FY4eibPPYq6t6VwN.webp";
 const SOLAR_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-panels-bg_1672229c.webp";
-const BUSINESS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/business-payment_30f7d57c.jpg";
-const SOLAR_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-installer_3459730d.jpg";
+const HERO_BG = "/hero-multiprodutos.png";
+const MOBILE_P2_SALDO = "/mobile-p2-saldo.webp";
 
 const FORM_ADESAO = "https://appintelbras.netlify.app/adesao";
 
-const benefits = [
+// Benefícios Solar
+const beneficiosSolar = [
   {
     icon: <Clock className="w-6 h-6" />,
-    title: "Receba em 1 dia útil",
-    description: "O valor dos seus serviços cai na sua conta digital no próximo dia útil após a venda.",
+    title: "Chega de esperar 45 dias para receber pelo seu serviço!",
+    description: "O valor dos seus serviços cai direto na sua Conta Digital no próximo dia útil, sem custos de antecipação!",
     highlight: "D+1",
   },
   {
-    icon: <Link2 className="w-6 h-6" />,
-    title: "Taxa do link igual à da maquininha",
-    description: "Em média, o mercado cobra entre 3% a 4% a mais pelas transações em link. No Tá na Conta, a taxa é a mesma.",
-    highlight: "Sem pegadinha",
+    icon: <CheckCircle2 className="w-6 h-6" />,
+    title: "Burocracia zero: vendeu energia solar, recebeu!",
+    description: "Não exige processo de comissionamento para receber pelas vendas de energia solar. Vendeu, recebeu.",
+    highlight: "Sem burocracia",
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: "Economia de 10% no serviço",
-    description: "Ao separar o valor dos serviços dos produtos, você evita bitributação e garante 10% a mais de lucro nos seus serviços.",
+    icon: <DollarSign className="w-6 h-6" />,
+    title: "Ganhe até 10% em eficiência fiscal de PIS/Cofins.",
+    description: "Ao separar o valor dos serviços dos produtos, você evita dupla tributação e garante economia real.",
     highlight: "+10% lucro",
   },
   {
+    icon: <Smartphone className="w-6 h-6" />,
+    title: "Esqueça as calculadoras externas: a conta já vem pronta!",
+    description: "Faça a simulação diretamente na maquininha, eliminando a necessidade de utilizar a Calculadora do Cidadão.",
+    highlight: "Prático",
+  },
+  {
     icon: <Layers className="w-6 h-6" />,
-    title: "Flexibilidade no pagamento",
-    description: "Parcele em até 21x e aceite múltiplos cartões na mesma venda. Ideal para projetos de maior valor onde o cliente quer dividir entre portadores.",
-    highlight: "Até 21x • Multi-cartões",
+    title: "Uso de múltiplos cartões de forma simplificada: mais limite para o cliente, mais vendas para você.",
+    description: "Possibilidade de simular e receber utilizando múltiplos cartões na mesma operação, aumentando o poder de compra do cliente.",
+    highlight: "Multi-cartões",
+  },
+  {
+    icon: <BarChart3 className="w-6 h-6" />,
+    title: "Salve e imprima orçamentos",
+    description: "Salve e imprima orçamentos diretamente na maquininha para apresentar ao cliente.",
+    highlight: "Orçamentos",
   },
 ];
 
-const steps = [
+// Benefícios Distribuidor / Demais Segmentos
+const beneficiosDistribuidor = [
   {
-    number: "01",
-    title: "Crie seu projeto",
-    description: "Cadastre o projeto na Plataforma Solar com todos os dados do cliente.",
+    icon: <CreditCard className="w-6 h-6" />,
+    title: "Parcelamento em até 21x liberado pelo PCI",
+    description: "Oferecendo mais flexibilidade ao cliente final.",
+    highlight: "Até 21x",
   },
   {
-    number: "02",
-    title: "Cobre parcelado",
-    description: "Use a maquininha ou o link de pagamento para cobrar parcelas que cabem no orçamento.",
+    icon: <RefreshCw className="w-6 h-6" />,
+    title: "Split flexível pela maquininha",
+    description: "Faça o split diretamente pela maquininha, direcionando valores ao Distribuidor.",
+    highlight: "Split direto",
   },
   {
-    number: "03",
-    title: "Split automático",
-    description: "O valor dos equipamentos é repassado à Intelbras automaticamente no processo de split.",
+    icon: <Zap className="w-6 h-6" />,
+    title: "Conta Digital com Pix ilimitado",
+    description: "Conta Digital completa com Pix ilimitado para movimentar seus recebimentos.",
+    highlight: "Pix ilimitado",
   },
   {
-    number: "04",
-    title: "Tá na Conta!",
-    description: "Em 1 dia útil, o valor dos seus serviços cai na sua conta digital.",
-  },
-];
-
-const salesArguments = [
-  {
-    icon: <CardIcon className="w-6 h-6" />,
-    title: "Pagar com Cartão é mais barato que pegar empréstimo!",
-    description: "Mostre ao seu cliente que parcelar no cartão tem taxas menores que qualquer linha de crédito.",
+    icon: <Building2 className="w-6 h-6" />,
+    title: "Comunicação automática ao Distribuidor",
+    description: "O Distribuidor é notificado automaticamente sempre que um split for gerado.",
+    highlight: "Automático",
   },
   {
     icon: <Star className="w-6 h-6" />,
-    title: "Você pode acumular milhas nessa operação!",
-    description: "Clientes que pagam com cartão de crédito acumulam pontos e milhas — mais um benefício para fechar o projeto.",
-  },
-  {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: "Encontre parcelas que cabem no orçamento!",
-    description: "Com parcelamento em até 21x, você adapta o valor ao bolso do cliente e fecha mais projetos.",
+    title: "Quite boletos ou gere crédito",
+    description: "Possibilidade de quitar boletos em aberto ou gerar crédito para compras futuras com o Distribuidor.",
+    highlight: "Flexibilidade",
   },
 ];
 
@@ -221,14 +241,16 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function Home() {
+  const [beneficioTab, setBeneficioTab] = useState<"solar" | "distribuidor">("solar");
+
   return (
     <div className="min-h-screen">
       {/* ─── HERO ─── */}
       <section className="relative flex items-center overflow-hidden" style={{ height: "75vh", minHeight: "480px", maxHeight: "620px" }}>
-        {/* Fundo: painéis solares */}
+        {/* Fundo: imagem hero multiprodutos */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${SOLAR_BG})` }}
+          style={{ backgroundImage: `url(${HERO_BG})` }}
         />
         {/* Overlay verde escuro */}
         <div
@@ -236,55 +258,51 @@ export default function Home() {
           style={{ background: "linear-gradient(105deg, rgba(0,51,24,0.92) 0%, rgba(0,51,24,0.82) 45%, rgba(0,40,18,0.60) 70%, rgba(0,30,12,0.75) 100%)" }}
         />
 
-
         {/* Seta pulsante — indica que há mais conteúdo abaixo */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10 cursor-pointer" onClick={() => window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' })}>
           <span className="text-white/60 text-xs tracking-widest uppercase font-semibold animate-pulse">Saiba mais</span>
-          <ChevronDown
-            className="w-7 h-7 text-white animate-bounce"
-          />
+          <ChevronDown className="w-7 h-7 text-white animate-bounce" />
         </div>
 
         {/* Conteúdo principal */}
         <div className="relative container py-12 lg:py-16">
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-              Suas vendas em{" "}
-              <span style={{ color: "#00d084" }}>1 dia</span><span className="text-white">,</span>
-              <br />
-              <span className="text-white">Tá na Conta!</span>
+              Uma maquininha.{" "}
+              <span style={{ color: "#00d084" }}>Várias formas</span>{" "}
+              de vender mais.
             </h1>
             <p className="text-base text-white/80 leading-relaxed mb-6 max-w-lg">
-              Solução financeira completa para integradores terem mais opções de pagamento, receberem em 1 dia útil e aumentarem seus ganhos.
+              Conheça as soluções do Tá na Conta para energia solar, venda integrada com o Distribuidor e outros segmentos Intelbras.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={FORM_ADESAO} target="_blank" rel="noopener noreferrer">
+              <Link href="/conheca/solar">
                 <Button
                   size="lg"
                   className="font-bold text-base px-8 shadow-lg hover:shadow-xl transition-all"
                   style={{ background: "#00d084", color: "#003318" }}
                 >
-                  Peça sua Maquininha
+                  Conhecer solução Solar
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-              </a>
-              <Link href="/simular-taxas">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="font-semibold text-base px-8 border-white/30 text-white hover:bg-white/10 hover:border-white/50"
+              </Link>
+              <Link href="/conheca/distribuidor">
+               <Button
+                 size="lg"
+                  className="font-bold text-base px-8 shadow-lg hover:shadow-xl transition-all"
+                  style={{ background: "#00d084", color: "#003318" }}
                 >
-                  <BarChart3 className="w-5 h-5 mr-2" />
-                  Simular Taxas
+                  Venda integrada com o Distribuidor
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
 
-            {/* Quick stats — apenas 3 */}
+            {/* Quick stats */}
             <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/15">
               {[
                 { value: "1 Dia", label: "Recebimento" },
-                { value: "+10%", label: "Lucro no serviço" },
+                { value: "Até 21x", label: "Parcelamento" },
                 { value: "Taxa do Link", label: "= Taxa da Maquininha" },
               ].map((stat) => (
                 <div key={stat.label}>
@@ -297,8 +315,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── O QUE É ─── */}
+      {/* ─── HUB: ENCONTRE A SOLUÇÃO ─── */}
       <section className="py-16 lg:py-24 bg-white">
+        <div className="container">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
+              style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
+            >
+              <Zap className="w-3.5 h-3.5" />
+              Soluções
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              Encontre a solução para o{" "}
+              <span className="brand-gradient-text">seu negócio</span>
+            </h2>
+            <p className="text-muted-foreground">
+              O Tá na Conta é a solução financeira da Cappta em parceria com a Intelbras, pensada para diferentes segmentos de negócio.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* Card 1 — Energia Solar */}
+            <div className="rounded-2xl border border-border p-6 shadow-sm flex flex-col gap-4 card-hover group" style={{ background: "#f5faf7" }}>
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110"
+                style={{ background: "rgba(0,163,53,0.10)" }}
+              >
+                <Sun className="w-7 h-7" style={{ color: "#00A335" }} />
+              </div>
+              <h3 className="font-bold text-lg text-foreground">Energia Solar</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                Simule, gere orçamentos e receba pelas vendas de energia solar diretamente na maquininha.
+              </p>
+              <Link href="/conheca/solar">
+                <Button className="w-full font-semibold" style={{ background: "#00A335", color: "#FFFFFF" }}>
+                  Conhecer solução Solar
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Card 2 — Vendas com Distribuidor */}
+            <div className="rounded-2xl border border-border p-6 shadow-sm flex flex-col gap-4 card-hover group" style={{ background: "#f5faf7" }}>
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110"
+                style={{ background: "rgba(0,163,53,0.10)" }}
+              >
+                <Building2 className="w-7 h-7" style={{ color: "#00A335" }} />
+              </div>
+              <h3 className="font-bold text-lg text-foreground">Venda integrada com o Distribuidor</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                Venda, faça split, quite boletos ou gere crédito diretamente com o seu distribuidor.
+              </p>
+              <Link href="/conheca/distribuidor">
+                <Button className="w-full font-semibold" style={{ background: "#00A335", color: "#FFFFFF" }}>
+                  Conhecer essa solução
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── IMAGEM DESTAQUE: MAQUININHA + APP ─── */}
+      <section className="py-14 lg:py-20" style={{ background: "#f5faf7" }}>
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -306,21 +388,23 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
                 style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
               >
-                <Zap className="w-3.5 h-3.5" />
-                Solução Financeira
+                <Smartphone className="w-3.5 h-3.5" />
+                Maquininha + App
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-5">
-                O <span className="brand-gradient-text">Tá na Conta</span> é a solução financeira desenvolvida pela Cappta em parceria com a Intelbras
+                Tudo na palma da{" "}
+                <span className="brand-gradient-text">sua mão</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Pensada especialmente para integradores de energia solar, a solução oferece maquininha de cartão, link de pagamento e conta digital para que você receba mais rápido e feche mais projetos.
+                A maquininha Tá na Conta e o aplicativo trabalham juntos para oferecer uma solução financeira completa. Pelo app, acesse recursos como simulação, orçamentos, venda, split e integração com o Distribuidor.
               </p>
               <div className="space-y-3">
                 {[
                   "Maquininha com parcelamento em até 21x",
                   "Link de pagamento com mesma taxa da maquininha",
-                  "Possibilidade de pagamento com múltiplos cartões",
-                  "Economia de 10% do valor dos serviços com mais lucro nos seus serviços",
+                  "Pagamento com múltiplos cartões",
+                  "Split automático com o Distribuidor",
+                  "Conta Digital com Pix ilimitado",
                   "Use para qualquer tipo de venda",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
@@ -329,70 +413,41 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="relative">
-              <div
-                className="absolute -inset-4 rounded-2xl opacity-20"
-                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}
-              />
-              <img
-                src={BUSINESS_IMAGE}
-                alt="Integrador usando maquininha de pagamento"
-                className="relative rounded-2xl w-full object-cover shadow-2xl"
-                style={{ height: "400px" }}
-              />
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-xl border border-border">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(0,163,53,0.10)" }}
+              <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                <a href={FORM_ADESAO} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="font-bold text-base px-8 shadow-lg"
+                    style={{ background: "#00d084", color: "#003318" }}
                   >
-                    <Clock className="w-5 h-5" style={{ color: "#00A335" }} />
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm text-foreground">Em 1 dia</p>
-                    <p className="text-xs text-muted-foreground">Tá na Conta!</p>
-                  </div>
-                </div>
+                    Peça sua Maquininha
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </a>
+                <Link href="/simular-taxas">
+                  <Button size="lg" variant="outline" className="font-semibold text-base px-8">
+                    <BarChart3 className="w-5 h-5 mr-2" />
+                    Simular Taxas
+                  </Button>
+                </Link>
               </div>
+            </div>
+            <div className="relative flex justify-center">
+              <img
+                src={MOBILE_P2_SALDO}
+                alt="Maquininha Tá na Conta e aplicativo mostrando saldo"
+                className="rounded-2xl w-full max-w-md object-contain"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── ARGUMENTOS DE VENDAS ─── */}
-      <section className="py-14 lg:py-20" style={{ background: "#f5faf7" }}>
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
-              Por que seu cliente vai <span className="brand-gradient-text">fechar com você?</span>
-            </h2>
-            <p className="text-muted-foreground text-sm">Use esses argumentos na hora de apresentar o parcelamento.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            {salesArguments.map((arg) => (
-              <div
-                key={arg.title}
-                className="bg-white rounded-2xl p-6 border border-border shadow-sm flex flex-col gap-3"
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(0,163,53,0.08)" }}
-                >
-                  <span style={{ color: "#00A335" }}>{arg.icon}</span>
-                </div>
-                <p className="font-bold text-sm text-foreground leading-snug">{arg.title}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{arg.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── BENEFÍCIOS ─── */}
+      {/* ─── BENEFÍCIOS POR SEGMENTO ─── */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
               style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
@@ -405,14 +460,56 @@ export default function Home() {
               <span className="brand-gradient-text">da maquininha</span>
             </h2>
             <p className="text-muted-foreground">
-              Uma plataforma financeira completa para impulsionar o seu negócio de energia solar.
+              Veja os benefícios específicos para cada segmento de negócio.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {benefits.map((benefit) => (
+
+          {/* Tabs de segmento */}
+          <div className="flex justify-center gap-3 mb-8">
+            <button
+              onClick={() => setBeneficioTab("solar")}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                beneficioTab === "solar"
+                  ? "text-white shadow-md"
+                  : "bg-muted text-muted-foreground hover:text-foreground"
+              }`}
+              style={beneficioTab === "solar" ? { background: "linear-gradient(135deg, #00A335, #00d084)" } : {}}
+            >
+              <Sun className="w-4 h-4 inline mr-2" />
+              Energia Solar
+            </button>
+            <button
+              onClick={() => setBeneficioTab("distribuidor")}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                beneficioTab === "distribuidor"
+                  ? "text-white shadow-md"
+                  : "bg-muted text-muted-foreground hover:text-foreground"
+              }`}
+              style={beneficioTab === "distribuidor" ? { background: "linear-gradient(135deg, #00A335, #00d084)" } : {}}
+            >
+              <Building2 className="w-4 h-4 inline mr-2" />
+              Distribuidor e demais segmentos
+            </button>
+          </div>
+
+          {/* Mensagem de abertura para Distribuidor */}
+          {beneficioTab === "distribuidor" && (
+            <p className="text-center text-muted-foreground text-sm mb-8 max-w-xl mx-auto">
+              Gere créditos, quite boletos em aberto e receba rapidamente pelas suas vendas agenciadas.
+            </p>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
+            {(beneficioTab === "solar" ? beneficiosSolar : beneficiosDistribuidor).map((benefit, index) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl p-6 border border-border card-hover group"
+                className={`rounded-2xl p-6 border border-border card-hover group lg:col-span-2 ${
+                  beneficioTab === "distribuidor" && index === 3
+                    ? "lg:col-start-2"
+                    : beneficioTab === "distribuidor" && index === 4
+                      ? "lg:col-start-4"
+                      : ""
+                }`}
                 style={{ background: "#f5faf7" }}
               >
                 <div
@@ -431,56 +528,6 @@ export default function Home() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PROCESSO ─── */}
-      <section className="py-16 lg:py-24 overflow-hidden" style={{ background: "#f5faf7" }}>
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-                style={{ background: "rgba(0,163,53,0.08)", color: "#00A335" }}
-              >
-                <RefreshCw className="w-3.5 h-3.5" />
-                Processo Financeiro
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">
-                Como funciona o{" "}
-                <span className="brand-gradient-text">processo financeiro?</span>
-              </h2>
-              <div className="space-y-6">
-                {steps.map((step, idx) => (
-                  <div key={step.number} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                        style={{ background: "linear-gradient(135deg, #00A335, #00d084)", color: "#FFFFFF" }}
-                      >
-                        {step.number}
-                      </div>
-                      {idx < steps.length - 1 && (
-                        <div className="w-0.5 h-full mt-2" style={{ background: "rgba(0,163,53,0.20)" }} />
-                      )}
-                    </div>
-                    <div className="pb-6">
-                      <h3 className="font-bold text-base text-foreground mb-1">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 relative">
-              <img
-                src={SOLAR_IMAGE}
-                alt="Instalador de energia solar"
-                className="rounded-2xl w-full object-cover shadow-2xl"
-                style={{ height: "500px" }}
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -578,7 +625,7 @@ export default function Home() {
                 Tire suas <span className="brand-gradient-text">dúvidas</span>
               </h2>
               <p className="text-muted-foreground">
-                As perguntas mais comuns sobre o Portal Tá na Conta.
+                As perguntas mais comuns sobre o Tá na Conta.
               </p>
             </div>
             <div className="space-y-3">

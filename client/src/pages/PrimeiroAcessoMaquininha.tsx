@@ -59,6 +59,165 @@ function StepCard({ number, title, description, children, highlight }: {
   );
 }
 
+const configDistribuidor = [
+  "Você irá receber sua maquininha desligada e com uma filipeta impressa com seus dados cadastrais.",
+  "Na lateral, aperte e segure o botão para ligar o terminal até que apareça um sinal em laranja na tela.",
+  "Aguarde a inicialização do sistema operacional.",
+  "Pronto! Seu app Tá na Conta já está instalado e será aberto em instantes.",
+  "Esta é a configuração inicial, onde você poderá confirmar seu cadastro e escolher seus distribuidores e seus produtos mais vendidos.",
+  "Você poderá imprimir uma filipeta com seus dados cadastrais, se preferir.",
+  "Se os dados estiverem corretos, toque em \"Meus dados estão corretos\".",
+  "Agora, toque em \"Distribuidor preferencial\" para consultar os distribuidores associados ao CNPJ. E então, toque em 'Avançar'.",
+  "Toque em 'Distribuidores Favoritos' para consultar os distribuidores associados ao CNPJ.",
+  "Se o distribuidor ainda não estiver ativo no Portal, aparecerá uma sinalização ao lado e um passo a passo de como realizar esse processo.",
+  "Selecione os distribuidores que deseja marcar como favoritos e então toque em \"Confirmar\".",
+  "Em 'Produtos Vendidos', aparecerão as unidades de negócio e os produtos vendidos para que você possa ativar ou desativá-los.",
+  "Depois de selecionado, toque em 'Concluir Configuração Inicial'.",
+  "Pronto! Sua maquininha está pronta para vender! Em caso de dúvidas, acesse nosso suporte.",
+];
+
+const configSolar = [
+  "Na lateral, aperte e segure o botão para ligar o terminal até que apareça um sinal laranja na tela.",
+  "Aguarde a inicialização do sistema operacional.",
+  "Pronto! Seu app Tá na Conta já está instalado e será aberto em instantes.",
+  "Esta é a configuração inicial! Se os dados estiverem corretos, toque em \"Meus dados estão corretos\".",
+];
+
+const configDistribuidorTitulos = [
+  "Recebimento da maquininha", "Ligar o terminal", "Inicialização", "Abertura do app Tá na Conta",
+  "Configuração inicial", "Dados cadastrais", "Confirmar cadastro", "Distribuidor preferencial",
+  "Distribuidores favoritos", "Ativação do distribuidor", "Selecionar favoritos", "Produtos vendidos",
+  "Concluir configuração inicial", "Configuração concluída",
+];
+
+const configSolarTitulos = [
+  "Ligar o terminal", "Inicialização", "Abertura do app Tá na Conta", "Confirmar cadastro",
+];
+
+function ConfiguracaoAbas() {
+  const [aba, setAba] = useState<"distribuidor" | "solar">("distribuidor");
+  const [passoAtivo, setPassoAtivo] = useState(0);
+  const [maiorPassoVisitado, setMaiorPassoVisitado] = useState(0);
+  const [indiceAberto, setIndiceAberto] = useState(false);
+  const [concluida, setConcluida] = useState(false);
+  const etapas = aba === "distribuidor" ? configDistribuidor : configSolar;
+  const titulos = aba === "distribuidor" ? configDistribuidorTitulos : configSolarTitulos;
+  const etapaAtual = etapas[passoAtivo] ?? etapas[0];
+  const ultimaEtapa = passoAtivo === etapas.length - 1;
+  const progresso = ((passoAtivo + 1) / etapas.length) * 100;
+
+  const trocarAba = (novaAba: "distribuidor" | "solar") => {
+    setAba(novaAba);
+    setPassoAtivo(0);
+    setMaiorPassoVisitado(0);
+    setIndiceAberto(false);
+    setConcluida(false);
+  };
+
+  const irParaPasso = (novoPasso: number) => {
+    const passoSeguro = Math.max(0, Math.min(novoPasso, etapas.length - 1));
+    setPassoAtivo(passoSeguro);
+    setMaiorPassoVisitado((anterior) => Math.max(anterior, passoSeguro));
+    setConcluida(false);
+    setIndiceAberto(false);
+  };
+
+  return (
+    <div className="config-stepper-root">
+      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+        <button
+          onClick={() => trocarAba("distribuidor")}
+          aria-pressed={aba === "distribuidor"}
+          className={`flex-1 px-4 py-3 rounded-xl font-semibold text-sm border transition-all ${aba === "distribuidor" ? "text-white shadow-md" : "text-foreground bg-white hover:bg-gray-50"}`}
+          style={aba === "distribuidor" ? { background: "linear-gradient(135deg, #00A335, #00d084)", borderColor: "#00A335" } : { borderColor: "#e4e7e8" }}
+        >
+          Configuração de Venda com o Distribuidor
+        </button>
+        <button
+          onClick={() => trocarAba("solar")}
+          aria-pressed={aba === "solar"}
+          className={`flex-1 px-4 py-3 rounded-xl font-semibold text-sm border transition-all ${aba === "solar" ? "text-white shadow-md" : "text-foreground bg-white hover:bg-gray-50"}`}
+          style={aba === "solar" ? { background: "linear-gradient(135deg, #00A335, #00d084)", borderColor: "#00A335" } : { borderColor: "#e4e7e8" }}
+        >
+          Configuração de Venda Solar Integrada com a Intelbras
+        </button>
+      </div>
+
+      <div className="rounded-2xl border border-border p-5 bg-white shadow-sm config-stepper-card">
+        <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+          Recebeu sua maquininha do Tá na Conta? Siga o passo a passo da configuração inicial para que seu terminal fique pronto para realizar vendas com Split automatizado!
+        </p>
+
+        <div className="config-stepper-progress" aria-label={`Progresso: etapa ${passoAtivo + 1} de ${etapas.length}`}>
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <span className="config-stepper-progress-label">Etapa {passoAtivo + 1} de {etapas.length}</span>
+            <span className="config-stepper-progress-percent">{Math.round(progresso)}%</span>
+          </div>
+          <div className="config-stepper-progress-track"><span style={{ width: `${progresso}%` }} /></div>
+        </div>
+
+        <div className="relative mb-4">
+          <button
+            type="button"
+            className="config-stepper-index-toggle"
+            onClick={() => setIndiceAberto((aberto) => !aberto)}
+            aria-expanded={indiceAberto}
+          >
+            <span>Ver todas as etapas</span>
+            <ChevronDown className={`w-4 h-4 transition-transform ${indiceAberto ? "rotate-180" : ""}`} />
+          </button>
+          {indiceAberto && (
+            <div className="config-stepper-index" role="list">
+              {titulos.map((titulo, idx) => (
+                <button
+                  type="button"
+                  key={`${aba}-${titulo}-${idx}`}
+                  className={`config-stepper-index-item ${idx === passoAtivo ? "is-active" : ""}`}
+                  aria-current={idx === passoAtivo ? "step" : undefined}
+                  onClick={() => irParaPasso(idx)}
+                >
+                  <span className="config-stepper-index-number">{idx < maiorPassoVisitado || idx < passoAtivo ? "✓" : idx + 1}</span>
+                  <span>{titulo}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="config-stepper-panel" key={`${aba}-${passoAtivo}`}>
+          {!concluida ? (
+            <>
+              <div className="flex items-start gap-3 mb-4">
+                <div className="config-stepper-current-number">{passoAtivo + 1}</div>
+                <div>
+                  <p className="config-stepper-kicker">Passo {passoAtivo + 1}</p>
+                  <h3 className="config-stepper-title">{titulos[passoAtivo]}</h3>
+                </div>
+              </div>
+              <p className="config-stepper-description">{etapaAtual}</p>
+              <div className="config-stepper-navigation">
+                <button type="button" className="config-stepper-secondary" onClick={() => irParaPasso(passoAtivo - 1)} disabled={passoAtivo === 0}>← Anterior</button>
+                {ultimaEtapa ? (
+                  <button type="button" className="config-stepper-primary" onClick={() => setConcluida(true)}>✓ Concluir configuração</button>
+                ) : (
+                  <button type="button" className="config-stepper-primary" onClick={() => irParaPasso(passoAtivo + 1)}>Próxima etapa →</button>
+                )}
+              </div>
+            </>
+          ) : (
+            <div className="config-stepper-complete">
+              <div className="config-stepper-complete-icon"><CheckCircle2 className="w-7 h-7" /></div>
+              <p className="config-stepper-kicker">Configuração concluída</p>
+              <h3 className="config-stepper-title">Sua maquininha está pronta para vender!</h3>
+              <button type="button" className="config-stepper-secondary" onClick={() => { setConcluida(false); irParaPasso(0); }}>Rever etapas</button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Taxas por bandeira — valores ANTECIPADOS conforme tabela oficial
 // Colunas: parcela | Visa/Master | Amex | Elo | Hiper
 const taxasBandeira = [
@@ -231,75 +390,52 @@ export default function PrimeiroAcessoMaquininha() {
       </section>
 
       {/* ─── Passo a passo ─── */}
-      <section className="py-12" style={{ background: "#f5faf7" }}>
+      <section className="py-12" style={{ background: "#f5faf7" }} id="configuracao">
         <div className="container max-w-3xl">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(0,163,53,0.10)" }}>
               <ArrowRight className="w-5 h-5" style={{ color: "#00A335" }} />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">Passo a Passo</h2>
+            <h2 className="text-2xl font-bold text-foreground">Configuração Inicial</h2>
           </div>
           <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-            Siga o fluxo para realizar uma cobrança com a maquininha. Para o fluxo completo de Venda Solar, consulte o guia dedicado.
+            Recebeu sua maquininha? Escolha abaixo o tipo de configuração que deseja realizar:
           </p>
 
-          {/* Botão para Venda Solar */}
-          <a href="/tutoriais/solar" className="inline-flex items-center gap-2 mb-6 px-4 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
-            style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}>
-            <ArrowRight className="w-4 h-4" />
-            Ver Como usar: Venda com a Plataforma Solar
-          </a>
+          {/* Abas de configuração */}
+          <ConfiguracaoAbas />
+        </div>
+      </section>
 
-          <div className="space-y-4">
-            <StepCard
-              number={1}
-              title="Consulte as taxas e simule o parcelamento"
-              description="Acesse o Simulador de Taxas para calcular o valor a cobrar na maquininha. Você pode optar por assumir as taxas ou repassá-las ao cliente — o simulador mostra o valor líquido a receber em cada cenário."
-            />
-            <StepCard
-              number={2}
-              title="Mantenha a maquininha sempre carregada"
-              description="Deixe a maquininha na tomada quando não estiver em uso. Clientes que visitam a loja precisam encontrá-la pronta para operar."
-            />
-            <StepCard
-              number={3}
-              title="Ligue e aguarde a inicialização"
-              description='Pressione o botão cromado por 3 segundos até a bolinha laranja aparecer. Aguarde a inicialização completa antes de qualquer operação.'
-            />
-            <StepCard
-              number={4}
-              title='Digite o valor e toque em "Pagar" ou "Pix"'
-              description="Insira o valor total da venda e selecione a forma de pagamento. Para Pix, o QR Code será gerado automaticamente."
-            />
-            <StepCard
-              number={5}
-              title="Selecione débito, crédito à vista ou parcelado"
-              description="Em crédito parcelado, toque em 'Parcelado' e selecione o prazo combinado. Confira se a bandeira do cartão é a mesma usada na simulação!"
-            />
-            <StepCard
-              number={6}
-              title="Passe o cartão e imprima as 2 vias"
-              highlight
-            >
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Após a aprovação, imprima <strong>2 vias</strong>: uma para o cliente e uma para o seu controle.
-              </p>
-              <AttentionBox>
-                <strong>Ponto de Atenção Importante!</strong> Não feche a transação antes de imprimir as 2 vias.
-              </AttentionBox>
-            </StepCard>
-            <StepCard
-              number={7}
-              title="No dia seguinte, seu dinheiro Tá na Conta!"
-            >
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                O valor da venda estará disponível na sua Conta Digital no <strong>próximo dia útil</strong>.
-              </p>
-              <div className="mt-3 p-3 rounded-xl border flex items-center gap-3" style={{ background: "rgba(0,208,132,0.07)", borderColor: "rgba(0,163,53,0.25)" }}>
-                <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "#00A335" }} />
-                <p className="text-sm font-semibold" style={{ color: "#00A335" }}>Venda concluída com sucesso!</p>
+      {/* Bloco de Interconexão */}
+      <section className="py-10 bg-white">
+        <div className="container max-w-3xl">
+          <div className="rounded-2xl border p-6" style={{ background: "rgba(0,163,53,0.03)", borderColor: "rgba(0,163,53,0.15)" }}>
+            <h3 className="font-bold text-lg text-foreground mb-4">O que sua maquininha pode fazer</h3>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
+                <p className="text-sm text-muted-foreground">A maquininha realiza <strong>venda de solar integrada com a Intelbras</strong>.</p>
               </div>
-            </StepCard>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
+                <p className="text-sm text-muted-foreground">As vendas são feitas com os <strong>Distribuidores vinculados à Intelbras</strong>.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#00A335" }} />
+                <p className="text-sm text-muted-foreground">O campo <strong>"Outras Vendas"</strong> pode ser utilizado para outras opções de vendas ou serviços.</p>
+              </div>
+            </div>
+            <div className="mt-4 p-3 rounded-xl border text-sm" style={{ background: "#fffbeb", borderColor: "#fbbf24" }}>
+              <strong>Atenção:</strong> em "Outras Vendas", lembre-se de realizar a simulação previamente e inserir os valores já considerando as taxas que deverão ser repassadas.
+            </div>
+            <div className="mt-4">
+              <a href="/tutoriais/maquininha" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, #00A335, #00d084)" }}>
+                <ArrowRight className="w-4 h-4" />
+                Ver Como usar: Outras Vendas
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -310,17 +446,17 @@ export default function PrimeiroAcessoMaquininha() {
         style={{ background: "linear-gradient(135deg, #003318, #00A335)" }}
       >
         <div className="container max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Pronto para vender?</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Sua maquininha está pronta!</h2>
           <p className="text-white/70 mb-6 text-sm">
-            Veja o guia completo de como realizar uma venda na maquininha.
+            Em caso de dúvidas, acesse nosso suporte técnico.
           </p>
-          <a href="/tutoriais/maquininha">
+          <a href="/suporte">
             <Button
               size="lg"
               className="font-bold text-base px-8"
               style={{ background: "#00d084", color: "#003318" }}
             >
-              Ver Guia de Venda
+              Suporte Técnico
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </a>
