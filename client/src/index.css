@@ -211,3 +211,1876 @@
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
 }
+
+/* ─── Guia Solar: Telas da maquininha ─── */
+.guia-solar-layout {
+  width: 100%;
+}
+.guia-solar-demo {
+  min-width: 0;
+  min-height: 0;
+  padding: 1rem 0 1.25rem;
+}
+.guia-solar-demo-stage {
+  --gs-scale: 1.95;
+  width: min(calc(180px * var(--gs-scale)), 100%);
+  max-height: min(560px, 72vh);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.guia-solar-demo-stage .gs-screen,
+.guia-solar-demo-stage .gs-screen-light {
+  zoom: var(--gs-scale);
+  transform: none;
+  transform-origin: top center;
+  flex: 0 0 auto;
+  min-height: fit-content;
+}
+.guia-solar .gs-screen {
+  width: 180px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.guia-solar .gs-screen-light {
+  width: 180px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.guia-solar .gs-sh {
+  background: #12a34a;
+  padding: 6px 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 10px;
+  text-align: center;
+}
+.guia-solar .gs-sh2 {
+  background: #12a34a;
+  padding: 5px 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 9px;
+  line-height: 1.3;
+}
+.guia-solar .gs-sb {
+  padding: 8px;
+}
+.guia-solar .gs-mi {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 6px;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  margin-bottom: 4px;
+  font-size: 8px;
+  color: #555;
+  line-height: 1.3;
+}
+.guia-solar .gs-mi b {
+  font-size: 9px;
+  color: #222;
+}
+.guia-solar .gs-mi-active {
+  border-color: #12a34a;
+  background: rgba(18,163,74,0.05);
+}
+.guia-solar .gs-fl {
+  font-size: 8px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1px;
+}
+.guia-solar .gs-fi {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 9px;
+  color: #333;
+  background: #fafafa;
+  margin-bottom: 2px;
+}
+.guia-solar .gs-bg {
+  background: #12a34a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 9px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+.guia-solar .gs-bo {
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  font-size: 8px;
+  padding: 4px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.guia-solar .gs-fg {
+  padding: 2px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 7px;
+  font-weight: 700;
+  color: #1a237e;
+  background: #fff;
+}
+
+@media (max-width: 1023px) {
+  .guia-solar-demo {
+    padding-top: .75rem;
+    padding-bottom: 1rem;
+  }
+  .guia-solar-demo-stage {
+    --gs-scale: 1.72;
+    max-height: min(500px, 68vh);
+  }
+  .guia-solar .gs-screen,
+  .guia-solar .gs-screen-light {
+    width: 180px;
+  }
+}
+@media (max-width: 640px) {
+  .guia-solar-demo {
+    width: 100%;
+    padding: .25rem 0 .5rem;
+  }
+  .guia-solar-demo-stage {
+    --gs-scale: min(1.68, calc((100vw - 48px) / 180px));
+    width: min(100%, calc(180px * var(--gs-scale)));
+    max-width: 100%;
+    max-height: none;
+  }
+  .guia-solar-demo-stage .gs-screen,
+  .guia-solar-demo-stage .gs-screen-light {
+    max-width: none;
+  }
+  .guia-solar .gs-screen,
+  .guia-solar .gs-screen-light {
+    width: 180px;
+  }
+}
+
+/* ─── Distribuidor: Passo a passo com telas da maquininha ─── */
+.dist-passo-a-passo .dist-card {
+  background: transparent;
+  border: 1px solid rgba(0,163,53,0.25);
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.dist-passo-a-passo .dist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,163,53,0.12);
+  border-color: #12a34a;
+}
+.dist-passo-a-passo .dist-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #12a34a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.dist-passo-a-passo .dist-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #111;
+  margin-bottom: 6px;
+}
+.dist-passo-a-passo .dist-desc {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.5;
+}
+.dist-passo-a-passo .dist-screen {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #333;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.dist-passo-a-passo .dist-screen-light {
+  border-color: #12a34a;
+  background: #f8fdf9;
+}
+.dist-passo-a-passo .ds-h {
+  background: #12a34a;
+  padding: 5px 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 9px;
+  text-align: center;
+}
+.dist-passo-a-passo .ds-h2 {
+  background: #12a34a;
+  padding: 4px 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 8px;
+}
+.dist-passo-a-passo .ds-b {
+  padding: 6px 8px;
+}
+.dist-passo-a-passo .ds-mi {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 6px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  font-size: 7px;
+  color: #555;
+  line-height: 1.3;
+}
+.dist-passo-a-passo .ds-mi b {
+  font-size: 8px;
+  color: #222;
+}
+.dist-passo-a-passo .ds-mi-active {
+  border-color: #12a34a;
+  background: rgba(18,163,74,0.05);
+}
+.dist-passo-a-passo .ds-fi {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 8px;
+  color: #333;
+  background: #fafafa;
+}
+.dist-passo-a-passo .ds-btn {
+  background: #12a34a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 8px;
+  padding: 4px;
+  border-radius: 4px;
+  text-align: center;
+}
+.dist-passo-a-passo .ds-btn-outline {
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  font-size: 7px;
+  padding: 4px;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.dist-passo-a-passo .ds-flag {
+  padding: 2px 4px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 7px;
+  font-weight: 700;
+  background: #fff;
+}
+
+/* Vertical Stepper interativo do Distribuidor */
+.distribuidor-legacy-flow {
+  display: none;
+}
+.distribuidor-stepper {
+  width: 100%;
+}
+.distribuidor-stepper-preview {
+  min-width: 0;
+}
+.distribuidor-preview-stage {
+  --distribuidor-scale: 1.9;
+  width: min(100%, 440px);
+  max-height: 660px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,163,53,0.22);
+  border-radius: 14px;
+  background: rgba(239,250,243,0.72);
+  padding: 12px;
+  box-shadow: 0 3px 14px rgba(0,80,35,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.distribuidor-preview-stage > .dist-screen-amp {
+  width: 200px;
+  max-width: none;
+  zoom: var(--distribuidor-scale);
+  transform: none;
+  transform-origin: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,163,53,0.24);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,80,35,0.10);
+  flex: 0 0 auto;
+}
+.distribuidor-preview-stage > .dist-screen-step4 {
+  zoom: calc(var(--distribuidor-scale) * 0.88);
+}
+.distribuidor-preview-stage .dist-zoom-hint {
+  width: 100%;
+  margin-top: 8px;
+  flex: 0 0 auto;
+}
+.distribuidor-preview-stage:hover > .dist-screen-amp {
+  box-shadow: 0 8px 28px rgba(18,163,74,0.22);
+}
+
+/* Screen wrap — clicável */
+.dist-passo-a-passo .dist-screen-wrap {
+  cursor: pointer;
+  position: relative;
+}
+.dist-passo-a-passo .dist-screen-wrap:hover .dist-screen,
+.dist-passo-a-passo .dist-screen-wrap:hover .dist-screen-light {
+  box-shadow: 0 4px 16px rgba(18,163,74,0.18);
+}
+.dist-passo-a-passo .dist-zoom-hint {
+  text-align: center;
+  font-size: 10px;
+  color: #999;
+  margin-top: 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.dist-passo-a-passo .dist-screen-wrap:hover .dist-zoom-hint {
+  opacity: 1;
+}
+/* Modal ampliado */
+.dist-modal-screen .dist-screen-amp {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #333;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.dist-modal-screen .dist-screen-amp.dist-screen-light {
+  border-color: #12a34a;
+  background: #f8fdf9;
+}
+.dist-modal-screen .ds-h { background: #12a34a; padding: 8px 12px; color: #fff; font-weight: 700; font-size: 12px; text-align: center; }
+.dist-modal-screen .ds-h2 { background: #12a34a; padding: 6px 12px; color: #fff; font-weight: 700; font-size: 11px; }
+.dist-modal-screen .ds-b { padding: 10px 12px; }
+.dist-modal-screen .ds-mi { display: flex; flex-direction: column; padding: 6px 8px; border: 1px solid #e8e8e8; border-radius: 5px; margin-bottom: 4px; font-size: 9px; color: #555; line-height: 1.4; }
+.dist-modal-screen .ds-mi b { font-size: 10px; color: #222; }
+.dist-modal-screen .ds-mi-active { border-color: #12a34a; background: rgba(18,163,74,0.05); }
+.dist-modal-screen .ds-fi { border: 1px solid #ddd; border-radius: 5px; padding: 5px 8px; font-size: 10px; color: #333; background: #fafafa; }
+.dist-modal-screen .ds-btn { background: #12a34a; color: #fff; font-weight: 700; font-size: 10px; padding: 6px; border-radius: 5px; text-align: center; }
+.dist-modal-screen .ds-btn-outline { background: #fff; color: #333; font-weight: 600; font-size: 9px; padding: 5px; border-radius: 5px; text-align: center; border: 1px solid #ddd; }
+.dist-modal-screen .ds-flag { padding: 3px 6px; border: 1px solid #ddd; border-radius: 3px; font-weight: 700; background: #fff; }
+@media (max-width: 1023px) {
+  .distribuidor-preview-stage {
+    --distribuidor-scale: 1.55;
+    max-height: 560px;
+  }
+}
+@media (max-width: 640px) {
+  .distribuidor-stepper-preview {
+    width: 100%;
+  }
+  .distribuidor-preview-stage {
+    --distribuidor-scale: min(1.45, calc((100vw - 72px) / 200px));
+    width: min(100%, 100vw - 32px);
+    max-height: 540px;
+    padding: 10px;
+  }
+  .distribuidor-stepper-steps {
+    width: 100%;
+  }
+}
+
+/* Mobile: hide zoom hint (tap works) */
+@media (max-width: 640px) {
+  .dist-passo-a-passo .dist-zoom-hint { display: none; }
+}
+
+/* ─── Vertical Stepper + preview sincronizado: Venda Solar ─── */
+.solar-stepper {
+  display: grid;
+  grid-template-columns: minmax(0, 45%) minmax(0, 55%);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: start;
+  margin: 1rem 0 2rem;
+}
+.solar-stepper-list { min-width: 0; }
+.solar-stepper-phase { margin-bottom: 1.25rem; }
+.solar-phase-label {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: #165a35;
+  font-size: .76rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.solar-phase-label span {
+  border-radius: 999px;
+  padding: .2rem .5rem;
+  color: #fff;
+  background: #12a34a;
+  font-size: .68rem;
+}
+.solar-stepper-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: .7rem;
+  align-items: start;
+  text-align: left;
+  border: 0;
+  border-left: 2px solid rgba(18,163,74,.18);
+  background: transparent;
+  padding: .55rem .7rem;
+  color: #285344;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.solar-stepper-item:hover { background: rgba(18,163,74,.07); }
+.solar-stepper-item.is-active {
+  border-left-color: #12a34a;
+  background: rgba(18,163,74,.1);
+  border-radius: 0 .7rem .7rem 0;
+  transform: translateX(2px);
+}
+.solar-step-number {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(18,163,74,.24);
+  border-radius: 50%;
+  background: #fff;
+  color: #21854a;
+  font-size: .75rem;
+  font-weight: 700;
+}
+.solar-stepper-item.is-active .solar-step-number { color: #fff; background: #12a34a; border-color: #12a34a; }
+.solar-stepper-item strong { display: block; font-size: .86rem; line-height: 1.25; }
+.solar-stepper-item small { display: block; margin-top: .35rem; color: #557267; font-size: .72rem; line-height: 1.45; }
+.solar-stepper-preview {
+  width: 100%;
+  min-width: 0;
+  max-height: 680px;
+  overflow: hidden;
+  border: 1px solid rgba(0,163,53,.2);
+  border-radius: 1rem;
+  padding: clamp(.8rem, 2vw, 1.35rem);
+  background: rgba(239,250,243,.7);
+  box-shadow: 0 5px 20px rgba(0,80,35,.08);
+  cursor: pointer;
+  text-align: left;
+}
+.solar-preview-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .7rem; margin-bottom: .7rem; color: #14552f; }
+.solar-preview-heading span { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.solar-preview-heading strong { font-size: .95rem; }
+.solar-preview-unit { display: flex; flex-direction: column; align-items: center; max-width: 100%; }
+.solar-device-screen {
+  width: min(100%, 430px);
+  max-height: 570px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,163,53,.28);
+  border-radius: .9rem;
+  background: #f8fdf9;
+  box-shadow: 0 5px 18px rgba(0,80,35,.12);
+  zoom: 1.35;
+}
+.solar-preview-body { min-height: 250px; }
+.solar-preview-kicker { margin: 0 0 .75rem; color: #165a35; font-size: .75rem; font-weight: 700; }
+.solar-preview-body label { display: block; margin: .45rem 0 .2rem; color: #315a48; font-size: .7rem; font-weight: 700; }
+.solar-preview-label { margin: .8rem 0 .35rem; font-size: .7rem; font-weight: 700; color: #315a48; }
+.solar-total { display: flex; justify-content: space-between; gap: .5rem; margin: .8rem 0; font-size: .72rem; }
+.solar-total b { color: #12a34a; }
+.solar-status { display: flex; align-items: center; gap: .45rem; margin: .8rem 0; color: #12a34a; font-size: .72rem; font-weight: 700; }
+.solar-installments > div { border: 1px solid #d9e4dc; border-radius: .45rem; padding: .5rem; text-align: center; font-size: .7rem; }
+.solar-installments > div.selected { border-color: #12a34a; color: #fff; background: linear-gradient(135deg, #12a34a, #4caf50); }
+.solar-stepper-preview .dist-zoom-hint { margin-top: .55rem; color: #648275; font-size: .65rem; text-align: center; }
+@media (max-width: 1023px) {
+  .solar-stepper { grid-template-columns: minmax(0, 42%) minmax(0, 58%); gap: 1rem; }
+  .solar-device-screen { zoom: 1.1; }
+  .solar-stepper-preview { max-height: 590px; }
+}
+@media (max-width: 640px) {
+  .solar-stepper { grid-template-columns: 1fr; gap: 1rem; }
+  .solar-stepper-preview { order: 2; max-height: 600px; }
+  .solar-device-screen { width: min(100%, 430px); zoom: min(1.15, calc((100vw - 54px) / 375px)); }
+  .solar-stepper-item strong { font-size: .82rem; }
+  .solar-stepper-item small { font-size: .7rem; }
+}
+
+.solar-preview-detail-title { margin: .75rem 0 .35rem; color: #165a35; font-size: .78rem; font-weight: 700; }
+.solar-preview-body .ds-fi { overflow-wrap: anywhere; }
+
+.solar-preview-rows { display: grid; gap: .35rem; margin: .6rem 0 .9rem; font-size: .7rem; }
+.solar-preview-rows > div { display: flex; justify-content: space-between; gap: .5rem; border-bottom: 1px solid #e4eee7; padding-bottom: .28rem; }
+.solar-preview-rows b { color: #12a34a; text-align: right; }
+.solar-approval, .solar-received { border: 1px solid rgba(18,163,74,.25); border-radius: .55rem; background: #effaf1; color: #16743c; padding: .65rem; margin: .65rem 0; font-size: .7rem; font-weight: 700; text-align: center; }
+.solar-upload { display: flex; flex-direction: column; align-items: center; gap: .3rem; border: 1px dashed rgba(18,163,74,.5); border-radius: .6rem; padding: 1rem .6rem; margin: .65rem 0; color: #12a34a; font-size: .7rem; text-align: center; }
+.solar-upload span, .solar-received span { color: #648275; font-size: .65rem; font-weight: 400; }
+.solar-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; margin: .65rem 0; }
+.solar-split-grid > div { border: 1px solid #d9e8dd; border-radius: .5rem; padding: .6rem .35rem; background: #f8fdf9; text-align: center; font-size: .68rem; }
+.solar-split-grid b, .solar-split-grid span { display: block; }
+.solar-split-grid b { color: #12a34a; margin-bottom: .25rem; }
+.solar-checklist { display: grid; gap: .45rem; margin: .7rem 0; color: #16743c; font-size: .7rem; }
+.solar-received strong { display: block; color: #12a34a; font-size: 1rem; margin-bottom: .25rem; }
+
+/* Tipografia de leitura do Vertical Stepper Solar: aumento direto, sem zoom do componente */
+.solar-stepper-item strong {
+  font-size: clamp(15px, 1.05vw, 16px);
+  line-height: 1.3;
+  font-weight: 600;
+}
+.solar-stepper-item small {
+  font-size: clamp(13px, .92vw, 14px);
+  line-height: 1.45;
+  margin-top: .4rem;
+}
+.solar-step-number {
+  font-size: clamp(13px, .92vw, 14px);
+}
+.solar-phase-label {
+  font-size: clamp(13px, .92vw, 14px);
+  line-height: 1.3;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .solar-stepper-item strong { font-size: 15px; }
+  .solar-stepper-item small { font-size: 13px; line-height: 1.45; }
+  .solar-step-number { font-size: 13px; }
+  .solar-phase-label { font-size: 13px; }
+}
+
+/* Outras Vendas: preview sincronizado usando a mesma unidade visual do Distribuidor */
+.outras-vendas-stepper .distribuidor-preview-frame {
+  width: 100%;
+  max-width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.outras-vendas-stepper .distribuidor-preview-frame:focus-visible {
+  outline: 3px solid rgba(0,163,53,.35);
+  outline-offset: 5px;
+  border-radius: 16px;
+}
+.outras-vendas-stepper .distribuidor-preview-stage {
+  max-width: 100%;
+  overflow: hidden;
+}
+.outras-vendas-stepper .distribuidor-preview-stage > .dist-screen-amp {
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+@media (max-width: 640px) {
+  .outras-vendas-stepper .distribuidor-preview-stage {
+    width: min(100%, calc(100vw - 32px));
+  }
+}
+
+/* Cabeçalho do preview sincronizado */
+.distribuidor-preview-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .7rem;
+  margin-bottom: .7rem;
+  color: #14552f;
+}
+.distribuidor-preview-heading span {
+  flex: 0 0 auto;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.distribuidor-preview-heading strong {
+  min-width: 0;
+  font-size: .95rem;
+  line-height: 1.25;
+  text-align: right;
+}
+@media (max-width: 640px) {
+  .distribuidor-preview-heading { align-items: flex-start; gap: .4rem; }
+  .distribuidor-preview-heading strong { font-size: .85rem; }
+}
+
+/* Tipografia do stepper de Outras Vendas alinhada às demais jornadas */
+.outras-vendas-stepper .outras-vendas-step-title {
+  font-size: clamp(15px, 1.05vw, 16px);
+  line-height: 1.3;
+  font-weight: 600;
+}
+.outras-vendas-stepper .outras-vendas-step-description {
+  display: block;
+  margin-top: .4rem;
+  font-size: clamp(13px, .92vw, 14px);
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  .outras-vendas-stepper .outras-vendas-step-title { font-size: 15px; }
+  .outras-vendas-stepper .outras-vendas-step-description { font-size: 13px; line-height: 1.45; }
+}
+
+/* ─── Interactive Vertical Stepper: Venda com Link ─── */
+.link-pagamento-stepper {
+  display: grid;
+  grid-template-columns: minmax(0, 45%) minmax(0, 55%);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: start;
+  min-width: 0;
+}
+.link-pagamento-stepper > .distribuidor-stepper-steps,
+.link-pagamento-stepper > .distribuidor-stepper-preview {
+  width: auto;
+  min-width: 0;
+}
+.link-pagamento-stepper > .distribuidor-stepper-preview {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: stretch;
+  align-self: start;
+}
+.link-pagamento-stepper > .distribuidor-stepper-steps {
+  grid-column: 1;
+  grid-row: 1;
+}
+.link-pagamento-stepper > p {
+  grid-column: 1 / -1;
+}
+.link-pagamento-stepper .distribuidor-preview-stage {
+  --distribuidor-scale: 1.35;
+  width: min(100%, 520px);
+  max-height: 680px;
+  padding: 16px;
+  overflow: hidden;
+  background: rgba(239,250,243,.72);
+}
+.link-pagamento-stepper .link-preview-screen {
+  width: 380px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(0,163,53,.24);
+  border-radius: 10px;
+  background: #f8fdf9;
+  box-shadow: 0 4px 16px rgba(0,80,35,.10);
+  color: #173b27;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  flex: 0 1 auto;
+}
+.link-pagamento-stepper .link-preview-header {
+  padding: 11px 16px;
+  background: #12a34a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+}
+.link-preview-body { display: flex; min-height: 250px; padding: 16px; gap: 14px; background: #f8fdf9; }
+.link-preview-sidebar { width: 30%; display: flex; flex-direction: column; gap: 8px; padding-right: 12px; border-right: 1px solid #dbe9df; font-size: 11px; color: #607268; }
+.link-preview-sidebar b { color: #173b27; font-size: 13px; }
+.link-preview-sidebar span { padding: 8px 6px; border-radius: 5px; }
+.link-preview-sidebar .is-active { color: #12a34a; background: rgba(18,163,74,.10); font-weight: 700; }
+.link-preview-content { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 12px; font-size: 13px; }
+.link-preview-content.is-wide { width: 100%; }
+.link-preview-content.is-narrow { max-width: 320px; margin: 0 auto; width: 100%; }
+.link-preview-panel, .link-preview-note, .link-preview-recommendation { padding: 12px; border: 1px solid #dbe9df; border-radius: 7px; background: #fff; color: #607268; line-height: 1.45; }
+.link-preview-button { padding: 10px 14px; border-radius: 6px; background: #12a34a; color: #fff; font-weight: 700; text-align: center; }
+.link-preview-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.link-preview-fields span { padding: 10px; border: 1px solid #dbe9df; border-radius: 5px; background: #fff; color: #607268; }
+.link-preview-fields .wide { grid-column: 1 / -1; }
+.link-preview-option { display: flex; justify-content: space-between; align-items: center; padding: 12px; border: 1px solid #dbe9df; border-radius: 6px; background: #fff; color: #607268; }
+.link-preview-option.is-selected { border-color: #12a34a; background: rgba(18,163,74,.08); color: #173b27; font-weight: 700; }
+.link-preview-option span { color: #12a34a; }
+.link-preview-content small { color: #607268; line-height: 1.4; }
+.link-preview-toggle { display: flex; align-items: center; gap: 10px; color: #607268; }
+.link-preview-toggle i { position: relative; display: block; width: 42px; height: 22px; border-radius: 999px; background: #12a34a; }
+.link-preview-toggle i::after { content: ""; position: absolute; top: 3px; right: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+.link-preview-toggle strong { color: #173b27; }
+.link-preview-recommendation { border-color: rgba(0,163,53,.28); background: rgba(0,208,132,.08); color: #237040; font-size: 12px; }
+.link-preview-url { overflow-wrap: anywhere; padding: 12px; border: 1px dashed #12a34a; border-radius: 6px; background: #fff; color: #237040; font-size: 11px; }
+.link-preview-channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.link-preview-channels span { padding: 12px 8px; border-radius: 7px; background: #e8f5e9; color: #237040; font-size: 12px; font-weight: 700; text-align: center; }
+.link-pagamento-stepper .link-preview-screen.is-compact { width: min(100%, 600px); }
+.link-modal-content { width: min(92vw, 760px); }
+.link-modal-content .link-preview-screen { width: 100%; }
+@media (max-width: 1023px) {
+  .link-pagamento-stepper .distribuidor-preview-stage { --distribuidor-scale: 1.08; max-height: 600px; }
+  .link-pagamento-stepper .link-preview-header { font-size: 13px; }
+  .link-preview-body { min-height: 220px; }
+}
+@media (max-width: 640px) {
+  .link-pagamento-stepper { grid-template-columns: 1fr; }
+  .link-pagamento-stepper > .distribuidor-stepper-steps,
+  .link-pagamento-stepper > .distribuidor-stepper-preview,
+  .link-pagamento-stepper > p { grid-column: 1; grid-row: auto; width: 100%; }
+  .link-pagamento-stepper > .distribuidor-stepper-preview { justify-self: stretch; }
+  .link-pagamento-stepper .distribuidor-preview-stage { --distribuidor-scale: 1; width: min(100%, calc(100vw - 32px)); max-height: 560px; padding: 10px; }
+  .link-pagamento-stepper .link-preview-screen { width: 100%; }
+  .link-preview-body { min-height: 210px; padding: 12px; gap: 8px; }
+  .link-preview-sidebar { width: 28%; padding-right: 6px; font-size: 9px; }
+  .link-preview-sidebar b { font-size: 10px; }
+  .link-preview-content { font-size: 11px; gap: 8px; }
+  .link-preview-fields { grid-template-columns: 1fr; }
+  .link-preview-fields .wide { grid-column: auto; }
+}
+.link-pagamento-legacy-flow { display: none; }
+
+/* ─── Compact Interactive Stepper: Primeiro Acesso > Maquininha ─── */
+.config-stepper-root { width: 100%; }
+.config-stepper-card { overflow: visible; }
+.config-stepper-progress { margin: .15rem 0 1.15rem; }
+.config-stepper-progress-label,
+.config-stepper-progress-percent {
+  color: #557267;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+.config-stepper-progress-percent { color: #00A335; }
+.config-stepper-progress-track {
+  height: 7px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5f1e9;
+}
+.config-stepper-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00A335, #00d084);
+  transition: width .28s ease;
+}
+.config-stepper-index-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: .7rem .85rem;
+  border: 1px solid #dce9df;
+  border-radius: .75rem;
+  color: #165a35;
+  background: #f8fcf9;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  transition: background .2s ease, border-color .2s ease;
+}
+.config-stepper-index-toggle:hover,
+.config-stepper-index-toggle:focus-visible { border-color: rgba(0,163,53,.42); background: #f0faf3; }
+.config-stepper-index-toggle:focus-visible,
+.config-stepper-index-item:focus-visible,
+.config-stepper-primary:focus-visible,
+.config-stepper-secondary:focus-visible { outline: 3px solid rgba(0,163,53,.24); outline-offset: 2px; }
+.config-stepper-index {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .4rem;
+  margin-top: .45rem;
+  padding: .65rem;
+  border: 1px solid #dce9df;
+  border-radius: .75rem;
+  background: #fbfefc;
+  box-shadow: 0 7px 18px rgba(0,80,35,.06);
+}
+.config-stepper-index-item {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  min-width: 0;
+  padding: .52rem .55rem;
+  border: 1px solid transparent;
+  border-radius: .55rem;
+  color: #557267;
+  background: transparent;
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: left;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.config-stepper-index-item:hover { background: rgba(0,163,53,.06); color: #165a35; }
+.config-stepper-index-item.is-active { border-color: rgba(0,163,53,.32); color: #165a35; background: rgba(0,208,132,.1); font-weight: 700; }
+.config-stepper-index-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  flex: 0 0 1.45rem;
+  border: 1px solid #b9d9c3;
+  border-radius: 999px;
+  color: #00A335;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+.config-stepper-index-item.is-active .config-stepper-index-number { color: #fff; border-color: #00A335; background: #00A335; }
+.config-stepper-panel {
+  min-height: 238px;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  border: 1px solid #dce9df;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #fbfefc 0%, #f4fbf6 100%);
+  animation: config-stepper-panel-in .22s ease both;
+}
+@keyframes config-stepper-panel-in {
+  from { opacity: .35; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.config-stepper-current-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 2.45rem;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #00A335, #00d084);
+  box-shadow: 0 5px 12px rgba(0,163,53,.18);
+  font-size: 16px;
+  font-weight: 800;
+}
+.config-stepper-kicker {
+  margin: 0 0 .2rem;
+  color: #00A335;
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.config-stepper-title {
+  margin: 0;
+  color: #123d27;
+  font-size: clamp(16px, 1.45vw, 18px);
+  line-height: 1.3;
+  font-weight: 700;
+}
+.config-stepper-description {
+  min-height: 76px;
+  margin: 0;
+  color: #42594c;
+  font-size: clamp(14px, 1.1vw, 15px);
+  line-height: 1.55;
+}
+.config-stepper-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-top: 1.25rem;
+}
+.config-stepper-primary,
+.config-stepper-secondary {
+  min-height: 2.55rem;
+  padding: .65rem .9rem;
+  border-radius: .65rem;
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.config-stepper-primary {
+  border: 1px solid #00A335;
+  color: #fff;
+  background: linear-gradient(135deg, #00A335, #00d084);
+  box-shadow: 0 5px 12px rgba(0,163,53,.15);
+}
+.config-stepper-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 16px rgba(0,163,53,.2); }
+.config-stepper-secondary {
+  border: 1px solid #b9d9c3;
+  color: #165a35;
+  background: #fff;
+}
+.config-stepper-secondary:hover:not(:disabled) { border-color: #00A335; background: #f0faf3; }
+.config-stepper-secondary:disabled { cursor: not-allowed; opacity: .42; }
+.config-stepper-complete {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  text-align: center;
+}
+.config-stepper-complete .config-stepper-kicker { margin-bottom: 0; }
+.config-stepper-complete-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: .15rem;
+  border-radius: 999px;
+  color: #00A335;
+  background: rgba(0,163,53,.12);
+}
+.config-stepper-complete .config-stepper-secondary { margin-top: .5rem; }
+@media (max-width: 640px) {
+  .config-stepper-index { grid-template-columns: 1fr; }
+  .config-stepper-panel { min-height: 0; padding: 1rem; }
+  .config-stepper-description { min-height: 0; font-size: 14px; line-height: 1.5; }
+  .config-stepper-navigation { align-items: stretch; flex-direction: column-reverse; }
+  .config-stepper-primary,
+  .config-stepper-secondary { width: 100%; }
+  .config-stepper-index-item { font-size: 12px; }
+}
+
+
+
+/* ─── Regra global: Interactive Vertical Stepper com preview médio ───
+   Todos os previews normais usam o mesmo bounding box; o conteúdo interno
+   preserva sua proporção e é redimensionado como uma unidade visual. */
+.interactive-guide-preview {
+  --interactive-preview-max-width: 430px;
+  --interactive-preview-max-height: 520px;
+  --interactive-preview-scale: 1.55;
+  width: min(100%, var(--interactive-preview-max-width));
+  max-width: var(--interactive-preview-max-width);
+  max-height: var(--interactive-preview-max-height);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.interactive-guide-preview > .dist-screen-amp {
+  width: 200px;
+  max-width: none;
+  flex: 0 0 auto;
+  zoom: var(--interactive-preview-scale);
+  transform: none;
+  transform-origin: top center;
+  box-sizing: border-box;
+}
+
+.interactive-guide-preview .solar-device-screen {
+  width: min(100%, 360px);
+  max-width: 100%;
+  max-height: 500px;
+  zoom: 1;
+  transform: none;
+  box-sizing: border-box;
+}
+
+.interactive-guide-preview .gs-screen,
+.interactive-guide-preview .gs-screen-light {
+  width: 180px;
+  max-width: none;
+  flex: 0 0 auto;
+  min-height: fit-content;
+  zoom: 1.7;
+  transform: none;
+  transform-origin: top center;
+  box-sizing: border-box;
+}
+
+.interactive-guide-preview .link-preview-screen {
+  width: min(100%, 380px);
+  max-width: 100%;
+  max-height: 500px;
+  zoom: 1;
+  transform: none;
+  box-sizing: border-box;
+}
+
+/* O stage e o mockup permanecem centralizados como uma única composição. */
+.interactive-guide-preview > .solar-preview-unit,
+.interactive-guide-preview > .dist-screen-wrap,
+.interactive-guide-preview > .link-preview-screen {
+  max-width: 100%;
+  align-self: center;
+}
+
+@media (max-width: 1023px) {
+  .interactive-guide-preview {
+    --interactive-preview-max-width: 400px;
+    --interactive-preview-max-height: 500px;
+    --interactive-preview-scale: 1.35;
+  }
+
+  .interactive-guide-preview .solar-device-screen { width: min(100%, 340px); }
+  .interactive-guide-preview .gs-screen,
+  .interactive-guide-preview .gs-screen-light { zoom: 1.5; }
+  .interactive-guide-preview .link-preview-screen { width: min(100%, 360px); }
+}
+
+@media (max-width: 640px) {
+  .interactive-guide-preview {
+    --interactive-preview-max-width: calc(100vw - 32px);
+    --interactive-preview-max-height: 500px;
+    --interactive-preview-scale: min(1.35, calc((100vw - 72px) / 200px));
+    width: min(100%, var(--interactive-preview-max-width));
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .interactive-guide-preview > .dist-screen-amp {
+    max-width: none;
+  }
+
+  .interactive-guide-preview .solar-device-screen {
+    width: min(100%, 360px);
+    max-width: 100%;
+  }
+
+  .interactive-guide-preview .gs-screen,
+  .interactive-guide-preview .gs-screen-light {
+    zoom: min(1.55, calc((100vw - 64px) / 180px));
+  }
+
+  .interactive-guide-preview .link-preview-screen {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .link-pagamento-stepper .interactive-guide-preview {
+    width: min(100%, calc(100vw - 32px));
+    max-height: 500px;
+  }
+}
+
+/* A mesma regra vence os seletores legados mais específicos dos cinco fluxos. */
+.guia-solar-demo .interactive-guide-preview,
+.distribuidor-stepper .interactive-guide-preview {
+  width: min(100%, var(--interactive-preview-max-width));
+  max-width: var(--interactive-preview-max-width);
+  max-height: var(--interactive-preview-max-height);
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .guia-solar-demo .interactive-guide-preview,
+  .distribuidor-stepper .interactive-guide-preview {
+    width: min(100%, var(--interactive-preview-max-width));
+    max-width: 100%;
+    max-height: var(--interactive-preview-max-height);
+  }
+}
+
+
+/* ─── Correção de fit: nenhum preview normal deve cortar seu conteúdo ─── */
+.interactive-guide-preview,
+.guia-solar-demo-stage.interactive-guide-preview,
+.distribuidor-stepper .interactive-guide-preview {
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.interactive-guide-preview > .dist-screen-amp,
+.interactive-guide-preview .solar-device-screen,
+.interactive-guide-preview .gs-screen,
+.interactive-guide-preview .gs-screen-light,
+.interactive-guide-preview .link-preview-screen {
+  max-height: none;
+  height: auto;
+}
+
+/* Guia Rápido Solar: botão mantém a coluna e torna a tela expansível. */
+.guia-solar-demo-trigger {
+  width: 100%;
+  max-width: var(--interactive-preview-max-width, 430px);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.guia-solar-demo-trigger:focus-visible {
+  outline: 3px solid rgba(0,163,53,.35);
+  outline-offset: 5px;
+  border-radius: 16px;
+}
+.guia-solar-demo-trigger:hover .interactive-guide-preview {
+  filter: drop-shadow(0 6px 18px rgba(18,163,74,.16));
+}
+.guia-solar-zoom-hint {
+  display: block;
+  margin-top: .55rem;
+  color: #648275;
+  font-size: .65rem;
+  text-align: center;
+}
+
+/* Lightbox do Guia Rápido Solar: o modal pode rolar, mas nunca corta a tela. */
+.solar-guide-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0,0,0,.72);
+}
+.solar-guide-modal-content {
+  position: relative;
+  width: min(92vw, 560px);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+.solar-guide-modal-close,
+.dist-modal-close {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: #f0f4f1;
+  color: #557267;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.solar-guide-modal-close:hover,
+.dist-modal-close:hover { background: #dfece3; }
+.solar-guide-modal-title {
+  margin: 0 2.5rem .75rem 0;
+  color: #557267;
+  font-size: .8rem;
+  font-weight: 700;
+}
+.solar-guide-modal-screen {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+  padding: .25rem;
+}
+.solar-guide-modal-screen .gs-screen,
+.solar-guide-modal-screen .gs-screen-light {
+  width: 180px;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  flex: 0 0 auto;
+  min-height: fit-content;
+  zoom: min(2.2, calc((92vw - 72px) / 180px));
+  transform: none;
+  transform-origin: top center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,.14);
+}
+
+/* Modal de Venda com Link: a marcação já existente volta a ter área de lightbox. */
+.dist-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0,0,0,.72);
+}
+.dist-modal-content {
+  position: relative;
+  width: min(92vw, 760px);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+.dist-modal-content .link-preview-screen {
+  max-height: none;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .guia-solar-demo-trigger { max-width: 100%; }
+  .guia-solar-zoom-hint { display: none; }
+  .solar-guide-modal-content,
+  .dist-modal-content {
+    width: 100%;
+    max-height: calc(100vh - 1rem);
+    padding: 1rem;
+  }
+  .solar-guide-modal-overlay,
+  .dist-modal-overlay { padding: .5rem; }
+  .solar-guide-modal-screen .gs-screen,
+  .solar-guide-modal-screen .gs-screen-light {
+    zoom: min(1.75, calc((100vw - 56px) / 180px));
+  }
+}
+
+
+/* Ajuste final das referências: escala legível, igualada e com altura natural. */
+.interactive-guide-preview .gs-screen,
+.interactive-guide-preview .gs-screen-light {
+  zoom: 1.9;
+  max-height: none;
+  height: auto;
+}
+.interactive-guide-preview > .dist-screen-amp {
+  zoom: var(--interactive-preview-scale);
+  max-height: none;
+  height: auto;
+}
+.interactive-guide-preview > .dist-screen-step4 {
+  zoom: var(--interactive-preview-scale);
+}
+
+@media (max-width: 1023px) {
+  .interactive-guide-preview .gs-screen,
+  .interactive-guide-preview .gs-screen-light { zoom: 1.65; }
+}
+
+@media (max-width: 640px) {
+  .interactive-guide-preview .gs-screen,
+  .interactive-guide-preview .gs-screen-light {
+    zoom: min(1.7, calc((100vw - 56px) / 180px));
+  }
+}
+
+
+/* Guia Rápido Solar — restauração da escala original das imagens. */
+.guia-solar-demo-stage.interactive-guide-preview {
+  --gs-scale: 1.95;
+  width: min(calc(180px * var(--gs-scale)), 100%);
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+}
+.guia-solar-demo-stage.interactive-guide-preview .gs-screen,
+.guia-solar-demo-stage.interactive-guide-preview .gs-screen-light {
+  width: 180px;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  flex: 0 0 auto;
+  min-height: fit-content;
+  zoom: var(--gs-scale);
+  transform: none;
+  transform-origin: top center;
+}
+
+@media (max-width: 1023px) {
+  .guia-solar-demo-stage.interactive-guide-preview {
+    --gs-scale: 1.72;
+    width: min(calc(180px * var(--gs-scale)), 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .guia-solar-demo-stage.interactive-guide-preview {
+    --gs-scale: min(1.68, calc((100vw - 48px) / 180px));
+    width: min(100%, calc(180px * var(--gs-scale)));
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+
+/* Guia Rápido Solar — fit integral das sete telas, sem clipping externo. */
+.guia-solar-demo-stage.interactive-guide-preview {
+  width: min(calc(180px * var(--gs-scale)), 100%);
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  overflow: visible;
+  align-items: flex-start;
+  justify-content: center;
+}
+.guia-solar-demo-stage.interactive-guide-preview .gs-screen,
+.guia-solar-demo-stage.interactive-guide-preview .gs-screen-light {
+  width: 180px;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  flex: 0 0 auto;
+  min-height: fit-content;
+  zoom: var(--gs-scale);
+  transform: none;
+  transform-origin: top center;
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  .guia-solar-demo-stage.interactive-guide-preview {
+    width: min(calc(180px * 1.72), 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .guia-solar-demo-stage.interactive-guide-preview {
+    width: min(calc(180px * var(--gs-scale)), 100%);
+    max-width: 100%;
+    overflow: visible;
+  }
+}
+
+
+/* Venda Solar — unidade visual média com layout natural e conteúdo integral. */
+.solar-stepper-preview.interactive-guide-preview {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+}
+.solar-stepper-preview.interactive-guide-preview .solar-preview-unit {
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+}
+.solar-stepper-preview.interactive-guide-preview .solar-device-screen {
+  width: min(100%, 380px);
+  height: auto;
+  max-height: none;
+  flex: 0 0 auto;
+  zoom: 1.45;
+  transform: none;
+  transform-origin: top center;
+}
+
+@media (max-width: 1023px) {
+  .solar-stepper-preview.interactive-guide-preview .solar-device-screen {
+    width: min(100%, 360px);
+    zoom: 1.25;
+  }
+}
+
+@media (max-width: 640px) {
+  .solar-stepper-preview.interactive-guide-preview {
+    padding: .75rem;
+  }
+  .solar-stepper-preview.interactive-guide-preview .solar-device-screen {
+    width: min(100%, 330px);
+    zoom: min(1.2, calc((100vw - 48px) / 330px));
+  }
+}
+
+
+/* Venda Solar — referência Cadastro: card compacto e unidade média comum. */
+.solar-stepper-preview.interactive-guide-preview {
+  width: min(100%, 430px);
+  max-width: 430px;
+  justify-self: center;
+  align-self: start;
+  padding: 12px;
+  gap: 0;
+}
+.solar-stepper-preview.interactive-guide-preview .solar-preview-heading {
+  margin-bottom: 8px;
+}
+.solar-stepper-preview.interactive-guide-preview .solar-preview-unit {
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+}
+.solar-stepper-preview.interactive-guide-preview .solar-device-screen {
+  width: min(100%, 320px);
+  max-width: 320px;
+  height: auto;
+  max-height: none;
+  flex: 0 0 auto;
+  zoom: 1.15;
+  transform: none;
+  transform-origin: top center;
+}
+
+@media (max-width: 1023px) {
+  .solar-stepper-preview.interactive-guide-preview {
+    width: min(100%, 400px);
+    max-width: 400px;
+    padding: 10px;
+  }
+  .solar-stepper-preview.interactive-guide-preview .solar-device-screen {
+    width: min(100%, 300px);
+    max-width: 300px;
+    zoom: 1.1;
+  }
+}
+
+@media (max-width: 640px) {
+  .solar-stepper-preview.interactive-guide-preview {
+    width: min(100%, 100%);
+    max-width: 100%;
+    padding: 10px;
+  }
+  .solar-stepper-preview.interactive-guide-preview .solar-device-screen {
+    width: min(100%, 290px);
+    max-width: 290px;
+    zoom: min(1.08, calc((100vw - 56px) / 290px));
+  }
+}
+
+
+/* Venda com Link — mesma escala média e card compacto da Venda Solar. */
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+  width: min(100%, 430px);
+  max-width: 430px;
+  max-height: none;
+  margin-inline: auto;
+  padding: 12px;
+  overflow: visible;
+  align-items: center;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+  width: min(100%, 320px);
+  max-width: 320px;
+  height: auto;
+  max-height: none;
+  margin-inline: auto;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: min(100%, 400px);
+    max-width: 400px;
+    padding: 10px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: min(100%, 300px);
+    max-width: 300px;
+  }
+}
+@media (max-width: 640px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: min(100%, 290px);
+    max-width: 290px;
+  }
+}
+
+
+/* Venda com Link — fit por conteúdo para não comprimir sidebar e painel. */
+.link-pagamento-stepper .distribuidor-stepper-preview {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Hero Conheça Distribuidor — fotografia integrada ao degradê da marca. */
+.conheca-distribuidor-hero-image {
+  background-position: center 48%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .42;
+}
+.conheca-distribuidor-hero-overlay {
+  background: linear-gradient(90deg, rgba(0, 36, 18, .92) 0%, rgba(0, 65, 29, .72) 47%, rgba(0, 163, 53, .22) 100%);
+}
+@media (min-width: 1280px) {
+  .conheca-distribuidor-hero-image {
+    background-position: right 48%;
+    background-size: 80% auto;
+  }
+}
+@media (max-width: 640px) {
+  .conheca-distribuidor-hero-image {
+    background-position: 58% center;
+    opacity: .34;
+  }
+  .conheca-distribuidor-hero-overlay {
+    background: linear-gradient(90deg, rgba(0, 40, 19, .92) 0%, rgba(0, 75, 32, .72) 100%);
+  }
+}
+
+/* Condições Comerciais — acordeão e tabela financeira compactos. */
+.taxas-accordion {
+  width: min(100%, 575px);
+  margin-inline: auto;
+}
+.taxas-accordion > button {
+  padding: 12px 16px;
+}
+.taxas-accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows .3s ease, opacity .22s ease;
+}
+.taxas-accordion-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.taxas-accordion-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.taxas-table-scroll {
+  overflow-x: visible;
+}
+.taxas-table {
+  width: 575px;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.taxas-table .taxas-col-modalidade { width: 175px; }
+.taxas-table .taxas-col-visa { width: 115px; }
+.taxas-table .taxas-col-bandeira { width: 95px; }
+.taxas-table th,
+.taxas-table td {
+  padding: 7px 10px;
+}
+.taxas-table th {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.taxas-table th:first-child,
+.taxas-table td:first-child {
+  text-align: center;
+}
+.taxas-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.taxas-table tbody tr:last-child {
+  border-bottom: 0;
+}
+@media (max-width: 640px) {
+  .taxas-table-scroll {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .taxas-table {
+    width: 575px;
+    min-width: 575px;
+    font-size: 13px;
+  }
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+  width: min(100%, 560px);
+  max-width: 560px;
+  margin-inline: auto;
+  padding: 12px;
+  overflow: visible;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+  width: min(100%, 520px);
+  max-width: 520px;
+  height: auto;
+  max-height: none;
+  margin-inline: auto;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-content.is-narrow {
+  width: min(100%, 440px);
+  max-width: 440px;
+  margin-inline: auto;
+}
+@media (max-width: 1023px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: min(100%, 500px);
+    max-width: 500px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: min(100%, 460px);
+    max-width: 460px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-content.is-narrow {
+    width: min(100%, 400px);
+    max-width: 400px;
+  }
+}
+@media (max-width: 640px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen,
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-content.is-narrow {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Venda com Link — bounding box médio por viewport, sem preencher a coluna direita. */
+@media (min-width: 1601px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 424px;
+    max-width: 424px;
+    max-height: none;
+    margin-inline: auto;
+    padding: 12px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: 400px;
+    max-width: 400px;
+    max-height: 480px;
+    height: auto;
+    margin-inline: auto;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1600px),
+       (min-width: 1024px) and (max-height: 899px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 384px;
+    max-width: 384px;
+    max-height: none;
+    margin-inline: auto;
+    padding: 12px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: 360px;
+    max-width: 360px;
+    max-height: 420px;
+    height: auto;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 1023px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 384px;
+    max-width: 100%;
+    max-height: none;
+    margin-inline: auto;
+    padding: 12px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: 360px;
+    max-width: 100%;
+    max-height: 420px;
+    height: auto;
+    margin-inline: auto;
+  }
+}
+
+/* Venda com Link — unidade final: card, moldura e conteúdo sempre contidos. */
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+  width: 400px;
+  max-width: 100%;
+  max-height: none;
+  margin-inline: auto;
+  padding: 16px;
+  overflow: hidden;
+  align-items: center;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .distribuidor-preview-frame {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+  width: 360px;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  max-height: none;
+  margin-inline: auto;
+  flex: 0 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-body,
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-content,
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-content.is-narrow,
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-content.is-wide {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-sidebar {
+  width: auto;
+  min-width: 0;
+  flex: 0 0 30%;
+  box-sizing: border-box;
+}
+@media (min-width: 1601px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 440px;
+    padding: 20px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: 400px;
+  }
+}
+@media (max-width: 640px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview {
+    width: 384px;
+    max-width: 100%;
+    padding: 12px;
+  }
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview .link-preview-screen {
+    width: 360px;
+    max-width: 100%;
+  }
+}
+
+/* Venda com Link — etapa 1 reconstruída como tela horizontal de duas colunas. */
+.link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview.is-link-navigation-preview {
+  width: 520px;
+  max-width: 100%;
+  padding: 16px;
+}
+.link-pagamento-stepper .is-link-navigation {
+  width: 488px;
+  max-width: 100%;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-body {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  column-gap: 20px;
+  align-items: stretch;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-sidebar {
+  width: auto;
+  min-width: 0;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid #dbe9df;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-content {
+  width: auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-sidebar b {
+  display: block;
+  font-size: 12px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-sidebar span {
+  display: block;
+  width: 100%;
+  padding: 8px 6px;
+  font-size: 11px;
+  line-height: 1.25;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-content > b {
+  display: block;
+  font-size: 13px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-panel {
+  width: 100%;
+  box-sizing: border-box;
+}
+.link-pagamento-stepper .is-link-navigation .link-preview-button {
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 1601px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview.is-link-navigation-preview {
+    width: 560px;
+    padding: 20px;
+  }
+  .link-pagamento-stepper .is-link-navigation {
+    width: 520px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-body {
+    grid-template-columns: 172px minmax(0, 1fr);
+    column-gap: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .link-pagamento-stepper .distribuidor-preview-stage.interactive-guide-preview.is-link-navigation-preview {
+    width: 384px;
+    max-width: 100%;
+    padding: 12px;
+  }
+  .link-pagamento-stepper .is-link-navigation {
+    width: 360px;
+    max-width: 100%;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-body {
+    grid-template-columns: 112px minmax(0, 1fr);
+    column-gap: 10px;
+    padding: 12px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-sidebar {
+    padding-right: 12px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-sidebar b,
+  .link-pagamento-stepper .is-link-navigation .link-preview-sidebar span {
+    font-size: 9px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-content > b {
+    font-size: 11px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-content {
+    gap: 8px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-panel {
+    padding: 10px;
+  }
+  .link-pagamento-stepper .is-link-navigation .link-preview-button {
+    padding: 9px 8px;
+  }
+}

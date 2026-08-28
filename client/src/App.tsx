@@ -15,6 +15,8 @@ import SimularTaxas from "./pages/SimularTaxas";
 import Tutoriais from "./pages/Tutoriais";
 import Suporte from "./pages/Suporte";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
+import ConhecaSolar from "./pages/ConhecaSolar";
+import ConhecaDistribuidor from "./pages/ConhecaDistribuidor";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -52,6 +54,9 @@ function Router() {
       {/* Tutoriais - rota dinâmica com parâmetro :tipo */}
       <Route path="/tutoriais" component={() => <Layout><Tutoriais /></Layout>} />
       <Route path="/tutoriais/:tipo" component={() => <Layout><Tutoriais /></Layout>} />
+      {/* Conheça */}
+      <Route path="/conheca/solar" component={() => <Layout><ConhecaSolar /></Layout>} />
+      <Route path="/conheca/distribuidor" component={() => <Layout><ConhecaDistribuidor /></Layout>} />
       {/* Suporte */}
       <Route path="/suporte" component={() => <Layout><Suporte /></Layout>} />
       {/* Política de Privacidade */}
