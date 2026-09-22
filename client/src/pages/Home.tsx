@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -105,10 +105,11 @@ function TaxasAccordion() {
 }
 
 const SOLAR_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-panels-bg_1672229c.webp";
-const HERO_BG = "/hero-multiprodutos.png";
-const MOBILE_P2_SALDO = "/mobile-p2-saldo.webp";
+const HERO_BG = "/manus-storage/hero-multiprodutos_b946226b.png";
+const MOBILE_P2_SALDO = "/manus-storage/mobile-p2-saldo_edf25e06.webp";
 
 const FORM_ADESAO = "https://appintelbras.netlify.app/adesao";
+const TERMO_TRANSACAO_URL = "/documentos/Termo_de_transacao_12_06_2024.docx";
 
 // Benefícios Solar
 const beneficiosSolar = [
@@ -213,18 +214,76 @@ const faqs = [
     question: "O que é o regime de comodato da maquininha?",
     answer: "No comodato, a maquininha é emprestada gratuitamente durante o período do contrato. Ao final, ela deve ser devolvida em boas condições de uso.",
   },
+  {
+    question: "Por que minha transação pode passar por uma análise?",
+    answer: "Para manter a segurança da operação, algumas transações podem passar por validações adicionais. Nesses casos, a Cappta poderá solicitar informações ou documentos relacionados à venda.",
+  },
+  {
+    question: "Quais comprovantes devo guardar após uma venda?",
+    answer: (
+      <>
+        Sempre que possível, guarde o orçamento ou proposta comercial, os comprovantes e registros da negociação (como e-mails e mensagens) e as notas fiscais relacionadas à venda. No entanto, se você for uma revenda Solar e ainda não tiver terminado a instalação com a emissão da respectiva NF, use o{" "}
+        <a
+          href={TERMO_TRANSACAO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+          className="font-semibold underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        >
+          Termo de Transação
+        </a>{" "}
+        assinado pelo seu cliente.
+      </>
+    ),
+  },
+  {
+    question: "Não tenho todos os documentos solicitados. O que devo fazer?",
+    answer: "Envie todas as evidências que tiver disponíveis sobre a operação. Sabemos que o formato de atuação varia entre as revendas e instaladores, por isso é importante apresentar o máximo de informações que ajudem a comprovar a venda.",
+  },
+  {
+    question: "Recebi uma solicitação de documentos. Isso significa que há suspeita de fraude?",
+    answer: "Não necessariamente. A solicitação faz parte dos procedimentos de segurança e monitoramento da operação e pode ocorrer sempre que forem necessárias informações adicionais para validar uma transação.",
+  },
+  {
+    question: "Uma documentação pode ser solicitada depois que o valor já foi liberado?",
+    answer: "Sim. Em algumas situações, podem ser necessárias informações adicionais sobre uma transação mesmo após sua liquidação. Por isso, recomendamos manter os registros e comprovantes das vendas organizados.",
+  },
+  {
+    question: "O que é chargeback, por que ele acontece e como posso comprovar minha venda?",
+    answer: (
+      <>
+        O chargeback (ou contestação de compra) acontece quando o titular do cartão de crédito entra em contato com o banco emissor e não reconhece uma transação, ou relata algum problema, solicitando o cancelamento daquele pagamento. Para comprovar que a venda foi legítima e nos ajudar a contestar o chargeback, você deve guardar e enviar todos os registros da negociação. Os principais comprovantes incluem notas fiscais, orçamentos, registros de conversas por WhatsApp/e-mail e, em último caso (como para revendas de energia solar com instalações não finalizadas), o{" "}
+        <a
+          href={TERMO_TRANSACAO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+          className="font-semibold underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        >
+          Termo de Transação
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    question: "Como funciona o processo de disputa de chargeback e por que um valor pode ser retido da minha agenda de recebíveis?",
+    answer: "Quando ocorre um chargeback, iniciamos um processo de disputa para provar ao banco que o serviço ou produto foi devidamente entregue. Conforme estabelecido em nosso Termo de Adesão (aceito no momento de criação da conta digital e acesso à plataforma), em casos de chargeback, nós podemos acessar a sua agenda de recebíveis e reter temporariamente o valor da transação contestada. Esse valor permanecerá retido como garantia até que você apresente os documentos solicitados e comprove a venda com sucesso.",
+  },
 ];
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer }: { question: string; answer: ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className="border border-border rounded-xl overflow-hidden transition-all duration-200"
+      className="flex flex-col border border-border rounded-xl overflow-hidden transition-all duration-200"
       style={{ background: open ? "#f5faf7" : "white" }}
     >
       <button
-        className="w-full flex items-center justify-between p-5 text-left gap-4"
+        type="button"
+        className="w-full min-h-16 flex items-center justify-between p-5 text-left gap-4"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
       >
         <span className="font-semibold text-sm sm:text-base text-foreground">{question}</span>
         <span className="flex-shrink-0 text-muted-foreground">
@@ -232,7 +291,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         </span>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-48" : "max-h-0"}`}
+        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96" : "max-h-0"}`}
       >
         <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{answer}</p>
       </div>
@@ -613,7 +672,7 @@ export default function Home() {
       {/* ─── FAQ ─── */}
       <section className="py-16 lg:py-24" style={{ background: "#f5faf7" }}>
         <div className="container">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
@@ -628,7 +687,7 @@ export default function Home() {
                 As perguntas mais comuns sobre o Tá na Conta.
               </p>
             </div>
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:grid-flow-col lg:[grid-template-rows:repeat(7,auto)] lg:gap-x-6 lg:gap-y-3 items-start">
               {faqs.map((faq) => (
                 <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
               ))}
