@@ -206,22 +206,39 @@ export default function PrimeiroAcessoConta() {
           <div className="space-y-4">
             <StepCard
               number={1}
-              title="Abra o app, toque em Acessar e insira seu CPF e senha"
-              description='Ao abrir o app "Conta Cappta" pela primeira vez, toque em Acessar. Informe o CPF utilizado no credenciamento e toque em "Digitar sua senha".'
+              title="Abra o app e toque em Primeiro acesso"
+              description="Na tela inicial do aplicativo, toque em Primeiro acesso para iniciar a ativação."
             />
-            <StepCard number={2} title='Toque em "É seu primeiro acesso?"'>
+            <StepCard
+              number={2}
+              title="Informe o CPF cadastrado"
+              description="Digite o CPF cadastrado e toque em Continuar."
+            />
+            <StepCard
+              number={3}
+              title="Solicite o Token"
+              description="Toque em Esqueci minha senha para abrir a tela de solicitação do Token."
+            />
+            <StepCard number={4} title="Localize o Token no e-mail">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Abaixo de "Esqueci minha senha", toque em <strong>"É seu primeiro acesso?"</strong> para iniciar a ativação.
-              </p>
-              <AttentionBox>
-                O Token tem validade curta. Faça a ativação <strong>imediatamente</strong> após solicitar e receber o e-mail.
-              </AttentionBox>
-            </StepCard>
-            <StepCard number={3} title="Localize o e-mail com o Token e cole no app">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Procure no seu e-mail a mensagem de <strong>noreply-contadigital@cappta.com.br</strong>. Copie o Token recebido, cole no campo indicado no app e toque em <strong>Avançar</strong>.
+                Procure no seu e-mail a mensagem enviada por <strong>noreply-contadigital@cappta.com.br</strong> e localize o Token recebido.
               </p>
             </StepCard>
+            <StepCard
+              number={5}
+              title="Digite o Token e acesse"
+              description="Digite o Token recebido no campo indicado e toque em Acessar."
+            />
+            <StepCard
+              number={6}
+              title="Cadastre a biometria facial"
+              description="Faça o cadastro da biometria facial seguindo as orientações apresentadas na tela."
+            />
+            <StepCard
+              number={7}
+              title="Crie e confirme sua senha"
+              description="Crie uma senha e digite-a novamente para confirmar."
+            />
             <div className="flex gap-4 p-5 bg-white rounded-2xl border border-border shadow-sm">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
@@ -234,10 +251,29 @@ export default function PrimeiroAcessoConta() {
                   Conta Digital ativada com sucesso!
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  Agora você já pode acessar a Conta Digital do <strong>Tá na Conta</strong> e gerenciar seus recebíveis.
+                  Após a validação, a Conta Digital já está habilitada para uso!
                 </p>
               </div>
             </div>
+          </div>
+
+          <div
+            className="mt-6 rounded-2xl p-5 border bg-white"
+            style={{ borderColor: "rgba(0,163,53,0.20)" }}
+          >
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Tutorial completo:</strong>{" "}
+              <a
+                href="https://www.youtube.com/watch?v=YjmrisFfYwU"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-semibold underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                style={{ color: "#00A335" }}
+              >
+                Tutorial Conta Digital
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </p>
           </div>
         </div>
       </section>
