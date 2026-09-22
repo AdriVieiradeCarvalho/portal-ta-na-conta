@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { CheckCircle2, AlertTriangle, Info, ExternalLink, Monitor, Smartphone, Upload, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SalesProofReminder from "@/components/SalesProofReminder";
 
 /* ─── Telas ampliadas para modal ─── */
 function TelaAmpS(props: { children: React.ReactNode }) {
@@ -187,6 +188,7 @@ export default function TutorialSolar() {
       </div>
 
       <SolarStepper />
+      <SalesProofReminder />
 
       <div className="solar-legacy-content hidden">
       {/* ═══════════════════════════════════════════

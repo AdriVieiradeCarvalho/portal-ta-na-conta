@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { CheckCircle2, Info } from "lucide-react";
+import SalesProofReminder from "@/components/SalesProofReminder";
 
 /* ─── Telas ampliadas para o modal ─── */
 function TelaAmp0() {
@@ -175,6 +176,8 @@ export default function TutorialDistribuidor() {
           </div>
         </div>
       </div>
+
+      <SalesProofReminder />
 
       {/* ═══ PASSOS 1-4 ═══ */}
       <div className="distribuidor-legacy-flow grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
