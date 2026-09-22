@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
 import TutorialDistribuidor from "@/components/TutorialDistribuidor";
 import TutorialSolar from "@/components/TutorialSolar";
+import SalesProofReminder from "@/components/SalesProofReminder";
 import {
   Monitor, CreditCard, Link2, AlertTriangle, CheckCircle2,
   Info, Play, ChevronRight, ExternalLink, ChevronDown
@@ -471,8 +472,7 @@ function TutorialMaquininha() {
               <p className="dist-zoom-hint">🔍 Clique para ampliar</p>
             </button>
           </div>
-        </div>
-        <p className="text-center text-xs text-muted-foreground mt-6 pt-4 border-t border-gray-200">Fluxo ilustrativo — Tá na Conta | Intelbras + Cappta</p>
+          </div>
       </div>
 
       {/* Fluxo resumido */}
@@ -484,6 +484,9 @@ function TutorialMaquininha() {
         </p>
       </div>
 
+      <SalesProofReminder />
+
+      <p className="text-center text-xs text-muted-foreground mt-6 pt-4 border-t border-gray-200">Fluxo ilustrativo — Tá na Conta | Intelbras + Cappta</p>
 
       {/* Modal */}
       {modalPasso !== null && <ScreenModalOV passo={modalPasso} onClose={() => setModalPasso(null)} />}
@@ -546,15 +549,18 @@ function TutorialLinkPagamento() {
         return <div className="distribuidor-stepper outras-vendas-stepper link-pagamento-stepper max-w-6xl mx-auto mt-8 mb-8" aria-label="Passo a passo interativo de Venda com Link">
           <div className="distribuidor-stepper-steps lg:w-[45%] flex-shrink-0"><div className="relative"><div className="absolute left-[18px] top-4 bottom-4 w-[3px] rounded-full" style={{ background: "#e8e8e8" }} /><div className="absolute left-[18px] top-4 w-[3px] rounded-full transition-all duration-500" style={{ background: "#12a34a", height: `${(ativoLink / (linkSteps.length - 1)) * 90}%` }} /><div className="space-y-1">{linkSteps.map((item, i) => <button key={item.titulo} type="button" onClick={() => setAtivoLink(i)} aria-current={i === ativoLink ? "step" : undefined} className={`relative flex items-start gap-3 w-full text-left px-2 py-3 rounded-xl transition-all ${i === ativoLink ? "bg-white shadow-md border border-green-200" : "hover:bg-white/60"}`}><div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm z-10 transition-all ${i <= ativoLink ? "text-white shadow-sm" : "text-gray-400 bg-white border-2 border-gray-200"}`} style={i <= ativoLink ? { background: "#12a34a" } : {}}>{i + 1}</div><div className="pt-1"><p className={`outras-vendas-step-title font-semibold ${i === ativoLink ? "text-foreground" : "text-muted-foreground"}`}>{item.titulo}</p>{i === ativoLink && <p className="outras-vendas-step-description text-muted-foreground">{item.descricao}</p>}</div></button>)}</div></div></div>
           <div className="distribuidor-stepper-preview lg:w-[55%] flex-1 flex items-start justify-center lg:sticky lg:top-24"><button type="button" className="distribuidor-preview-frame" onClick={() => setModalLink(ativoLink)} aria-label={`Ampliar visual da etapa ${ativoLink + 1}`}><div className="distribuidor-preview-heading"><span>Etapa {ativoLink + 1}</span><strong>{linkSteps[ativoLink].titulo}</strong></div><div className={`distribuidor-preview-stage interactive-guide-preview ${ativoLink === 0 ? "is-link-navigation-preview" : ""}`}>{linkPreview(ativoLink)}</div><p className="dist-zoom-hint">🔍 Clique para ampliar</p></button></div>
-          <p className="text-center text-xs text-muted-foreground mt-6 pt-4 border-t border-gray-200 lg:col-span-2">Fluxo ilustrativo — Tá na Conta | Intelbras + Cappta</p>
           {modalLink !== null && <div className="dist-modal-overlay" role="dialog" aria-modal="true" aria-label={`Visual ampliado da etapa ${modalLink + 1}`} onClick={() => setModalLink(null)}><div className="dist-modal-content link-modal-content" onClick={(e) => e.stopPropagation()}><button type="button" className="dist-modal-close" onClick={() => setModalLink(null)} aria-label="Fechar">×</button>{linkPreview(modalLink, true)}</div></div>}
         </div>;
       })()}
+
+      <SalesProofReminder />
 
       <div className="rounded-xl p-4 mb-6 flex items-start gap-3" style={{ background: "rgba(240,165,0,0.08)", border: "1px solid rgba(240,165,0,0.35)" }}>
         <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#b07800" }} />
         <div className="text-sm leading-relaxed" style={{ color: "#7a5200" }}><strong>Dica:</strong> revise os dados antes de enviar o link ao cliente.</div>
       </div>
+
+      <p className="text-center text-xs text-muted-foreground mt-6 pt-4 border-t border-gray-200 lg:col-span-2">Fluxo ilustrativo — Tá na Conta | Intelbras + Cappta</p>
 
       <div className="link-pagamento-legacy-flow">
       {/* ═══ PASSO 1 — Crie o link ═══ */}
