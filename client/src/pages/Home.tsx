@@ -105,7 +105,7 @@ function TaxasAccordion() {
 }
 
 const SOLAR_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663445116665/BfSy55ooS3GFRkNJUTk7V9/solar-panels-bg_1672229c.webp";
-const HERO_BG = "/manus-storage/hero-multiprodutos_b946226b.png";
+const HERO_BG = "/imagens/banner-principal-portal-ta-na-conta.webp";
 const MOBILE_P2_SALDO = "/imagens/mobile-p2-saldo.webp";
 
 const FORM_ADESAO = "https://appintelbras.netlify.app/adesao";

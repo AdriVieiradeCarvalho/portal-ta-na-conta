@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const GAROTO_INTELBRAS = "/garoto-intelbras.png";
+const GAROTO_INTELBRAS = "/imagens/banner-energia-solar-integrador.png";
 const FORM_ADESAO = "https://appintelbras.netlify.app/adesao";
 
 /* ─── Dados dos 7 passos ─── */

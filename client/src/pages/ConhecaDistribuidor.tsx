@@ -66,7 +66,7 @@ export default function ConhecaDistribuidor() {
           className="conheca-distribuidor-hero-image absolute inset-0 -z-10"
           style={{
             backgroundColor: "#00863b",
-            backgroundImage: "url('/conheca-distribuidor-hero.png')",
+            backgroundImage: "url('/imagens/banner-venda-integrada-distribuidor.png')",
             backgroundBlendMode: "multiply",
           }}
         />
